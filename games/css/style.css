@@ -1,0 +1,137 @@
+/* стили для ПК */
+body {
+ margin: 0;
+ background: url(../images/1.png) no-repeat; /* Цвет фона подвала */
+ background-attachment: fixed;
+ background-size: cover;
+ font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+ color: black ;
+}
+
+
+
+
+
+/* -----------------steam info------------------ */  
+.early_access_header{
+  background: #efefef ;
+  width: 720px; /* Ширина макета */
+  padding: 20px 20px 20px; /* Поля */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2011f0), color-stop(2, #222));
+}
+
+
+
+.early_access_header2{
+  background: #00549e ;
+  width: 720px; /* Ширина макета */
+  padding: 20px 20px 20px; /* Поля */
+  background-image: -webkit-gradient(linear, left top, left top, color-stop(0, #20155e), color-stop(2, #222));
+}
+
+
+
+.early_access_header3{
+  background: #00549e ;
+  width: 720px; /* Ширина макета */
+  padding: 20px 20px 20px; /* Поля */
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #00549e), color-stop(2, #222));
+}
+
+ 
+
+.early_access_header4{
+  background: #00549e ;
+  width: 720px; /* Ширина макета */
+  padding: 20px 20px 20px; /* Поля */
+  background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #660099), color-stop(2, #222));
+}
+
+
+
+.heading{
+  background: #00549e;
+  color: #ffffff;/* цвет текста */  
+  padding: 20px 20px 20px; /* Поля */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #00549e), color-stop(2, #222));
+  width: 680px; /* Ширина макета */
+  margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+}
+
+
+
+.heading-about{
+  background: #ad005f;
+  color: #ffffff;/* цвет текста */  
+  padding: 20px 20px 20px; /* Поля */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ad005f), color-stop(2, #222));
+  width: 680px; /* Ширина макета */
+  margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+}
+
+   
+
+/* ------------------Главная------------------ */   
+
+.content-white {
+  background: white;
+  width: 770px; /* Ширина макета */
+  border: 3px solid siver;
+  margin: 20 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+  background: #fff; /* Белый цвет фона */
+  border-radius: 40px; /* скругление */
+  padding: 20px 40px 30px; /* Поля */
+  text-align: justify; /* Выравнивание по ширине */
+  top		: 50%;	
+  overflow: auto; /* Отменяем обтекание */
+  box-shadow: 0 0 40px #999;
+}
+
+
+
+/* ------------------header--------Шапака---------- */
+
+header {
+  display: block;
+  background: #00b0d8 url(../images/logofon.jpg); /* Градиент */
+	height: 60px; /* Высота шапки */
+  overflow: auto; /* Отменяем обтекание */	
+}
+
+   
+
+article { /* Дом */
+  margin-bottom:50px;
+  padding: 0;
+	/*	margin-left: 220px;  Отступ справа */
+	/*margin-right: 220px;  Отступ справа */
+
+}  
+
+ 
+aside 
+{ /* колонка */
+ width: 220px; /* Ширина правой колонки */
+ float: left; /* Обтекание */
+ margin: 220px 0; /* Отступ сверху и снизу */ 
+}
+
+/* ------------------footer------------------ */
+
+footer 
+{ 
+  margin-top: -50px; /* Поднимаем вверх */
+  overflow: hidden; /* Отменяем обтекание */
+  position: relative; /* Относительное позиционирование */
+  text-align: center; 
+  padding: 10px;
+}
+
+.footer-bg { 
+  background: #000; /* Цвет фона подвала */
+  margin-top: 10px; /* Сдвигаем вниз */
+}
+

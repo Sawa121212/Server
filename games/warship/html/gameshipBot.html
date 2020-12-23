@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet"  href="fonts/SegoePrint/fonts.css">
+			
+            <title>Морской бой против бота</title>
+			<link rel="shortcut icon" type="image/png" href="images/warship.jpg">
+			<link rel="stylesheet" type="text/css" href="css/button.css" />
+            <link rel="stylesheet" type="text/css" href="css/style.css"/>      
+			<link rel="stylesheet" type="text/css" href="css/styleInfo.css"/>			
+            <script type="text/javascript" src="script/scriptshipBot.js"></script>
+        </head>
+        <BODY ondragstart="return false;" ondrop="return false;" onmousedown="return false;" onclick="return true;">
+		<div class="notification-bar">
+				<input id="hide" type="radio" name="bar" value="hide">
+				<input id="show" type="radio" name="bar" value="show" checked="checked">
+				
+				<label for="hide">Показать</label>
+				<label for="show">Скрыть</label>
+				
+				<div class="notification-text">Привет! Вы можете спрятать данное уведомление кликнув на кнопку справа.</div>
+			</div>
+
+<div class="content-white">        
+     <div class="early_access">  
+		<span id="text_top1" class="text-top">Расстановка кораблей</span>
+		<h2 align=center ><span id="InfoGameEnd">Расставьте корабли</span></h2>
+<!------ Левая таблица ----->
+<div id="table1" class="early_access_header_greenLeft"> 
+	<table  align=center style="border-collapse: collapse;">
+	<!-- ячейки -->
+	<tr>		
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a55"onclick="return checkMode(5,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a56"onclick="return checkMode(5,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a57"onclick="return checkMode(5,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a58"onclick="return checkMode(5,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a59"onclick="return checkMode(5,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a510"onclick="return checkMode(5,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a511"onclick="return checkMode(5,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a512"onclick="return checkMode(5,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a513"onclick="return checkMode(5,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a514"onclick="return checkMode(5,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a65"onclick="return checkMode(6,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a66"onclick="return checkMode(6,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a67"onclick="return checkMode(6,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a68"onclick="return checkMode(6,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a69"onclick="return checkMode(6,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a610"onclick="return checkMode(6,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a611"onclick="return checkMode(6,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a612"onclick="return checkMode(6,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a613"onclick="return checkMode(6,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a614"onclick="return checkMode(6,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a75"onclick="return checkMode(7,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a76"onclick="return checkMode(7,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a77"onclick="return checkMode(7,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a78"onclick="return checkMode(7,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a79"onclick="return checkMode(7,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a710"onclick="return checkMode(7,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a711"onclick="return checkMode(7,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a712"onclick="return checkMode(7,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a713"onclick="return checkMode(7,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a714"onclick="return checkMode(7,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a85"onclick="return checkMode(8,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a86"onclick="return checkMode(8,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a87"onclick="return checkMode(8,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a88"onclick="return checkMode(8,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a89"onclick="return checkMode(8,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a810"onclick="return checkMode(8,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a811"onclick="return checkMode(8,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a812"onclick="return checkMode(8,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a813"onclick="return checkMode(8,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a814"onclick="return checkMode(8,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a95"onclick="return checkMode(9,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a96"onclick="return checkMode(9,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a97"onclick="return checkMode(9,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a98"onclick="return checkMode(9,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a99"onclick="return checkMode(9,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a910"onclick="return checkMode(9,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a911"onclick="return checkMode(9,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a912"onclick="return checkMode(9,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a913"onclick="return checkMode(9,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a914"onclick="return checkMode(9,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a105"onclick="return checkMode(10,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a106"onclick="return checkMode(10,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a107"onclick="return checkMode(10,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a108"onclick="return checkMode(10,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a109"onclick="return checkMode(10,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1010"onclick="return checkMode(10,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1011"onclick="return checkMode(10,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1012"onclick="return checkMode(10,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1013"onclick="return checkMode(10,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1014"onclick="return checkMode(10,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a115"onclick="return checkMode(11,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a116"onclick="return checkMode(11,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a117"onclick="return checkMode(11,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a118"onclick="return checkMode(11,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a119"onclick="return checkMode(11,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1110"onclick="return checkMode(11,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1111"onclick="return checkMode(11,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1112"onclick="return checkMode(11,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1113"onclick="return checkMode(11,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1114"onclick="return checkMode(11,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a125"onclick="return checkMode(12,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a126"onclick="return checkMode(12,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a127"onclick="return checkMode(12,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a128"onclick="return checkMode(12,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a129"onclick="return checkMode(12,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1210"onclick="return checkMode(12,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1211"onclick="return checkMode(12,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1212"onclick="return checkMode(12,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1213"onclick="return checkMode(12,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1214"onclick="return checkMode(12,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a135"onclick="return checkMode(13,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a136"onclick="return checkMode(13,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a137"onclick="return checkMode(13,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a138"onclick="return checkMode(13,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a139"onclick="return checkMode(13,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1310"onclick="return checkMode(13,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1311"onclick="return checkMode(13,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1312"onclick="return checkMode(13,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1313"onclick="return checkMode(13,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1314"onclick="return checkMode(13,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a145"onclick="return checkMode(14,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a146"onclick="return checkMode(14,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a147"onclick="return checkMode(14,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a148"onclick="return checkMode(14,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a149"onclick="return checkMode(14,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1410"onclick="return checkMode(14,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1411"onclick="return checkMode(14,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1412"onclick="return checkMode(14,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1413"onclick="return checkMode(14,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_a1414" onclick="return checkMode(14,14)"></td>
+	</tr>
+	</table>
+<p></p>
+
+	<span id="sidebar" class="sidebarOFF">
+		<a class="endBuildP1" onclick="return startgame1()">Завершить расстановку</a>
+	</span>
+
+	<p align=left ><span >Количество кораблей:</span></p>
+	<table>
+		<tr>
+			<td><p align=left ><span >****  </span></td><td><span id="shipnum4G" style="color: green; "></span><span id="shipnum4R" style="color: red; ">0</span></p></td><td></td><td></td>
+			<td><p align=left ><span >***   </span></td><td><span id="shipnum3G" style="color: green; "></span><span id="shipnum3R" style="color: red; ">0</span></p></td><td></td><td></td>
+			<td><p align=right ><span >**   </span></td><td><span id="shipnum2G" style="color: green; "></span><span id="shipnum2R" style="color: red; ">0</span></p></td><td></td><td></td>
+			<td><p align=right ><span >*     </span></td><td><span id="shipnum1G" style="color: green; "></span><span id="shipnum1R" style="color: red; ">0</span></p>
+		</tr>
+	</table>
+	</span> 
+</div>  
+<br>
+<!------ Правая таблица ----->
+<div id="table2" class="early_access_header_whiteRight"> 
+<p></p>
+	<table  align=center style="border-collapse: collapse; ">
+	<!-- ячейки  ><-->
+	<tr>		
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b55"onclick="return checkModeP2(5,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b56"onclick="return checkModeP2(5,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b57"onclick="return checkModeP2(5,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b58"onclick="return checkModeP2(5,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b59"onclick="return checkModeP2(5,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b510"onclick="return checkModeP2(5,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b511"onclick="return checkModeP2(5,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b512"onclick="return checkModeP2(5,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b513"onclick="return checkModeP2(5,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b514"onclick="return checkModeP2(5,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b65"onclick="return checkModeP2(6,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b66"onclick="return checkModeP2(6,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b67"onclick="return checkModeP2(6,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b68"onclick="return checkModeP2(6,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b69"onclick="return checkModeP2(6,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b610"onclick="return checkModeP2(6,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b611"onclick="return checkModeP2(6,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b612"onclick="return checkModeP2(6,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b613"onclick="return checkModeP2(6,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b614"onclick="return checkModeP2(6,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b75"onclick="return checkModeP2(7,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b76"onclick="return checkModeP2(7,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b77"onclick="return checkModeP2(7,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b78"onclick="return checkModeP2(7,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b79"onclick="return checkModeP2(7,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b710"onclick="return checkModeP2(7,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b711"onclick="return checkModeP2(7,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b712"onclick="return checkModeP2(7,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b713"onclick="return checkModeP2(7,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b714"onclick="return checkModeP2(7,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b85"onclick="return checkModeP2(8,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b86"onclick="return checkModeP2(8,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b87"onclick="return checkModeP2(8,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b88"onclick="return checkModeP2(8,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b89"onclick="return checkModeP2(8,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b810"onclick="return checkModeP2(8,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b811"onclick="return checkModeP2(8,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b812"onclick="return checkModeP2(8,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b813"onclick="return checkModeP2(8,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b814"onclick="return checkModeP2(8,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b95"onclick="return checkModeP2(9,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b96"onclick="return checkModeP2(9,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b97"onclick="return checkModeP2(9,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b98"onclick="return checkModeP2(9,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b99"onclick="return checkModeP2(9,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b910"onclick="return checkModeP2(9,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b911"onclick="return checkModeP2(9,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b912"onclick="return checkModeP2(9,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b913"onclick="return checkModeP2(9,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b914"onclick="return checkModeP2(9,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b105"onclick="return checkModeP2(10,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b106"onclick="return checkModeP2(10,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b107"onclick="return checkModeP2(10,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b108"onclick="return checkModeP2(10,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b109"onclick="return checkModeP2(10,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1010"onclick="return checkModeP2(10,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1011"onclick="return checkModeP2(10,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1012"onclick="return checkModeP2(10,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1013"onclick="return checkModeP2(10,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1014"onclick="return checkModeP2(10,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b115"onclick="return checkModeP2(11,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b116"onclick="return checkModeP2(11,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b117"onclick="return checkModeP2(11,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b118"onclick="return checkModeP2(11,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b119"onclick="return checkModeP2(11,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1110"onclick="return checkModeP2(11,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1111"onclick="return checkModeP2(11,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1112"onclick="return checkModeP2(11,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1113"onclick="return checkModeP2(11,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1114"onclick="return checkModeP2(11,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b125"onclick="return checkModeP2(12,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b126"onclick="return checkModeP2(12,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b127"onclick="return checkModeP2(12,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b128"onclick="return checkModeP2(12,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b129"onclick="return checkModeP2(12,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1210"onclick="return checkModeP2(12,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1211"onclick="return checkModeP2(12,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1212"onclick="return checkModeP2(12,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1213"onclick="return checkModeP2(12,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1214"onclick="return checkModeP2(12,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b135"onclick="return checkModeP2(13,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b136"onclick="return checkModeP2(13,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b137"onclick="return checkModeP2(13,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b138"onclick="return checkModeP2(13,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b139"onclick="return checkModeP2(13,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1310"onclick="return checkModeP2(13,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1311"onclick="return checkModeP2(13,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1312"onclick="return checkModeP2(13,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1313"onclick="return checkModeP2(13,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1314"onclick="return checkModeP2(13,14)"></td>
+	</tr>
+	<tr>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b145"onclick="return checkModeP2(14,5)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b146"onclick="return checkModeP2(14,6)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b147"onclick="return checkModeP2(14,7)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b148"onclick="return checkModeP2(14,8)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b149"onclick="return checkModeP2(14,9)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1410"onclick="return checkModeP2(14,10)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1411"onclick="return checkModeP2(14,11)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1412"onclick="return checkModeP2(14,12)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1413"onclick="return checkModeP2(14,13)"></td>
+		<td><input type ="image" src = "images/baseimg.jpg" id="image_b1414" onclick="return checkModeP2(14,14)"></td>
+	</tr>
+	</table>
+<p></p>	
+
+	<p align=left ><span >Количество кораблей:</span></p>
+	<table>
+		<tr>
+			<td><p align=left ><span >****  </span></td><td><span id="shipnum4GP2" style="color: green; "></span><span id="shipnum4RP2" style="color: red; ">0</span></p></td><td></td><td></td>
+			<td><p align=left ><span >***   </span></td><td><span id="shipnum3GP2" style="color: green; "></span><span id="shipnum3RP2" style="color: red; ">0</span></p></td><td></td><td></td>
+			<td><p align=right ><span >**   </span></td><td><span id="shipnum2GP2" style="color: green; "></span><span id="shipnum2RP2" style="color: red; ">0</span></p></td><td></td><td></td>
+			<td><p align=right ><span >*     </span></td><td><span id="shipnum1GP2" style="color: green; "></span><span id="shipnum1RP2" style="color: red; ">0</span></p>
+		</tr>
+	</table>
+</span>  
+	<span id="text_btm" class="text-btm"></span>
+</div><!-- table2	-->
+		<div class="sidebarOFF" id="gamestart">
+			<a class="game_start" onclick="return startGame()">НАЧАТЬ ИГРУ</a>
+		</div>
+		<!--  вкл-ать при тесте только -->
+		<div class="sidebarOFF" id="randomBot1">
+			<a class="game_start" onclick="return playerFlot()">PlayerFlot</a>
+		</div>
+		<div class="sidebarOFF" id="randomBot2">
+			<a class="game_start" onclick="return randomBotFlot()">RandomBot</a>
+		</div>
+</div><!-- early_access -->
+		<div class="back_div">
+			<a class="restart_game" href="gameshipBot.html">Рестарт</a>
+			<a class="back_menu" href="../warship.html">Назад</a>
+			<a class="back_gamelist" href="../../index.html">На Главную страницу</a>
+		</div>
+</div><!-- content-white -->   
+
+
+</body>
+</html>

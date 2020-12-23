@@ -1,0 +1,373 @@
+/*------------------------------------------------------------ Кнопки v2 Анимированные ------------------------------------------------*/
+/*-----------Кнопка Назад -----------*/
+
+.back_div1 {
+	height: 200px;
+	background: url(../images/ttt.jpg) no-repeat ;
+	border: 2px solid red;
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	line-height: 40px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+
+.back_div2 {
+	height: 200px;
+	background: url(../images/ws.png) no-repeat ;
+	border: 2px solid blue;
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+
+
+.back_div3 {
+	height: 200px;
+	background: url(../images/korovka.jpg) no-repeat ;
+	border: 2px solid rgb(20, 168, 7);
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+
+
+.back_div4 {
+	height: 200px;
+	background: url(../images/15.jpg) no-repeat ;
+	border: 2px solid rgb(162, 5, 201);
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+.info_div {
+	height: auto;
+	background: white; /*url(../images/white.jpg) no-repeat ;*/
+	border: 3px solid rgb(206, 28, 167);
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+.info_div_byk {
+	height: auto;
+	/*background: white; url(../images/white.jpg) no-repeat ;*/
+	border: 3px solid rgb(206, 28, 167);
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+
+
+/*------------Кнопка "На Главную страницу"----------*/
+
+.back_gamelist1 {
+	background: white;
+	color: crimson;
+	border: 2px solid crimson;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	width: 210px;
+	line-height: 40px;
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+
+
+.back_gamelist1:before {
+	background: crimson;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+
+.back_gamelist1:hover {
+	color: #ffffff;
+}
+
+.back_gamelist1:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelist1:hover:before {
+	top: -30px;
+	right: -30px;
+}
+
+/*----------------------*/
+
+ 
+
+/*------------Кнопка "На Главную страницу"----------*/
+
+.back_gamelist2 {
+
+	background: white;
+
+	color: blue;
+	text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	border: 2px solid blue;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 210px;
+	line-height: 40px;
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+
+
+.back_gamelist2:before {
+
+	background: blue;
+
+	content: "";
+
+	position: absolute;
+
+	z-index: -1;
+
+	height: 150px;
+
+	width: 270px;
+
+	-webkit-border-radius:50%;
+
+	-moz-border-radius:50%;
+
+	-o-border-radius:50%;
+
+	border-radius:50%;
+
+}
+
+.back_gamelist2:hover {
+
+	color: #ffffff;
+
+}
+
+
+
+.back_gamelist2:before {
+
+	top: 100%;
+
+	right: 100%;
+
+	transition: all .7s;
+
+}
+
+
+
+.back_gamelist2:hover:before {
+
+	top: -30px;
+
+	right: -30px;
+
+}
+
+/*----------------------*/
+
+
+
+/*------------Кнопка "Играть"----------*/
+
+.back_gamelist3 {
+	background: white;
+	color: rgb(20, 168, 7);
+	border: 2px solid rgb(20, 168, 7);
+	text-decoration: none;
+	display: inline-block;
+	text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	font-size: 16px;
+	width: 210px;
+	line-height: 40px;
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+
+
+.back_gamelist3:before {
+
+	background: rgb(20, 168, 7);
+
+	content: "";
+
+	position: absolute;
+
+	z-index: -1;
+
+	height: 150px;
+
+	width: 270px;
+
+	-webkit-border-radius:50%;
+
+	-moz-border-radius:50%;
+
+	-o-border-radius:50%;
+
+	border-radius:50%;
+
+}
+
+.back_gamelist3:hover {
+
+	color: #ffffff;
+
+}
+
+
+
+.back_gamelist3:before {
+
+	top: 100%;
+
+	right: 100%;
+
+	transition: all .7s;
+
+}
+
+
+
+.back_gamelist3:hover:before {
+
+	top: -30px;
+
+	right: -30px;
+
+}
+
+/*----------------------*/
+
+
+
+/*------------Кнопка "Играть"----------*/
+
+.back_gamelist4 {
+	background: white;
+	color: rgb(162, 5, 201);
+	border: 2px solid rgb(162, 5, 201);
+	text-decoration: none;
+	display: inline-block;
+	text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	font-size: 16px;
+	width: 210px;
+	line-height: 40px;
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+
+
+.back_gamelist4:before {
+	background: rgb(162, 5, 201);
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+
+.back_gamelist4:hover {
+	color: #ffffff;
+}
+
+.back_gamelist4:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelist4:hover:before {
+	top: -30px;
+	right: -30px;
+}
+
+/*----------------------*/

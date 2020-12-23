@@ -1,0 +1,90 @@
+﻿/* стили для ПК */
+body {
+	margin: 0;
+    /* Цвет фона подвала */
+    background: url(../images/fon.jpg) no-repeat fixed;
+    background-size: cover;
+    font: normal 15px SegoePrint; line-height: 18px; color: #4530af;
+
+}
+
+ /* ------------------Главная------------------ */   
+.content-white {
+  background: white; /* Белый цвет фона */
+  width: 85%; /* Ширина макета */
+  height: 750px;
+  margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+  padding: 20px 2px 20px; /* Поля */
+  text-align: center;	
+  overflow: hidden; /* Отменяем обтекание */
+    border: 10px solid transparent;
+  border-image: 10 repeating-linear-gradient(45deg, #A7CECC, #A7CECC 10px, transparent 10px, transparent 20px, #F8463F 20px, #F8463F 30px,transparent 30px, transparent 40px);
+
+  z-index:1;
+}
+ /* -----------------steam info------------------ */
+.early_access {
+  background: white; /* Белый цвет фона */
+  width: 85%; /* Ширина макета */
+
+  margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+  padding: 20px 20px 20px; /* Поля */
+  overflow: hidden;
+  float: center;
+  text-align: center;
+  z-index:1;
+  
+}
+.early_access_header_whiteLeft{
+	background: white;
+	height: 550px;
+	float: left;
+	width: 40%; /* Ширина макета */
+	display:inline;
+}
+.early_access_header_redLeft{
+	background: red;
+	height: 550px;
+	float: left;
+	width: 40%; /* Ширина макета */	
+	display:inline;
+}
+.early_access_header_greenLeft{
+	background: silver;
+	height: 550px;
+	float: left;
+	width: 40%; /* Ширина макета */	
+	display:inline;
+}
+.early_access_header_whiteRight{
+	background: white;
+	height: 550px;
+	float: right;
+	width: 40%;/* Ширина макета */
+	display:inline;
+}
+.early_access_header_redRight{
+	background: red;
+	height: 550px;
+	float: right;
+	width: 40%; /* Ширина макета */
+	display:inline;
+}
+.early_access_header_greenRight{
+	background: silver;
+	height: 550px;
+	float: right;
+	width: 40%; /* Ширина макета */
+	display:inline;
+}   
+
+.text-top { 
+	font-size: 22px;  
+	text-align: center; 
+	margin: 5px auto;
+	margin-bottom: 10px;
+}
+.text-btm {color: #c00; text-align: center; padding-top: 10px;}
+

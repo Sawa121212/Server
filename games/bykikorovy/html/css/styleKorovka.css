@@ -1,0 +1,130 @@
+﻿/* стили для ПК */
+
+body {
+	margin: 0;
+    /* Цвет фона подвала */
+    background: url(../../images/fonkorovka.jpg) no-repeat fixed;
+    background-size: cover;
+    font: normal 15px SegoePrint; line-height: 18px; color: #fff;
+}
+
+
+ /* ------------------Главная------------------ */   
+article {
+	/*margin-right: 300px;  Отступ справа */
+	display: block;
+
+}
+
+ aside { /* колонка */
+	width: 220px; /* Ширина правой колонки */
+	float: right; /* Обтекание */
+	display: block;
+	margin: 20px 0; /* Отступ сверху и снизу */ 
+}
+
+
+
+.content-white {
+	background: #00b0d8;
+	width: 760px;
+	/*background: #fff;  Белый цвет фона */
+	margin: 0 11px; /* Отступы по горизонтали */
+	padding: 20px 40px 40px; /* Поля */
+	text-align: justify; /* Выравнивание по ширине */
+  z-index:1;
+}
+
+ /* -----------------steam info------------------ */
+.early_access {
+  background: white; /* Белый цвет фона */
+  width: 85%; /* Ширина макета */
+  margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+  padding: 20px 20px 20px; /* Поля */
+  overflow: hidden;
+  float: center;
+  text-align: center;
+  z-index:1;
+}
+
+/* -----------------steam info------------------ */  
+
+
+
+.early_access_header{
+
+	background: #efefef ;
+
+	width: 720px; /* Ширина макета */	
+
+	padding: 20px 20px 20px; /* Поля */
+
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2011f0), color-stop(2, rgb(6, 54, 0)));
+
+	}
+
+	
+
+.early_access_header12_29{
+	background: #eb1745 ;
+	width: 93%; /* Ширина макета */
+	height: 88%;
+	margin: 2% 2%; /* Отступы по горизонтали */
+	border-radius: 30px; /* скругление */
+	padding: 20px 20px 20px; /* Поля */
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #c4153a), color-stop(2, rgb(172, 49, 1)));
+}
+
+	
+
+.early_access_header12_30{
+	background: #38d667 ;
+	width: 85%; /* Ширина макета */
+	height: 88%;
+	margin: 5% 2%; /* Отступы по горизонтали */
+	border-radius: 30px; /* скругление */
+	padding: 20px 20px 20px; /* Поля */
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #39c41d), color-stop(2, rgb(8, 97, 156)));
+}
+
+
+
+	.early_access_infobox{
+
+		background: #ff3762 ;
+
+		width: 170px; /* Ширина макета */
+
+		height: 71px;
+
+		border-radius: 20px; /* скругление */
+
+		padding: 8px 8px 8px; /* Поля */
+
+		margin: 2% 2%; /* Отступы по горизонтали */		
+
+		background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #c9004d), color-stop(2, #222));
+
+	}
+
+	
+
+
+
+.text-top { 
+
+	font-size: 22px;  
+
+	text-align: center; 
+
+	margin: 5px auto;
+
+	margin-bottom: 10px;
+
+}
+
+.text-btm {color: #c00; text-align: center; padding-top: 10px;}
+
+
+

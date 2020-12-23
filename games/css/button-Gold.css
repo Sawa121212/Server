@@ -1,0 +1,68 @@
+.back_gold {
+	height: 200px;
+	background: url(../images/top15.jpg) no-repeat ;
+	border: 2px solid rgb(216, 184, 0);
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+/* ------------------- */
+
+.back_gamelistGold {
+	background: white;
+	color: rgb(216, 184, 0);
+	border: 2px solid rgb(216, 184, 0);
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	width: 210px;
+	line-height: 40px;
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+
+
+.back_gamelistGold:before {
+	background: rgb(216, 184, 0);
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+
+.back_gamelistGold:hover {
+	color: #ffffff;
+}
+
+.back_gamelistGold:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelistGold:hover:before {
+	top: -30px;
+	right: -30px;
+}
+
+/*----------------------*/

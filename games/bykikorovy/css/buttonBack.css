@@ -1,0 +1,68 @@
+.back_red {
+	height: 200px;
+	background: url(../images/ws.png) no-repeat ;
+	border: 2px solid red;
+	background-size: cover;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+/* ------------------- */
+
+.back_gamelistred {
+	background: white;
+	color: red;
+	border: 2px solid red;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	text-decoration: none; /* Отменяем подчеркивание у ссылки */
+	width: 210px;
+	line-height: 40px;
+	vertical-align: center;
+	margin: 1% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+
+
+.back_gamelistred:before {
+	background: red;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+
+.back_gamelistred:hover {
+	color: #ffffff;
+}
+
+.back_gamelistred:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelistred:hover:before {
+	top: -30px;
+	right: -30px;
+}
+
+/*----------------------*/

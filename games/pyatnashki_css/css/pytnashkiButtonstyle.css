@@ -1,0 +1,38 @@
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+a.buttons_good {
+  background: rgb(74, 21, 145);
+  width: 80px;
+  height: 70px;
+  color: #639612;
+  text-align: center;
+  text-decoration: none; /* Убирает подчеркивание для ссылок */
+  display: block;
+  font: normal 35px arial;
+  border: 2px solid rgb(74, 21, 145); /* Параметры границы */
+
+  line-height: 78px;
+}
+a.buttons_good:hover {
+  border: 2px solid #639612; /* Параметры границы */
+  content: "";
+}
+
+a.buttons_bad {
+  background: #639612;
+  width: 80px;
+  height: 70px;
+  color: rgb(74, 21, 145);
+  text-align: center;
+  text-decoration: none; /* Убирает подчеркивание для ссылок */
+  display: block;
+  font: normal 21px arial;
+  border: 2px solid #639612; /* Параметры границы */
+
+
+  line-height: 75px;
+}
+a.buttons_bad:hover {
+  border: 2px solid #639612; /* Параметры границы */
+  content: "";
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/

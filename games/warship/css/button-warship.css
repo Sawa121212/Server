@@ -1,0 +1,135 @@
+/*------------------------------------------------------------ Кнопки v2 Анимированные ------------------------------------------------*/
+
+
+/*-----------Кнопка Назад -----------*/
+.back_div1 {
+	height: 200px;
+	background: url(../images/ws.png) no-repeat ;
+	background-size: cover;
+	border: 2px solid #4530af;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+.back_div2 {
+	height: 200px;
+	background: url(../images/wsBot.png) no-repeat ;
+	background-size: cover;
+	border: 2px solid #4530af;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	border-radius: 30px; /* скругление */
+	text-align: center;
+	display: block;
+	margin:auto auto;
+}
+
+/*------------Кнопка "На Главную страницу"----------*/
+.back_gamelist1 {
+	background: white;
+	color: crimson;
+	border: 2px solid crimson;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 210px;
+	height: 40px;
+	line-height: 40px;
+	
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.back_gamelist1:before {
+	background: crimson;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+.back_gamelist1:hover {
+	color: #ffffff;
+}
+
+.back_gamelist1:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelist1:hover:before {
+	top: -30px;
+	right: -30px;
+}
+/*----------------------*/
+ 
+/*------------Кнопка "На Главную страницу"----------*/
+.back_gamelist2 {
+	background: white;
+	color: blue;
+	border: 2px solid blue;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 210px;
+	height: 40px;
+	line-height: 40px;
+	
+	vertical-align: center;
+	margin: 10% auto;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.back_gamelist2:before {
+	background: blue;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+.back_gamelist2:hover {
+	color: #ffffff;
+}
+
+.back_gamelist2:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelist2:hover:before {
+	top: -30px;
+	right: -30px;
+}
+/*----------------------*/

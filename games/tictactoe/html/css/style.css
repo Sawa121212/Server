@@ -1,0 +1,329 @@
+/* стили для ПК */
+body {
+ margin: 0;
+ background: url(../images/1.png) no-repeat; /* Цвет фона подвала */
+ background-attachment: fixed;
+ background-size: cover;
+ font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+ color: white ;
+}
+
+
+
+
+
+
+/* ------------------КнопкаРегистрации------------------ */   
+a.bott{
+display: block;
+font-size: 1.1em;
+width:110px;
+text-decoration:none;
+text-align:right;
+font: bold 14px arial;/*шрифт*/
+text-transform: uppercase;
+padding: 10px 15px;/**//**//**//**//**//**//**/
+margin: 5px 970px;/*Отступ: сверху, от левого края */
+color: #ffffff;/* цвет текста */   
+background-color: #d6b425;
+background-image: linear-gradient(top, #ffe027 0%, #555 10%);
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffe027), color-stop(2, #222));
+background-image: -moz-linear-gradient(top, #ffe027 0%, #555 100%);
+background-image: -o-linear-gradient(top, #ffe027 0%, #555 100%);
+border: none;
+border-radius: 3px;
+text-shadow: 0px -1px 0px #000;/*цвет тени текста*/
+box-shadow: 0px 1px 0px #c56d00,0px 5px 0px #c56d00,0px 6px 6px rgba(0, 0, 0, .6);/*цвета тени бокса и под боксом*/
+-webkit-transition: ease .15s all;
+-moz-transition: ease .15s all;
+-o-transition: ease .15s all;
+transition: ease .15s all;
+-webkit-animation: none;
+ -moz-animation: none;
+ -o-animation: none;
+  animation: none;
+}
+a.bott:hover, a.bott:focus{
+-webkit-animation: linear 1.2s light infinite;
+-moz-animation: linear 1.2s light infinite;
+-o-animation: linear 1.2s light infinite;
+animation: linear 1.2s light infinite;
+}
+@-webkit-keyframes light{
+0%   { color: #ddd; text-shadow: 0px -1px 0px #000; }
+50%   { color: #fff; text-shadow: 0px -1px 0px #444, 0px 0px 5px #ffd, 0px 0px 8px #fff; }
+100% { color: #ddd; text-shadow: 0px -1px 0px #000; }
+}
+@-moz-keyframes light{
+0%   { color: #ddd; text-shadow: 0px -1px 0px #000; }
+50%   { color: #fff; text-shadow: 0px -1px 0px #444, 0px 0px 5px #ffd, 0px 0px 8px #fff; }
+100% { color: #ddd; text-shadow: 0px -1px 0px #000; }
+}
+@-o-keyframes light{
+0%   { color: #ddd; text-shadow: 0px -1px 0px #000; }
+50%   { color: #fff; text-shadow: 0px -1px 0px #444, 0px 0px 5px #ffd, 0px 0px 8px #fff; }
+100% { color: #ddd; text-shadow: 0px -1px 0px #000; }
+}
+@keyframes light{
+0%   { color: #ddd; text-shadow: 0px -1px 0px #000; }
+50%   { color: #fff; text-shadow: 0px -1px 0px #444, 0px 0px 5px #ffd, 0px 0px 8px #fff; }
+100% { color: #ddd; text-shadow: 0px -1px 0px #000; }
+}
+a.bott:active{
+color: #fff;
+text-shadow: 0px -1px 0px #444,0px 0px 5px #ffd,0px 0px 8px #fff;
+box-shadow: 0px 1px 0px #f4bd13,0px 2px 0px #444,0px 2px 2px rgba(0, 0, 0, .9);
+-webkit-transform: translateY(3px);
+-moz-transform: translateY(3px);
+-o-transform: translateY(3px);
+transform: translateY(3px);
+-webkit-animation: none;
+-moz-animation: none;
+-o-animation: none;
+animation: none;
+}
+
+
+
+#menu  {
+        background: #a2acd8 rgba(236, 237, 237, 0.5);
+    border-radius: 3px;
+
+    display: table;
+    list-style: outside none none;
+    margin: 0 auto;
+    padding: 0;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    visibility:visible;
+}
+
+#menu li {
+        display:block;
+        float: left;
+        position:relative;
+}
+
+#menu li a {
+        display:table;
+        padding: 0 20px;
+        height: 50px;
+        text-align: center;
+        font:600 13px/50px arial;
+        color: #000;
+        border-left: 1px solid rgba(236, 237, 237, 0.3);
+		border-right: 1px solid rgba(0, 0, 0, 0.4);
+        text-decoration: none;
+        transition: 0.5s;
+        -webkit-transition:0.5s;
+}
+
+#menu li:first-child a {
+    border-left: medium none;
+}
+#menu li:last-child a {
+    border-right: medium none;
+}
+
+#menu li:hover a {
+    background: #edaa25;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3)inset;
+}
+#menu li:hover .sub-menu a {
+    background: rgba(236, 237, 237, 0.3);/*фон вып. списка */
+    height: 40px;
+    line-height: 40px;
+        box-shadow: 0 2px 2px rgba(5,5,5,0.5);
+}
+
+#menu li:hover .sub-menu a:hover {
+    color: #edaa25;
+}
+
+/* стили для выпадающего списка */
+
+.sub-menu {
+		background:#edaa25;
+  visibility:hidden;
+  opacity:0;
+  position:absolute;
+  z-index:-1;
+  transition:visibility 0s linear 0.5s, opacity 0.5s linear;
+  left: 0;
+}
+
+#menu li:hover > ul{
+   visibility:visible;
+   opacity:1;
+   transition-delay:0s;
+   z-index:1;
+}
+
+#menu .sub-menu li {
+    float:none ;
+        border-top:1px solid #dddddd;
+}
+
+#menu .sub-menu li a {
+        width: auto;
+        min-width: 100%;
+        padding: 0 11px;
+        white-space:nowrap;
+        text-align:center;
+        border:none;
+        box-shadow:none;
+}
+
+#menu li a:hover + .sub-menu, .sub-menu:hover {
+        display: block;
+}
+/* стили для адаптивности */
+
+@media screen and (max-width : 760px){
+
+.sub-menu {
+
+        position: static;
+        display: none;                
+}
+
+.sub-menu li {
+
+        margin-bottom: 1px;
+}
+#menu li, #menu li a {
+        width: 100%;
+        border:none;
+        padding:0px;
+}
+        
+#menu .sub-menu li a {
+        padding:0px;
+}
+        
+#menu  {
+    width: 100%;
+    }
+}
+
+
+ /* -----------------steam info------------------ */  
+
+.early_access_header{
+background: #efefef ;
+width: 720px; /* Ширина макета */
+
+padding: 20px 20px 20px; /* Поля */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2011f0), color-stop(2, #222));
+}
+
+.early_access_header2{
+background: #00549e ;
+width: 720px; /* Ширина макета */
+
+padding: 20px 20px 20px; /* Поля */
+background-image: -webkit-gradient(linear, left top, left top, color-stop(0, #20155e), color-stop(2, #222));
+}
+
+.early_access_header3{
+background: #00549e ;
+width: 720px; /* Ширина макета */
+
+padding: 20px 20px 20px; /* Поля */
+background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #00549e), color-stop(2, #222));
+}
+ 
+ .early_access_header4{
+background: #00549e ;
+width: 720px; /* Ширина макета */
+
+padding: 20px 20px 20px; /* Поля */
+background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #660099), color-stop(2, #222));
+}
+
+.heading{
+background: #00549e;
+color: #ffffff;/* цвет текста */  
+padding: 20px 20px 20px; /* Поля */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #00549e), color-stop(2, #222));
+width: 680px; /* Ширина макета */
+margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+}
+
+.heading-about{
+background: #ad005f;
+color: #ffffff;/* цвет текста */  
+padding: 20px 20px 20px; /* Поля */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ad005f), color-stop(2, #222));
+width: 680px; /* Ширина макета */
+margin: 0 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+}
+   
+ /* ------------------Главная------------------ */   
+section header {
+  background: none; /* Убираем фон */
+}
+
+
+
+header, section, footer, aside, nav, article {
+  display: block; /* Блочный элемент */
+}
+
+.gmenu {
+  padding: 0;
+}
+.content-white {
+background: #f9f2e3 url(../images/main.jpg) no-repeat;
+  width: 770px; /* Ширина макета */
+  
+  margin: 20 auto ; /* Выравнивание по центру */
+  position: auto; /* Относительное позиционирование */
+  background: #fff; /* Белый цвет фона */
+/*  margin: 0 11px;  Отступы по горизонтали 
+height		: 240px;*/
+  padding: 20px 40px 30px; /* Поля */
+  text-align: justify; /* Выравнивание по ширине */
+  top		: 50%;	
+  overflow: auto; /* Отменяем обтекание */
+}
+
+/* ------------------header--------Шапака---------- */
+header {
+    display: block;
+
+
+    background: #00b0d8 url(../images/logofon.jpg); /* Градиент */
+	height: 60px; /* Высота шапки */
+   overflow: auto; /* Отменяем обтекание */	
+   }
+   
+article { /* Дом */
+  margin-bottom:50px;
+    padding: 0;
+	/*	margin-left: 220px;  Отступ справа */
+	/*margin-right: 220px;  Отступ справа */
+}  
+ 
+aside { /* колонка */
+ width: 220px; /* Ширина правой колонки */
+ float: left; /* Обтекание */
+ margin: 220px 0; /* Отступ сверху и снизу */ 
+}
+
+
+ /* ------------------footer------------------ */
+footer { 
+  margin-top: -50px; /* Поднимаем вверх */
+    overflow: hidden; /* Отменяем обтекание */
+  position: relative; /* Относительное позиционирование */
+  
+  text-align: center; 
+  padding: 10px;
+}
+
+.footer-bg { 
+  background: #000; /* Цвет фона подвала */
+  margin-top: 10px; /* Сдвигаем вниз */
+}

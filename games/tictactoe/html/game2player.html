@@ -1,0 +1,48 @@
+<html>
+        <head>
+            <title>Player vs Player</title>
+			<link rel="shortcut icon" type="image/gif" href="images/tictactoe.gif">
+            <link rel="stylesheet" type="text/css" href="css/style.css">
+            <link rel="stylesheet" type="text/css" href="css/button.css" />
+            <script type="text/javascript" src="script/script.js"></script>
+        </head>
+        <BODY ondragstart="return false;" ondrop="return false;" onmousedown="return false;" onclick="return true;">
+<p></p>
+<div class="content-white">    	    
+    <div class="early_access_header2"> 
+     <form name="forma5">
+		<h2 align="center"><font color="orange">Крестики</font><font color="white"> - </font><font color="yellow">Нолики</font></h2>	
+		<div class="back_div">
+			<a  class="buttons" id="buttons5" href="../tictactoe.html">Назад</a>
+			<a  class="buttons_vybor" id="buttons5" href="../../index.html">На Главную страницу</a>
+		</div>
+		
+		<h2 align="center" ><font id="InfoTextXOdit" >ходит</font> <font color="red" id="InfoXod" >ИГРОК #1</font></h2>
+		
+		<!-- <h1 align=center id="InfoGameEnd"><font color="green">ВЫИГРАЛ ИГРОК #1</font></h2><-->
+		<h1 align="center" ><font color="green" id="InfoGameEnd"></font></h2>
+		
+   <table border="2" align="center">
+		<tr><!-- ячейки  ><-->
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_a1" onclick="return xod_a1()"></td>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_a2" onclick="return xod_a2()"></td>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_a3" onclick="return xod_a3()"></td>
+		</tr>
+		<tr>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_b1" onclick="return xod_b1()"></td>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_b2" onclick="return xod_b2()"></td>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_b3" onclick="return xod_b3()"></td>
+		</tr>
+		<tr>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_c1" onclick="return xod_c1()"></td>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_c2" onclick="return xod_c2()"></td>
+			<td><input type ="image" src = "images/start_picture.jpg" id="image_c3" onclick="return xod_c3()"></td>
+		</tr>
+	</table>
+	<a  class="buttons_end" id="buttons5" href="game2player.html">Начать сначала</a>
+	 </form>
+    </div>
+	
+</div>      
+        </body>
+    </html>

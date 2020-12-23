@@ -1,0 +1,509 @@
+a.buttons {
+  width: 150px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 9px;
+  color: #a675b3;
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+a.buttons:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background: #b521b7;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+
+a_5.buttons:not(:hover) {
+    transition: 0.6s;
+}
+a_5.buttons {
+  width: 150px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 9px;
+  color: #a675b3;
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+a_5.buttons:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background: #b521b7;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+
+a_5.buttons:not(:hover) {
+    transition: 0.6s;
+}
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+a.buttons_end {
+  width: 150px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 9px;
+  color: #a675b3;
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+a.buttons_end:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background: #b521b7;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+
+a_5.buttons_end:not(:hover) {
+    transition: 0.6s;
+}
+a_5.buttons_end {
+  width: 150px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 9px;
+  color: #a675b3;
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+a_5.buttons_end:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background: #b521b7;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+
+a_5.buttons_end:not(:hover) {
+    transition: 0.6s;
+}
+
+/*------------------------------------------------------------ Кнопки v1 Главная страница ------------------------------------------------*/
+a.buttons_vybor {
+  width: 300px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 9px;
+  color: orange;
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+a.buttons_vybor:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background:red;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+
+a_5.buttons_vybor:not(:hover) {
+    transition: 0.6s;
+}
+a_5.buttons_vybor {
+  width: 300px;
+  height: 30px;
+  text-decoration: none;
+  padding-top: 9px;
+  color: orange;
+  text-align: center;
+  line-height: 20px;
+  display: block;
+  margin: 20px auto;
+  font: normal 17px arial;
+}
+
+a_5.buttons_vybor:not(.active) {
+  box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+  background:red;
+  text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+
+a_5.buttons_vybor:not(:hover) {
+    transition: 0.6s;
+}
+
+/*------------------------------------------------------------ Кнопки v2 Анимированные ------------------------------------------------*/
+
+/*-----------Кнопка "Начать сначала" -----------*/
+.restart_game {
+	color: blue;
+	background: silver;
+	border: 2px solid blue;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.restart_game:before {
+	background: blue;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 200px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.restart_game:hover {
+	color: #ffffff;
+}
+
+.restart_game:before {
+	top: 100%;
+	left: 100%;
+	transition: all .7s;
+}
+
+.restart_game:hover:before {
+	top: -30px;
+	left: -30px;
+}
+
+/*-----------Кнопка "Завершить сборку" -----------*/
+.endBuildP1 {
+	color: #4530af;
+	background: white;
+	border: 2px solid #4530af;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 270px;
+	height: 40px;
+	line-height: 40px;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.endBuildP1:before {
+	background: #4530af;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 270px;
+	width: 200px;
+}
+
+.endBuildP1:hover {
+	color: #ffffff;
+	background: #4530af;
+}
+
+.endBuildP1:before {
+	top: 100%;
+	left: 100%;
+	transition: all .7s;
+}
+/*-------*/
+.endBuildP2 {
+	color: #4530af;
+	background: white;
+	border: 2px solid #4530af;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 270px;
+	height: 40px;
+	line-height: 40px;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.endBuildP2:before {
+	background: #4530af;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 270px;
+	width: 200px;
+}
+
+.endBuildP2:hover {
+	color: #ffffff;
+	background: #4530af;
+}
+
+.endBuildP2:before {
+	top: 100%;
+	left: 100%;
+	transition: all .7s;
+}
+
+/*-----------Кнопка Назад -----------*/
+.back_div {
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	text-align: center;
+	display: block;
+}
+
+.back_menu {
+	color: green;
+	border: 2px solid green;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.back_menu:before {
+	background: green;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 200px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.back_menu:hover {
+	color: #ffffff;
+}
+
+.back_menu:before {
+	top: 100%;
+	left: -26%;
+	transition: all .7s;
+}
+
+.back_menu:hover:before {
+	top: -50px;
+	left: -30px;
+}
+/*------------Кнопка "На Главную страницу"----------*/
+.back_gamelist {
+	color: crimson;
+	border: 2px solid crimson;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 210px;
+	height: 40px;
+	line-height: 40px;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.back_gamelist:before {
+	background: crimson;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 270px;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	border-radius:50%;
+}
+.back_gamelist:hover {
+	color: #ffffff;
+}
+
+.back_gamelist:before {
+	top: 100%;
+	right: 100%;
+	transition: all .7s;
+}
+
+.back_gamelist:hover:before {
+	top: -30px;
+	right: -30px;
+}
+/*----------------------*/
+ 
+.start_div {
+	margin: 30px auto;
+	padding: 0;
+	text-align: center;
+	display: block;
+}
+
+.start_game {
+	color: #002878;
+	border: 2px solid #002878;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px;
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	margin: 20px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.start_game:before {
+	background: #002878;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 200px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.start_game:hover {
+	color: #ffffff;
+}
+
+.start_game:before {
+	bottom: 100%;
+	left: -27%;
+	transition: all .7s;
+}
+
+.start_game:hover:before {
+	bottom: -50px;
+	left: -30px;
+}
+
+/*-------- Кнопка "Завершить расстановку"--------*/
+.btn-endBuild {
+	width: 280px; 
+	height: 50px; 
+	display: block; 
+	font-size: 15px; 
+	line-height: 40px; 
+	text-align: center; 
+	margin: 0 auto; 
+	position: relative;
+	overflow: hidden;
+}
+.sidebarOFF {display: none;}
+.sidebarON {display: block;}
+
+/*-----------Кнопка НАЧАТЬ ИГРУ -----------*/
+.gamestart_div {
+	margin: 0px auto;
+	margin-bottom: 20px;
+	padding: 0;
+	text-align: center;
+	display: block;
+}
+
+.game_start {
+	color: white;
+	background: red;
+	border: 3px solid red;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	margin: 5px;
+	position: relative;
+	overflow: hidden;
+	transition: color .5s;
+	-webkit-box-shadow: 0 0 4px #999;
+	-moz-box-shadow: 0 0 4px #999;
+	-o-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+	z-index: 0;
+}
+
+.game_start:before {
+	background: crimson;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	height: 150px;
+	width: 200px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.game_start:hover {
+	color: #ffffff;
+}
+
+.game_start:before {
+	top: 100%;
+	left: -26%;
+	transition: all .7s;
+}
+
+.game_start:hover:before {
+	top: -50px;
+	left: -30px;
+}
