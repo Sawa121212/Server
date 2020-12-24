@@ -36,3 +36,17 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.answers-apply{
+  background-color: #eeeeee;
+  display: block;
+  position: fixed;
+  border: 2px solid #1565c0;
+  border-radius: 30px; /* скругление */
+  width: 50%;
+  height: 50%;
+  left: 0px;
+  top: 0px;
+  margin-left: 25%;
+  margin-top: 20%;
+}

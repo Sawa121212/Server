@@ -38,8 +38,9 @@
     <div class="conteiner center">
         <br>
 
-        <a href="games/index.html" class="btn blue darken-3 large">Games</a>
-        <a href="timer/index.php" class="btn blue darken-3 large">timer</a>
+        <a href="games/index.html" class="btn blue darken-3 large">Games</a><br><br>
+        <a href="timer/index.php" class="btn blue darken-3 large">timer</a><br><br>
+        <a href="tester/index.php" class="btn blue darken-3 large">Tester</a>
 
         <br> <br><a href="coder/index.php" class="btn blue darken-3 large">Decoder</a> </div>
     <footer>

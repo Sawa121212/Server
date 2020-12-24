@@ -56,15 +56,15 @@
       }
 
       //Расписание преподавателей
-      echo "<h5 class='header col s12 light center'><b>Посмотреть</b></h5>
+      echo "<h5 class='header col s12 light center'><b>Средство тестирования</b></h5>
       <div class='row center'>
         <div class='col s12 m3 offset-m1 center-align lighten-1 z-depth-3' style='margin-right:10px; margin-bottom:20px;'>
           <div class='icon-block'>
             <h2 class='center light-blue-text'><i class='material-icons'>business_center</i></h2>
-            <h5 class='center'>Расписание преподавателей</h5>
+            <h5 class='center'>Создать тест</h5>
             <p class='light'>Информация</p>";
-            echo "<br/><a href='mk_raspis_print_prepod.php' class='btn blue darken-2 z-depth-2'>
-            Посмотреть</a>
+            echo "<br/><a href='create/createquestion.php' class='btn blue darken-2 z-depth-2'>
+            Создать</a>
             
           <br/><br/>
           </div>
