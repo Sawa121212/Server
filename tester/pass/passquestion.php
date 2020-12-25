@@ -36,7 +36,7 @@ $testIsChecked = false;
       $applyArray = array();
       $applyArray = array_values($applyArray);
 
-      echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST'>";
+      echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form'>";
       //echo "<form class='col s12' style='width: 95%;' form action=". $_SERVER['PHP_SELF']. " method='POST'>";
       while ($r_pytn = mysqli_fetch_array($select)) {
         $radioValue = 1;
@@ -60,7 +60,8 @@ $testIsChecked = false;
         <div class="input-field col s12">
           <!--Проверить ответы-->
           <?php
-            echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Закончить тест' name='do_checkApplay'>Закончить тест</button>";
+            //echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Закончить тест' name='do_checkApplay'>Закончить тест</button>";
+            echo "<input type='button' value='Попроповать' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)'><br><br>";
             echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Пройти заново' name='do_refreshPage'>Пройти заново</button>";
           ?>
         </div>
@@ -95,6 +96,27 @@ $testIsChecked = false;
     <script src="../materialize/js/init.js"></script>
     <script src="../materialize/js/plugins.min.js"></script>
 
+    <?php echo "<script>
+      var saves = new Array();
+      saves = [
+      
+        [[0], [0], [0]],//0
+        [[0], [0], [0]],//1
+        [[0], [0], [0]],//2
+        [[0], [0], [0]],//3
+        [[0], [0], [0]],//4
+        [[0], [0], [0]],//5
+        [[0], [0], [0]],//6
+        [[0], [0], [0]],//7
+        [[0], [0], [0]],//8
+        [[0], [0], [0]],//9
+        [[0], [0], [0]],//10
+      ];
+      function Testing(obj) {
+        document.getElementById('13').className = 'answers-apply';
+      }
+      </script>";
+      ?>
 
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
