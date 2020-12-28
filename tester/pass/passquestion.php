@@ -39,10 +39,12 @@ $testIsChecked = false;
       //echo "<form class='col s12' style='width: 95%;' form action=". $_SERVER['PHP_SELF']. " method='POST'>";
       while ($r_pytn = mysqli_fetch_array($select)) {
         $radioValue = 1;
-        echo "<p><b>" . $questID . ". " . $r_pytn['question'] . "</b></p>";
+        echo "<p><b>" . $questID . ". " . $r_pytn['question'] . "<span id='questApply". $questID ."'></span></b></p>";
         $answersArray = explode("\r", $r_pytn['answers']);
         foreach ($answersArray as $value) {
-          echo "<p><label><input class='with-gap' name='group" . $questID . "' type='radio' value='" . $radioValue . "'/><span id='" . $questID . $radioValue . "'>" . $value . "</span></label></p>";
+          echo "<p><label><input class='with-gap' name='group" . $questID . "' type='radio' value='" . $radioValue . "'/>
+                      <span id='" . $questID . $radioValue . "'>" . $value . "</span>
+                </label></p>";
           $radioValue++;
         }
         $applyArray[] =  $r_pytn['apply'];
@@ -108,7 +110,9 @@ $testIsChecked = false;
               document.getElementById(name).className = 'answer-notapply';
             }
           }
-          
+          var questApplyId = questApply.toString() + currentIndex.toString();
+          document.getElementById(questApplyId).textContent = 'На данный вопрос вы не дали ответ';
+
           document.getElementById(id).className = 'answer-apply';
 
         }
