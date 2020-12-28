@@ -30,8 +30,7 @@ $testIsChecked = false;
       echo "<h3 align='center'>Создание вопросов</h3>";
       $questID = 1;
 
-      echo "Количество вопросов: " . mysqli_num_rows($select) . "<br><br>";
-
+      echo "<p>Количество вопросов: <b>" . mysqli_num_rows($select) . "</b></p>";
       // массив правильных ответов
       $applyArray = array();
       $applyArray = array_values($applyArray);
@@ -60,35 +59,17 @@ $testIsChecked = false;
         <div class="input-field col s12">
           <!--Проверить ответы-->
           <?php
-            //echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Закончить тест' name='do_checkApplay'>Закончить тест</button>";
-            echo "<input type='button' value='Попроповать' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)'><br><br>";
-            echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Пройти заново' name='do_refreshPage'>Пройти заново</button>";
+          echo "<br><p><b>Правельных ответов: <span id='applysQuestion'>0</span></b></p>";
+
+          //echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Закончить тест' name='do_checkApplay'>Закончить тест</button>";
+          echo "<input type='button' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)' name='do_checkApplay' value='Завершить тест'><br><br>";
+          echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Пройти заново' name='do_refreshPage'>Пройти заново</button>";
           ?>
         </div>
         </form><br>
-
-        <?php
-        if (isset($_POST['do_refreshPage']))
-        {
-          $testIsChecked = false;
-          header("Refresh:0");
-        }
-        if (isset($_POST['do_checkApplay']))
-        {
-          $testIsChecked = true;
-          $applyQuestion = 0;
-          for ($i = 0; $i < mysqli_num_rows($select); $i++) {
-            if ($_POST["group" . strval($i + 1) . ""] == $applyArray[$i]) {
-              //echo $_POST["group" . strval($i + 1) . ""];
-              $applyQuestion++;
-            }
-          }
-          echo "<br><p><b>Правельных ответов: " . $applyQuestion . "</b></p>";
-        }
-
-        ?>
       </div> <!-- /row center -->
     </div>
+
     <!--  Scripts-->
     <script src="../materialize/js/jquery-2.1.1.min.js"></script>
     <script src="../materialize/js/materialize.min-v2.js"></script>
@@ -97,26 +78,44 @@ $testIsChecked = false;
     <script src="../materialize/js/plugins.min.js"></script>
 
     <?php echo "<script>
-      var saves = new Array();
-      saves = [
-      
-        [[0], [0], [0]],//0
-        [[0], [0], [0]],//1
-        [[0], [0], [0]],//2
-        [[0], [0], [0]],//3
-        [[0], [0], [0]],//4
-        [[0], [0], [0]],//5
-        [[0], [0], [0]],//6
-        [[0], [0], [0]],//7
-        [[0], [0], [0]],//8
-        [[0], [0], [0]],//9
-        [[0], [0], [0]],//10
-      ];
+      var applys = new Array();
+      applys = [\n";
+
+    for ($i = 0; $i < mysqli_num_rows($select); $i++) {
+      echo $applyArray[$i];
+      if ($i + 1 != mysqli_num_rows($select)) echo ",\r";
+    }
+
+    echo "];
       function Testing(obj) {
-        document.getElementById('13').className = 'answers-apply';
+        var applyQuestion = 0; 
+
+        for (var i = 0; i < applys.length; i++) {
+          var currentIndex = i+1;
+          var id = currentIndex.toString() + applys[i].toString();
+
+          var radioBtnName = 'group' + currentIndex.toString();
+          var rad=document.getElementsByName(radioBtnName);
+          
+          for (var index=0; index < rad.length; index++) {
+            if (rad[index].checked) {
+              if (index+1 == applys[currentIndex])
+              {
+                applyQuestion++;
+              }
+              var indexRdBtn = index + 1;
+              var name = currentIndex.toString()+indexRdBtn.toString();              
+              document.getElementById(name).className = 'answer-notapply';
+            }
+          }
+          
+          document.getElementById(id).className = 'answer-apply';
+
+        }
+        document.getElementById('applysQuestion').textContent = applyQuestion.toString();
       }
       </script>";
-      ?>
+    ?>
 
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>

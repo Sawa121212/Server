@@ -37,10 +37,10 @@ main {
   flex: 1 0 auto;
 }
 
-.answers-apply{
+.answer-apply{
   background-color: green;
 }
 
-.answers-notapply{
+.answer-notapply{
   background-color: red;
 }
