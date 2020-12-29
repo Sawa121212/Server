@@ -88,7 +88,7 @@
 	   <!--Плавающее Меню -->
 	  <?php 
     echo "<ul class='tabs tabs-transparent'>
-    <li class='tab'><a onclick='javascript:document.location.href=\"index.php\"' href='#'><i class ='material-icons' style='line-height: 47px;'>home</i></a></li>";
+    <li class='tab'><a onclick='javascript:document.location.href=\"index.php\"' href='#'><i class ='material-icons'>home</i></a></li>";
 	  
 		if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2)
 		{

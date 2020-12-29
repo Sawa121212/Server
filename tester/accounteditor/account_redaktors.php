@@ -24,7 +24,7 @@ include("../inc/alertStyle.php");
  if ($_SESSION['usertype'] == 1)
   {
 
-  $select= mysqli_query("SELECT id,login, email, second_name, first_name, patronymic, usertype FROM users where usertype=2 ORDER BY first_name"); 
+  $select= mysqli_query($link, "SELECT id,login, email, second_name, first_name, patronymic, usertype FROM users where usertype=2 ORDER BY first_name"); 
 
   //Обрабатывает ряд результата запроса
   $num = 1;

@@ -23,7 +23,7 @@ include("../inc/alertStyle.php");
     
     <?php
     $newSaveID = $_SESSION['saveID'];
-    $selectID= mysqli_query("SELECT id, login, password, email, second_name, first_name, patronymic, usertype 
+    $selectID= mysqli_query($link, "SELECT id, login, password, email, second_name, first_name, patronymic, usertype 
       FROM users where id = $newSaveID"); 
     $accountID= mysqli_fetch_array($selectID)
     ?>

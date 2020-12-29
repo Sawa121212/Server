@@ -97,7 +97,7 @@ function closeWin(){document.getElementById('win').remove(); num=0;}
   echo "<h3 align='center'>Администраторы</h3>";
 if ($_SESSION['usertype'] == 1)
 {
-  $select= mysqli_query("SELECT id,login, email, second_name, first_name, patronymic, usertype FROM users where usertype=1 ORDER BY first_name"); 
+  $select= mysqli_query($link, "SELECT id,login, email, second_name, first_name, patronymic, usertype FROM users where usertype=1 ORDER BY first_name"); 
 
   //Обрабатывает ряд результата запроса
   $num = 1;
@@ -108,8 +108,7 @@ if ($_SESSION['usertype'] == 1)
         <span class='title'><h5>";
           if($r['usertype'] == 1){echo "Администратор";};
           if($r['usertype'] == 2){echo "Редактор";};
-          if($r['usertype'] == 3){echo "Преподаватель";};
-          if($r['usertype'] == 4){echo "Студент";};
+          if($r['usertype'] == 3){echo "Пользователь";};
         echo "</h5></span>".
         "<span class='second_name'>".$r['second_name']."</span>&nbsp;
         <span class='first_name'>".$r['first_name']."</span>&nbsp;     
