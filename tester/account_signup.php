@@ -21,20 +21,26 @@ include("inc/alertStyle.php");
 <body>
 
   <!--index-->
-  <div class="container ">
+  <div class="container" align="center">
     <br>
     <div class="row" align="center">
       <h3>Регистрация</h3>
 
-      <form class="col s12" style="width: 95%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+      <form style="width: 70%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
         <div class="row">
-          <div class="input-field col s12 m6">
+          <div class="input-field col s12">
+            <!--Табельный номер-->
+            <i class="material-icons prefix">account_circle</i>
+            <input class="text" type="text" id="tabel_id" name="tabel_id" value="<?php echo @$data['tabel_id']; ?>" maxlength="6">
+            <label for="tabel_id">Табельный номер</label>
+          </div>
+          <div class="input-field col s12">
             <!--Фамилия-->
             <i class="material-icons prefix">account_circle</i>
             <input class="text" type="text" id="second_name" name="second_name" value="<?php echo @$data['second_name']; ?>">
             <label for="second_name">Фамилия</label>
           </div>
-          <div class="input-field col s12 m6">
+          <div class="input-field col s12">
             <!--Имя-->
             <i class="material-icons prefix">account_circle</i>
             <input class="validate" type="text" id="first_name" name="first_name" value="<?php echo @$data['first_name']; ?>">
@@ -42,7 +48,7 @@ include("inc/alertStyle.php");
           </div>
 
           <div class="row">
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12">
               <!--Отчество-->
               <i class="material-icons prefix">account_circle</i>
               <input class="text" type="text" id="patronymic" name="patronymic" value="<?php echo @$data['patronymic']; ?>">
@@ -51,14 +57,14 @@ include("inc/alertStyle.php");
           </div>
 
           <div class="row">
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12">
               <!--Логин-->
               <i class="material-icons prefix">assignment_ind</i>
               <input type="text" id="nickname" class="nickname" name="login" value="<?php echo @$data['login']; ?>">
               <label for="nickname">Логин</label>
             </div>
 
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12">
               <!--Email-->
               <i class="material-icons prefix">mail</i>
               <input type="email" id="email" class="validate" name="email" value="<?php echo @$data['email']; ?>">
@@ -67,13 +73,13 @@ include("inc/alertStyle.php");
           </div>
 
           <div class="row">
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12">
               <!--Пароль-->
               <i class="material-icons prefix">lock</i>
               <input type="password" id="password" class="password" name="password" value="<?php echo @$data['password']; ?>">
               <label for="password">Пароль</label>
             </div>
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12">
               <!--Пароль-->
               <i class="material-icons prefix">lock</i>
               <input type="password" id="password_2" class="password" name="password_2" value="<?php echo @$data['password_2']; ?>">
@@ -83,10 +89,10 @@ include("inc/alertStyle.php");
 
           <div class="row">
             <!--Выберите пользователя-->
-            <div class="input-field col s12 m4">
+            <div class="input-field col s12 m2">
               <p>
                 <label>
-                  <p><b>Выберите тип пользователя:</b></p>
+                  <p><b>Выберите роль:</b></p>
                 </label>
               </p>
             </div>
@@ -115,21 +121,12 @@ include("inc/alertStyle.php");
                   </div>"; ?>
             <?php endif; ?>
 
-            <!--Преподаватель-->
+            <!--Пользователь-->
             <div class="input-field col s6 m2">
               <p>
                 <label>
                   <input class="with-gap" name="usertype" type="radio" value=3 />
-                  <span>Преподаватель</span>
-                </label>
-              </p>
-            </div>
-            <!--Студент-->
-            <div class="input-field col s6 m2">
-              <p>
-                <label>
-                  <input class="with-gap" name="usertype" type="radio" value=4 checked />
-                  <span>Студент</span>
+                  <span>Пользователь</span>
                 </label>
               </p>
             </div>
@@ -137,18 +134,17 @@ include("inc/alertStyle.php");
 
           <div class="row">
             <!--captcha-->
-            <div class="input-field col s6">
+            <div class="input-field col s3">
               <?php captcha_show(); ?>
             </div>
             <div class="input-field col s4">
-              <input type="text" id="captcha" class="text">
+              <input type="text" id="captcha" class="text" autocomplete="off">
               <label for="captcha">captcha</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s12">
-              <!--Зарегистрировать-->
               <!--Зарегистрировать-->
               <button class='btn blue darken-2  z-depth-2' type='submit' value='Зарегистрировать' name='do_signup'>Зарегистрироваться</button>
 
@@ -190,6 +186,9 @@ include("inc/alertStyle.php");
 
                 // проверка формы на пустоту полей
                 $errors = array();
+                if (trim($data['tabel_id']) == '') {
+                  $errors[] = "<h5>Введите табельный номер</h5>";
+                }
                 if (trim($data['login']) == '') {
                   $errors[] = "<h5>Введите логин</h5>";
                 }
@@ -214,9 +213,17 @@ include("inc/alertStyle.php");
 
                 //проверка на существование одинакового логина
                 # проверяем, не сущестует ли пользователя с таким именем
-                $get_login = mysqli_query($link, "SELECT COUNT(id) FROM users WHERE login='" . $_POST['login'] . "'");
-                if ($get_login) {
-                  $errors[] = "Пользователь с таким логином уже существует в базе данных";
+                $get_tabel_id = mysqli_query($link, "SELECT * FROM users WHERE tabelID='" . $_POST['tabel_id'] . "'");
+                if (mysqli_num_rows($get_tabel_id) != 0) {
+                  $errors[] = "Пользователь с таким табельным номером уже существует";
+                }
+                if (strlen($_POST['tabel_id']) > 6) {
+                  $errors[] = "Табельный номер должен быть не больше 6 символов";
+                }
+
+                $get_login = mysqli_query($link, "SELECT * FROM users WHERE login='" . $_POST['login'] . "'");
+                if (mysqli_num_rows($get_login) != 0) {
+                  $errors[] = "Пользователь с таким логином уже существует";
                 }
                 # проверям логин
                 if (!preg_match("/^[a-zA-Z0-9]+$/", $_POST['login'])) {
@@ -228,19 +235,18 @@ include("inc/alertStyle.php");
 
 
                 //проверка на существование одинакового email
-                $get_email = mysqli_query($link, "SELECT COUNT(id) FROM users WHERE email='" . mysqli_real_escape_string($link, $_POST['email']) . "'");
-                if ($get_email) {
-                  $errors[] = "Пользователь с таким email уже существует в базе данных";
+                $get_email = mysqli_query($link, "SELECT * FROM users WHERE email='" . mysqli_real_escape_string($link, $_POST['email']) . "'");
+                if (mysqli_num_rows($get_email) != 0) {
+                  $errors[] = "Пользователь с таким email уже существует";
                 }
-
 
                 if (empty($errors)) {
                   $login = $_POST['login'];
-                  //$password = $_POST['password']; 
-                  //пароль нельзя хранить в открытом виде, мы его шифруем
-                  # Убераем лишние пробелы и делаем двойное шифрование
-                  $password = SHA1(SHA1(trim($_POST['password'])));
+                  // пароль нельзя хранить в открытом виде, мы его шифруем
+                  // Убераем лишние пробелы и делаем двойное шифрование
+                  $password = md5(md5(trim($_POST['password'])));
 
+                  $tabel_id = $_POST['tabel_id'];
                   $first_name = $_POST['first_name'];
                   $second_name = $_POST['second_name'];
                   $patronymic = $_POST['patronymic']; // отчество
@@ -254,12 +260,17 @@ include("inc/alertStyle.php");
                     second_name='" . $second_name . "',
                     patronymic='" . $patronymic . "',
                     email='" . $email . "',
+                    tabelID = '" . $tabel_id . "',
                     usertype='" . $usertype . "' ");
 
                   if ($result) {
-                    echo "<span style='color:blue;'>Данные добавлены.</span></br>";
+                    echo "<span style='color:blue;'>Пользователь зарегистрирован.</span></br>";
+                    header("Location: account_accesssignup.php"); /* Перенаправление браузера */
+                    /* Убедиться, что код ниже не выполнится после перенаправления .*/
+                    exit;
+
                   } else {
-                    echo "<span style='color:red;'>Ошибка! Данные не добавлены.</span></br>";
+                    echo "<span style='color:red;'>Ошибка в регистрации! Данные не добавлены.</span></br>";
                   }
                 } else {
                   echo '<div id="errors" style="color:red;">' . array_shift($errors) . '</div><hr>';
