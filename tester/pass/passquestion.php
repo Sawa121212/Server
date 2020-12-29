@@ -1,9 +1,13 @@
 <?php
+$folderRootCount = 2;
 session_start();
-require '../conn/db.php';
+include("../inc/folderRoot.php");
+
+require $folderRoot.'conn/db.php';
 $file_name = basename(__FILE__);
 
-include("../inc/headerFirstFolder.php");
+include($folderRoot."inc/header.php");
+include($folderRoot."inc/alertStyle.php");
 
 $data = $_POST;
 $testIsChecked = false;
@@ -73,11 +77,11 @@ $testIsChecked = false;
     </div>
 
     <!--  Scripts-->
-    <script src="../materialize/js/jquery-2.1.1.min.js"></script>
-    <script src="../materialize/js/materialize.min-v2.js"></script>
-    <script src="../materialize/js/materialize.min.js"></script>
-    <script src="../materialize/js/init.js"></script>
-    <script src="../materialize/js/plugins.min.js"></script>
+    <script src="<?echo $folderRoot?>materialize/js/jquery-2.1.1.min.js"></script>
+    <script src="<?echo $folderRoot?>materialize/js/materialize.min-v2.js"></script>
+    <script src="<?echo $folderRoot?>materialize/js/materialize.min.js"></script>
+    <script src="<?echo $folderRoot?>materialize/js/init.js"></script>
+    <script src="<?echo $folderRoot?>materialize/js/plugins.min.js"></script>
 
     <?php echo "<script>
       var applys = new Array();

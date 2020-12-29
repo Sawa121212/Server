@@ -1,8 +1,9 @@
 <?php
+$folderRootCount = 1;
 session_start();
-require 'conn/db.php';
+include("../inc/folderRoot.php");
 
-$data = $_POST;
+require $folderRoot.'conn/db.php';
 $file_name = basename(__FILE__);
 
 include("inc/header.php");

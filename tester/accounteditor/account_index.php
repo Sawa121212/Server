@@ -1,10 +1,13 @@
 <?php
+$folderRootCount = 2;
 session_start();
-require '../conn/db.php';
+include("../inc/folderRoot.php");
+
+require $folderRoot.'conn/db.php';
 $file_name = basename(__FILE__);
 
-include("../inc/headerFirstFolder.php");
-include("../inc/alertStyle.php");
+include($folderRoot."inc/header.php");
+include($folderRoot."inc/alertStyle.php");
 $data = $_POST;
 ?>
 <!DOCTYPE html>
