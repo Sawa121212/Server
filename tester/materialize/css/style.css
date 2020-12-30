@@ -10,7 +10,7 @@
   padding: 0 15px;
 }
 .icon-block .material-icons {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 #win {
@@ -37,10 +37,28 @@ main {
   flex: 1 0 auto;
 }
 
-.answer-apply{
+.answer-apply {
   background-color: green;
 }
 
-.answer-notapply{
+.answer-notapply {
   background-color: red;
 }
+
+.infoText {
+  display: block;
+  background-color: lemonchiffon;
+  border: 1px solid;
+  line-height: 0.5;
+  border-color: khaki;
+  font-size: 13px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.infoText div {
+  font-size: 14px;
+  background-color: khaki;
+  line-height: 1.5;
+}
+

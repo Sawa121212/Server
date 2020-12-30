@@ -4064,13 +4064,13 @@ nav .sidenav-trigger {
     float: left;
     position: relative;
     z-index: 1;
-    height: 56px;
+    height: 32px;
     margin: 0 18px
 }
 
 nav .sidenav-trigger i {
-    height: 56px;
-    line-height: 56px
+    height: 32px;
+    line-height: 32px
 }
 
 nav .brand-logo {
@@ -6071,7 +6071,8 @@ textarea.materialize-textarea {
     resize: none;
     min-height: 3rem;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box
+    box-sizing: border-box;
+    border: 1px solid;
 }
 
 .hiddendiv {

@@ -1,13 +1,13 @@
 <?php
 $folderRootCount = 1;
 session_start();
-include("../inc/folderRoot.php");
+include("inc/folderRoot.php");
 
 require $folderRoot.'conn/db.php';
 $file_name = basename(__FILE__);
 
-include("inc/header.php");
-include("inc/alertStyle.php");
+include($folderRoot."inc/header.php");
+include($folderRoot."inc/alertStyle.php");
 ?>
 <!DOCTYPE html>
 <html>

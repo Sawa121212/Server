@@ -147,8 +147,6 @@ include("inc/alertStyle.php");
             <div class="input-field col s12">
               <!--Зарегистрировать-->
               <button class='btn blue darken-2  z-depth-2' type='submit' value='Зарегистрировать' name='do_signup'>Зарегистрироваться</button>
-
-
             </div>
           </div>
 

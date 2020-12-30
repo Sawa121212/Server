@@ -83,14 +83,14 @@ if (isset($_SESSION['logged_user'])) {
 						</div>
 					</div>
 
-					<div class='row'>	
-						<div class='input-field col s12 m1'>
+					<div class='row' align='center'>	
+						<div class='input-field col s12 m2'>
 							<button class='btn blue darken-2 z-depth-2' 
 							type='submit' name='do_login'>Войти</button>
 						</div>
 						<div class='input-field col s12 m4'>
 						<a href='account_signup.php' class='btn blue darken-2 z-depth-2'>
-						Зарегистрировать аккаунт</a>
+						Зарегистрироваться</a>
 						</div>
 					</div>
 				</form>";
