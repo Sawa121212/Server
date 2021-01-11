@@ -8,7 +8,6 @@ $file_name = basename(__FILE__);
 
 include("inc/header.php");
 include("inc/alertStyle.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -242,7 +241,7 @@ include("inc/alertStyle.php");
                   $login = $_POST['login'];
                   // пароль нельзя хранить в открытом виде, мы его шифруем
                   // Убераем лишние пробелы и делаем двойное шифрование
-                  $password = md5(md5(trim($_POST['password'])));
+                  $password = sha1(sha1(trim($_POST['password'])));
 
                   $tabel_id = $_POST['tabel_id'];
                   $first_name = $_POST['first_name'];
@@ -250,6 +249,7 @@ include("inc/alertStyle.php");
                   $patronymic = $_POST['patronymic']; // отчество
                   $email = $_POST['email'];
                   $usertype = $_POST['usertype'];
+                  $u_uid = sha1(time());
 
                   $result = mysqli_query($link, "INSERT INTO users SET 
                     login='" . $login . "',
@@ -259,16 +259,28 @@ include("inc/alertStyle.php");
                     patronymic='" . $patronymic . "',
                     email='" . $email . "',
                     tabelID = '" . $tabel_id . "',
+                    uid = '" . $u_uid . "',
                     usertype='" . $usertype . "' ");
+
 
                   if ($result) {
                     echo "<span style='color:blue;'>Пользователь зарегистрирован.</span></br>";
                     header("Location: account_accesssignup.php"); /* Перенаправление браузера */
                     /* Убедиться, что код ниже не выполнится после перенаправления .*/
                     exit;
-
                   } else {
                     echo "<span style='color:red;'>Ошибка в регистрации! Данные не добавлены.</span></br>";
+
+                    //test
+                    //   echo "login='" . $login . "',
+                    //   password='" . $password . "',
+                    //   first_name='" . $first_name . "',
+                    //   second_name='" . $second_name . "',
+                    //   patronymic='" . $patronymic . "',
+                    //   email='" . $email . "',
+                    //   tabelID = '" . $tabel_id . "',
+                    //   uid = '" . $u_uid . "',
+                    //   usertype='" . $usertype . "' )";
                   }
                 } else {
                   echo '<div id="errors" style="color:red;">' . array_shift($errors) . '</div><hr>';

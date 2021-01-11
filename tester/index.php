@@ -39,7 +39,7 @@ include($folderRoot."inc/alertStyle.php");
             <h2 class='center light-blue-text'><i class='material-icons'>business_center</i></h2>
             <h5 class='center'>Создать тест</h5>
             <p class='light'>Информация</p>";
-      echo "<br/><a href='create/createquestion.php' class='btn blue darken-2 z-depth-2'>
+      echo "<br/><a href='create/createbase.php' class='btn blue darken-2 z-depth-2'>
             Создать</a>
             
           <br/><br/>

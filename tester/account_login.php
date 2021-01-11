@@ -14,14 +14,11 @@ if (isset($_SESSION['logged_user'])) {
 	exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Авторизация</title>
 </head>
-
 <body>
 	<div class="container" align="center">
 		<div class="row" align="center">
@@ -29,17 +26,14 @@ if (isset($_SESSION['logged_user'])) {
 			<?php
 			// Страница авторизации
 			$data = $_POST;
-
 			if (isset($data['do_login'])) //если кликнули на button
 			{
 				# Вытаскиваем из БД запись, у которой логин равняеться введенному
 				$login = $_POST['login'];
 				$query = mysqli_query($link, "SELECT * FROM users WHERE login='$login'");
-
 				$data = mysqli_fetch_array($query);
-
 				# Сравниваем пароли
-				if ($data['password'] === md5(md5($_POST['password']))) {
+				if ($data['password'] === sha1(sha1($_POST['password']))) {
 					//если пароль совпадает, то нужно авторизовать пользователя
 					$_SESSION['logged_user'] = $data;
 					echo '<div style="color:dreen;">Здраствуйте, ';
@@ -49,6 +43,7 @@ if (isset($_SESSION['logged_user'])) {
 					$_SESSION['patronymic'] = $data['patronymic'];
 					$_SESSION['login'] = $data['login'];
 					$_SESSION['email'] = $data['email'];
+					$_SESSION['uid'] = $data['uid'];					
 					$_SESSION['usertype'] = $data['usertype'];
 
 					echo $_SESSION['first_name'];
@@ -59,8 +54,8 @@ if (isset($_SESSION['logged_user'])) {
 					echo '<br/>Можете перейти на <a href="index.php">главную</a> страницу.</div><hr>';
 
 
-					//header('Refresh: 1; url = index.php');
-					//header( 'Location: index.php', true, 301 );
+					header('Refresh: 1; url = index.php');
+					header( 'Location: index.php', true, 301 );
 					exit;
 				} else {
 					echo "<h5 style='color: red;'>Вы ввели неправильный логин/пароль</h5><br>";

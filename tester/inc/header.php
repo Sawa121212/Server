@@ -21,7 +21,6 @@ if (empty($_SESSION['thema'])) {
   $_SESSION['thema'] = 0;
 }
 ?>
-
 <head>
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
