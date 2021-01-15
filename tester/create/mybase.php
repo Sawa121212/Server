@@ -1,12 +1,12 @@
 <?php
 $folderRootCount = 2;
 session_start();
-include("../inc/folderRoot.php");
+include("../inc/functions/func_folderRoot.php");
 
 require $folderRoot . 'conn/db.php';
 $file_name = basename(__FILE__);
 
-include($folderRoot . "inc/header.php");
+include($folderRoot . "inc/z_head.php");
 include($folderRoot . "inc/alertStyle.php");
 $data = $_POST;
 
@@ -19,13 +19,14 @@ if (empty($_SESSION['applys'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
-
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
-  <title>Вопросник</title>
+    <? include($folderRoot . "inc/z_head.php"); ?>
+    <title>Создание темы</title>
 </head>
-
 <body>
+<!--left panel-->
+<? include($folderRoot . "inc/z_leftPanel.php"); ?>
 
   <!--index-->
   <div class="container">
@@ -73,19 +74,9 @@ if (empty($_SESSION['applys'])) {
     </div> <!-- /row center -->
   </div>
 
-
-
-
-  <!--  Scripts-->
-  <script src="<?echo $folderRoot?>materialize/js/jquery-2.1.1.min.js"></script>
-  <script src="<?echo $folderRoot?>materialize/js/materialize.min-v2.js"></script>
-  <script src="<?echo $folderRoot?>materialize/js/materialize.min.js"></script>
-  <script src="<?echo $folderRoot?>materialize/js/init.js"></script>
-  <script src="<?echo $folderRoot?>materialize/js/plugins.min.js"></script>
-
-  <div class="sidenav-overlay"></div>
-  <div class="drag-target"></div>
-
+<!--footer-->
+<?php
+    include($folderRoot . "inc/z_footer.php");
+?>
 </body>
-
 </html>
