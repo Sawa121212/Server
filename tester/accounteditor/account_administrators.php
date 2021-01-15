@@ -4,7 +4,7 @@
 
   $file_name = basename(__FILE__);
   
-include("../inc/headerFirstFolder.php");
+include("../inc/functions/headerFirstFolder.php");
 include("../inc/alertStyle.php");
   $data = $_POST;
 ?>
@@ -123,7 +123,7 @@ if ($_SESSION['usertype'] == 1)
       echo "<li class='collection-item avatar lighten-2'>
       <span class='title'><h5 align='center'>Нет зарегистрированных пользователей</h5></span></li>";
       echo "<br><li class='collection-item avatar' align='center'>
-      <a href='../account_signup.php' class='btn-large blue darken-2  z-depth-2'>
+      <a href='../account/account_signup.php' class='btn-large blue darken-2  z-depth-2'>
       Зарегистрировать аккаунт</a></li>";     
     }
 

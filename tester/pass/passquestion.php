@@ -1,12 +1,12 @@
 <?php
 $folderRootCount = 2;
 session_start();
-include("../inc/folderRoot.php");
+include("../inc/func_folderRoot.php");
 
 require $folderRoot.'conn/db.php';
 $file_name = basename(__FILE__);
 
-include($folderRoot."inc/header.php");
+include($folderRoot . "inc/z_head.php");
 include($folderRoot."inc/alertStyle.php");
 
 $data = $_POST;

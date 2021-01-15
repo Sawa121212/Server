@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="" />
+    <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/inc/functions/func_usertype.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_accesssignup.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_accesssignup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_administrators.php" beforeDir="false" afterPath="$PROJECT_DIR$/accounteditor/account_administrators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/accounteditor/account_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/accounteditor/account_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_redaktors.php" beforeDir="false" afterPath="$PROJECT_DIR$/accounteditor/account_redaktors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/accounteditor/account_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conn/captcha/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/conn/captcha/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/createbase.php" beforeDir="false" afterPath="$PROJECT_DIR$/create/mybase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/create/createquestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/functions/func_SESSION.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions/func_SESSION.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/functions/func_captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions/func_captcha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/headerFirstFolder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/z_endcontent.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_endcontent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/z_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/z_head.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/z_leftPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_leftPanel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/materialize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/materialize.min-original.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/materialize.min-tableMinus.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/materialize.min.black.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/materialize.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/tar-button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/check_cons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/jquery-1.11.2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/jquery-2.1.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/materialize.min-v2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/materialize.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,17 +52,73 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/account/account_login.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/inc/z_head.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/inc/functions/func_captcha.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/account/account_signup.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/inc/z_leftPanel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/index.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="c504ce0b-dca3-413a-8f81-e940a82ee6fa" name="localhost" port="8383">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="D:/Program Files/OpenServer/OpenServer/domains/localhost/tester" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
+  <component name="PhpWebServerValidation" path_to_validation_script="W:\domains\localhost" selected_validation_type="LOCAL" web_path_to_validation_script="http://localhost:8383" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
+    <include_path>
+      <path value="" />
+    </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <hideBySeverity>
+      <option value="15" />
+    </hideBySeverity>
+  </component>
   <component name="ProjectId" id="1mv7DSnS3TCqC3Q2n1dMDjv1zje" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="W:/domains/localhost" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\inc" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\inc\functions" />
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\account" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="Unnamed">
+      <method v="2" />
+    </configuration>
+    <configuration name="lock1" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost">
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -34,6 +129,13 @@
       <option name="presentableId" value="Default" />
       <updated>1610362091865</updated>
       <workItem from="1610362093029" duration="10000" />
+      <workItem from="1610365280933" duration="61000" />
+      <workItem from="1610365342866" duration="1447000" />
+      <workItem from="1610366802267" duration="4901000" />
+      <workItem from="1610438683333" duration="2483000" />
+      <workItem from="1610446557304" duration="7499000" />
+      <workItem from="1610522666572" duration="11920000" />
+      <workItem from="1610600314868" duration="649000" />
     </task>
     <servers />
   </component>
@@ -50,5 +152,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/account/account_signup.php</url>
+          <line>151</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

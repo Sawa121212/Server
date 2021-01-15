@@ -3,7 +3,7 @@
   require '../conn/db.php';
   $file_name = basename(__FILE__);
 
-include("../inc/headerFirstFolder.php");
+include("../inc/functions/headerFirstFolder.php");
 include("../inc/alertStyle.php");
   $data = $_POST;
 ?>

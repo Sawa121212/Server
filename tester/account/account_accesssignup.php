@@ -1,74 +1,74 @@
 <?php
-session_start();
-require 'conn/db.php';
+    $folderRootCount = 2;
+    session_start();
+    include("../inc/functions/func_folderRoot.php");
 
-$data = $_POST;
+    require $folderRoot . 'conn/db.php';
+    $file_name = basename(__FILE__);
 
-$file_name = basename(__FILE__);
+    include($folderRoot . "inc/z_head.php");
+    include($folderRoot . "inc/alertStyle.php");
 
-include("inc/header.php");
-include("inc/alertStyle.php");
-
+    $data = $_POST;
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Регистрация</title>
+    <title>Регистрация</title>
 </head>
 
 <body>
 
-  <!--index-->
-  <div class="container" align="center">
-    <br>
+<!--index-->
+<div class="container" align="center">
     <div class="row" align="center">
-      <div class="row">
-        <span style='color:blue;'>Пользователь зарегистрирован.</span></br>
-        <div class="input-field col s12">
+        <div class="row">
+            <span style='color:blue;'>Пользователь зарегистрирован.</span></br>
+            <div class="input-field col s12">
 
-          <!--Зарегистрировать-->
-          <form style="width: 70%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-            <!-- <button class='btn blue darken-2  z-depth-2' type='submit' value='Войти' name='do_login'>Войти</button> -->
-            <a  href='account_login.php' class='button'>Войти</a></li>
-          </form>
+                <!--Зарегистрировать-->
+                <form style="width: 70%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <!-- <button class='btn blue darken-2  z-depth-2' type='submit' value='Войти' name='do_login'>Войти</button> -->
+                    <a href='account_login.php' class='button'>Войти</a></li>
+                </form>
+            </div>
         </div>
-      </div>
 
-      <?php
-      // if (isset($_POST['do_login'])) {
-      //   //если кликнули на button
-      //   /* Перенаправление браузера на другую страницу в той же директории, что и
-      //   изначально запрошенная */
-      //   $host  = $_SERVER['HTTP_HOST'];
-      //   $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-      //   $extra = 'account_login.php';
-      //   $urlHost = $host . $uri."/".$extra;
-      //   echo $urlHost;
-        
-      //   header("Location: http://$urlHost");
-      //  // exit;
-      //}
-      ?>
+        <?php
+            // if (isset($_POST['do_login'])) {
+            //   //если кликнули на button
+            //   /* Перенаправление браузера на другую страницу в той же директории, что и
+            //   изначально запрошенная */
+            //   $host  = $_SERVER['HTTP_HOST'];
+            //   $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            //   $extra = 'account_login.php';
+            //   $urlHost = $host . $uri."/".$extra;
+            //   echo $urlHost;
+
+            //   header("Location: http://$urlHost");
+            //  // exit;
+            //}
+        ?>
 
     </div> <!-- /row center -->
-  </div>
+</div>
 
-  <!--footer-->
-  <?php  //include("inc/footer.php");
-  ?>
-
-
-  <!--  Scripts-->
-  <script src="materialize/js/jquery-2.1.1.min.js"></script>
-  <script src="materialize/js/materialize.min-v2.js"></script>
-  <script src="materialize/js/materialize.min.js"></script>
-  <script src="materialize/js/init.js"></script>
+<!--footer-->
+<?php //include("inc/z_footer.php");
+?>
 
 
-  <div class="sidenav-overlay"></div>
-  <div class="drag-target"></div>
+<!--  Scripts-->
+<script src="materialize/js/jquery-2.1.1.min.js"></script>
+<script src="materialize/js/materialize.min-v2.js"></script>
+<script src="../materialize/js/materialize.min.js"></script>
+<script src="materialize/js/init.js"></script>
+
+
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
 
 </body>
 

@@ -1,5 +1,6 @@
-    <div id="clearingdiv"></div>
-</div>
+<?php
+    echo '<div id="clearingdiv"></div></div>';
+?>
 
 
 

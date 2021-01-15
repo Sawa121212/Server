@@ -1,75 +1,39 @@
-<div id="page">
-    <div id="menuleftcontent">
-        <ul class="blue darken-3 z-depth-1" id="menu">
-            <div class="row">
-                <!--Аккаунт-->
-                <div class="input-field col s3">
-                    <li><i class="material-icons left medium">account_circle</i></li>
-                </div>
-                <div class="input-field col s9">
-                    <?php
-                        if (isset($_SESSION['logged_user'])) {
-                            echo "<li><a href='" . $folderRoot . "account_profile.php' style='font-size: 18px; color: white;'>" . $_SESSION['login'] . "</a></li>
-                              <li><a href='" . $folderRoot . "account_profile.php' style='font-size: 13px; color: white;'>";
-                            if ($_SESSION['usertype'] == 1) {
-                                echo "Администратор";
-                            }
-                            if ($_SESSION['usertype'] == 2) {
-                                echo "Редактор";
-                            }
-                            if ($_SESSION['usertype'] == 3) {
-                                echo "Преподаватель";
-                            }
-                            if ($_SESSION['usertype'] == 4) {
-                                echo "Студент";
-                            }
-                            echo "</a><a href='" . $folderRoot . "account_logout.php' style='font-size: 14px; color: white;'>Выйти</a></li>";
-                        } else {
-                            echo "<li><a href='" . $folderRoot . "account_login.php' style='font-size: 14px; color: white;'>Войти</a></li>";
-                        }
-                    ?>
-                </div>
+<header>
+    <a href="#" data-target="nav-mobile"
+       class="top-nav sidenav-trigger waves-effect waves-light circle hide-on-large-only"><i
+                class="material-icons">menu</i></a></div>
+    <ul id="nav-mobile" class="sidenav sidenav-fixed">
+        <div class="row">
+            <!--Аккаунт-->
+            <div class="input-field col s3">
+                <li><i class="material-icons left medium">account_circle</i></li>
             </div>
-        </ul>
-
-        <li><a href="<? echo $folderRoot ?>index.php">Главная страница<i
-                        class="material-icons left Tiny">chevron_right</i></a>
+            <div class="input-field col s9">
+                <?php
+                    if (isset($_SESSION['logged_user'])) {
+                        echo "<li><a href='" . $folderRoot . "account/account_profile.php'>" . $_SESSION['login'] . "</a></li>";
+                        echo "<li><p>";
+                        include($folderRoot . "inc/functions/func_usertype.php");
+                        echo "</p></li>";
+                        echo "</a><a href='" . $folderRoot . "account/account_logout.php'>Выйти</a></li>";
+                    } else {
+                        echo "<li><a href='" . $folderRoot . "account/account_login.php'>Войти</a></li>";
+                        echo "<li><a href='" . $folderRoot . "account/account_signup.php'>Регистрация</a></li>";
+                    }
+                ?>
+            </div>
+        </div>
+        <? ///TODO bold active?>
+        <li class="bold">
+            <a href="<?= $folderRoot ?>index.php" class="waves-effect waves-teal">Главнвя Страница</a>
         </li>
-        <li class="divider"></li>
-        <li><a href="<? echo $folderRoot ?>mk_raspis_print_prepod.php">Расписание преподавателей<i
-                        class="material-icons left Tiny">chevron_right</i></a></li>
-        <li class="divider"></li>
-        <li><a href="<? echo $folderRoot ?>mk_raspis_print_students.php">Расписание студентов<i
-                        class="material-icons left Tiny">chevron_right</i></a></li>
-        <li class="divider"></li>
-        <li><a href="<? echo $folderRoot ?>mk_raspis_print_aud.php">Аудиторный фонд<i class="material-icons left Tiny">chevron_right</i></a>
+        <li class="bold">
+            <a href="<?= $folderRoot ?>create/mybase.php" class="waves-effect waves-teal">Мои тест</a>
         </li>
-        <li class="divider"></li>
-
-        <!--Регистрация-->
-        <?php
-            if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
-                echo "<li><a href='" . $folderRoot . "mk_raspis.php'>Создать расписание<i class='material-icons left Tiny'>chevron_right</i></a></li><li class='divider'></li>";
-                echo "<li><a href='" . $folderRoot . "mk_raspis_edit.php'>Учебный план<i class='material-icons left Tiny'>chevron_right</i></a></li><li class='divider'></li>";
-                echo "<li><a href='" . $folderRoot . "account_signup.php'>Регистрация</a></li><li class='divider'></li>";
-                echo "<li><a href='" . $folderRoot . "accounteditor/account_index.php'>Аккаунты</a></li>";
-            }
-        ?>
-    </div><!--menuleftcontent-->
-
-    <div id="clearingdiv"></div>
-</div>
-
-<script>
-    $(function () {
-        $("#maincontent > div:gt(0)").hide();
-        $("#menu a").on("click", function (e) {
-            var href = $(this).attr("href");
-            $("#maincontent > " + href).show();
-            $("#maincontent > :not(" + href + ")").hide();
-        });
-    });
-</script>
-
+        <li class="bold">
+            <a href="<?= $folderRoot ?>pass/passquestion.php" class="waves-effect waves-teal">Пройти тесты</a>
+        </li>
+    </ul>
+</header>
 
 
