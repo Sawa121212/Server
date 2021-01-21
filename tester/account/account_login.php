@@ -3,17 +3,13 @@
     $folderRootCount = 2;
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
+    CancelIsLoging($folderRoot);
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
 
     include($folderRoot . "inc/alertStyle.php");
 ?>
-<?php
-    if (isset($_SESSION['logged_user'])) {
-        header('Location: '.$folderRoot. 'index.php');
-        exit;
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -22,7 +18,7 @@
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_leftPanel.php"); ?>
+<? include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <div class="container" align="center">
     <div class="row" align="center">
@@ -52,21 +48,14 @@
                     $_SESSION['theme'] = $data['theme'];
                     $_SESSION['blocked'] = $data['is_blocked'];
 
-                    echo $_SESSION['first_name'];
-                    echo "&nbsp";
-                    echo $_SESSION['patronymic'];
-                    echo "&nbsp<br/> Вы авторизованы под пользователем - ";
-                    echo $_SESSION['login'];
-                    echo '<br/>Можете перейти на <a href="../index.php">главную</a> страницу.</div><hr>';
-
-                    header('Location: '.$folderRoot. 'index.php');
+                    header('Location: ' . $folderRoot . 'index.php');
                     exit;
                 } else {
                     echo "<h5 style='color: #ff0000;'>Вы ввели неправильный логин или пароль</h5><br>";
                 }
             }
 
-            echo "<form class='col s12' style='width: 95%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+            echo "<form id='login-form' class='col s12' style='width: 95%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
 					<div class='row'>
 						<div class='input-field col s12'>     <!--Логин-->
 							<i class ='material-icons prefix'>assignment_ind</i>
@@ -83,7 +72,7 @@
 					</div>
 
 					<div class='row' align='center'>	
-						<div class='input-field col s12 m2'>
+						<div class='input-field col s12 m4'>
 							<button class='btn darken-2 z-depth-2' 
 							type='submit' name='do_login'>Войти</button>
 						</div>

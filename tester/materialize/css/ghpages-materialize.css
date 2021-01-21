@@ -3189,7 +3189,8 @@ table span.badge {
 
 @media only screen and (min-width: 993px) {
     .container {
-        width: 70%
+        width: 70%;
+        margin-right: 300px /* от правого края для панели */
     }
 }
 
@@ -8578,7 +8579,7 @@ ul.sidenav.sidenav-fixed li a {
     font-size: 13px;
     line-height: 44px;
     height: 44px;
-    padding: 0 30px
+    /*padding: 0 30px*/
 }
 
 ul.sidenav.sidenav-fixed li a .new.badge {

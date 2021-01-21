@@ -5,7 +5,4 @@ if (!$link) echo "Невозможно установить соединение
 
 $database = "accounts";
 mysqli_select_db($link, $database); //устанавливаем текущую активную базу данных
-
-
-//session_start();
 ?>

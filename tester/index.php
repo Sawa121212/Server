@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_leftPanel.php"); ?>
+<? include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <!--index-->
 <main>
@@ -75,10 +75,10 @@
         </div><!-- class="section"-->
     </div><!-- class="container"-->
 </main>
+
 <?php
-    include("inc/z_footer.php");
+    include($folderRoot ."inc/z_footer.php");
 ?>
 
 </body>
-
 </html>

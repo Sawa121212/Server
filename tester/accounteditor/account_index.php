@@ -17,7 +17,7 @@
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_leftPanel.php"); ?>
+<? include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <body>
 

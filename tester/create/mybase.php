@@ -3,6 +3,8 @@
     $folderRootCount = 2;
 
     include("../inc/functions/func_folderRoot.php");
+    include($folderRoot . "inc/functions/func_SESSION.php");
+    CancelIsLogout($folderRoot);
 
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
@@ -19,58 +21,112 @@
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_leftPanel.php"); ?>
+<? include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <!--index-->
-<div class="container">
-    <br>
-    <div class="row">
-        <h3 align='center'>Мои темы</h3>
-        <p>Выбери все фрукты и ягоды, которые красного цвета.</p>
-
-        <? // устанавливаем текущую активную базу данных ($database_name, $link_identifier)
-            // mysqli_select_db($link, "id8435427_checkers");
-            // $select = mysqli_query($link, "SELECT id, question, answers, apply FROM quest_csharp");?>
-        <form style="width: 70%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-            <?php
-                $questionCount = 0;
-                echo "<b>Вопрос, варианты ответа:</b><br>
-        <textarea name='questionAndanswer' cols='40' rows='10' minlength='3' maxlength='500' placeholder='Текст (макс. 500 символов)' class='materialize-textarea'></textarea></p>
-        <span class='helper-text' data-error='wrong' data-success='right'></span><br>
-        <p><b>Правельные ответы:</b><br>
-          <input type='text' name='applys' autocomplete='off'>
-          <span class='helper-text' data-error='wrong' data-success='right'>Если несколько номеров ответа, пишите их через запятые</span>";
-            ?>
-            <p></p>
-            <div class="row">
-                <div class="input-field col s12">
-                    <!--Проверить ответы-->
-                    <button class='btn blue darken-2  z-depth-2' type='submit' name='do_AddAnswer'>Добавить вариант
-                                                                                                   ответа
-                    </button>
-                    <a href="createquestion.php"> ddddd</a>
-                </div>
-            </div>
-        </form>
+<main>
+    <div class="container">
         <br>
-
-
         <div class="row">
-            <div class="infoText">
-                <p><b>Здесь будет пример вашего вопроса:</b></p>
-                <?php
-                    if (isset($data['do_AddAnswer'])) { //если кликнули на button
-                        $_SESSION['questionAndanswer'] = $_POST['questionAndanswer'];
-                        $_SESSION['applys'] = $data['applys'];
-                        echo "<p> Вопрос, ответы: " . $_SESSION['questionAndanswer'];
-                        echo "<p> Првильные ответы: " . $_SESSION['applysQ'];
-                    }
-                ?>
+            <h3 align='center'>Мои темы</h3>
+            <div class="row">
+                <form class="col s12" style="width: 70%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="test_name" name="first_name" type="text" class="validate">
+                            <label for="test_name">Название темы теста</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <p>
+                                <label>
+                                    <input id="test_privet" name="test_privet" type="checkbox" />
+                                    <span>Приватный доступ</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="input-field col s3">
+                            <!--Проверить ответы-->
+                            <button class='btn darken-2  z-depth-2' type='submit' name='create'>Создать тест
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
-    </div> <!-- /row center -->
-</div>
+            <?
+                $data = $_POST;
 
+                $questionsBase = "tables";
+                //устанавливаем текущую активную базу данных
+                mysqli_select_db($link, $questionsBase);
+                $user_uid = $_SESSION['uid'];
+
+                if (isset($data['create'])) //если кликнули на button
+                {
+                    $tabel_zagalovok = $data['test_name'];
+
+                    $table_ID = sha1(time());
+                    $tabel_privet = $data['test_privet'];
+
+                    $sql_insert = "INSERT INTO list  SET
+                    name = '" . $tabel_zagalovok . "', 
+                    creator = '" . $user_uid . "', 
+                    table_ID = '" . $user_uid . "', 
+                    private = '" . $tabel_privet . "'";
+
+                    if (mysqli_query($link, $sql_insert)) {
+                        echo "Тест зарегистрирован.";
+                    } else {
+                        echo "Ошибка в регистрации теста: " . mysqli_error($link);
+                    }
+                    //////////////////////////////////////////////////////
+                    $tableName = "quest" . sha1(time());
+
+                    $sql_create = "CREATE TABLE '" . $tableName . "' (
+                                id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                                question VARCHAR(200) NOT NULL,
+                                answers VARCHAR(500) NOT NULL,
+                                apply VARCHAR(500) NOT NULL)";
+
+                    if (mysqli_query($link, $sql_create)) {
+                        echo "Тест создан.";
+                    } else {
+                        echo "Ошибка в создании теста: " . mysqli_error($link);
+                    }
+
+                }
+                //
+            ?>
+            <hr>
+            <div class="row">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Мои тесты</h4></li>
+                    <?php
+                        $select_quests = mysqli_query($link, "SELECT name, private FROM list WHERE creator ='$user_uid'");
+                        $myTestIsEmpty = true;
+                        while ($r = mysqli_fetch_array($select_quests)) {
+                            $myTestIsEmpty = false;
+                            echo "<li class='collection-item'>";
+                            echo "<div>" . $r['name'] . "<a href='#!' class='secondary-content'>";
+                            if ($r['private'] == false) {
+                                echo "Публичный";
+                            } else {
+                                echo "Приватный";
+                            }
+                            echo "<i class='material-icons'>send</i></a></div>";
+                            echo "</li>";
+                        }
+                        if ($myTestIsEmpty == true) {
+                            echo "<li class='collection-item'>";
+                            echo "<div>Вы еще не создавали тесты</div>";
+                            echo "</li>";
+                        }
+                    ?>
+
+                </ul>
+            </div>
+        </div> <!-- /row center -->
+    </div>
+</main>
 <!--footer-->
 <?php
     include($folderRoot . "inc/z_footer.php");

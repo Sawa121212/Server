@@ -20,4 +20,19 @@
     if (empty($_SESSION['theme'])) {
         $_SESSION['theme'] = 0;
     }
+
+    function CancelIsLoging($folderRoot){
+        if (!empty($_SESSION['logged_user'])) {
+            header('Location: ' . $folderRoot . 'index.php');
+            exit;
+        }
+    }
+    function CancelIsLogout($folderRoot){
+        if (empty($_SESSION['logged_user'])) {
+            header('Location: ' . $folderRoot . 'account/account_login.php');
+            exit;
+        }
+    }
+
+
 ?>

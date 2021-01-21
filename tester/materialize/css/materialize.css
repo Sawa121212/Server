@@ -2199,6 +2199,10 @@ main {
   display: block;
 }
 
+header, main, footer {
+  padding-right: 300px;
+}
+
 /**
  * Add the correct margin in IE 8.
  */

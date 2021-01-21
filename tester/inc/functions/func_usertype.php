@@ -2,10 +2,10 @@
     if ($_SESSION['usertype'] == 1) {
         echo "Администратор";
     }
-    if ($_SESSION['usertype'] == 2) {
+    else if ($_SESSION['usertype'] == 2) {
         echo "Редактор";
     }
-    if ($_SESSION['usertype'] == 3) {
+    else if ($_SESSION['usertype'] == 3) {
         echo "Пользователь";
-    }
+    } else echo "Гость";
 ?>
