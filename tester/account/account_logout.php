@@ -14,6 +14,7 @@
     unset($_SESSION['email']);
     $_SESSION['usertype'] = 4;
     $_SESSION['theme'] = 0;
+    $_SESSION['uid'] = 0;
 
 
     header('Location: ' . $folderRoot . 'index.php'); ?>

@@ -18,7 +18,7 @@
 <html lang="ru">
 <head>
     <? include($folderRoot . "inc/z_head.php"); ?>
-    <title>Вопросник</title>
+    <title>Редактирование</title>
 </head>
 <body>
 <!--left panel-->
@@ -32,34 +32,130 @@
                 <?php
                     $url = $_SERVER['REQUEST_URI'];
                     $arr_url = parse_url($url);
-                    $questName = str_replace('db=', '', $arr_url['query']);
+
+                    if (!empty($arr_url['query'])) {
+                        if (empty($_SESSION['getUrl'])) {
+                            $_SESSION['getUrl'] = $arr_url['query'];
+                        }
+                    } else {
+                        $arr_url['query'] = $_SESSION['getUrl'];
+                        $_SESSION['getUrl'] = null;
+                    }
+
+                    $mod = 'open'; // open or delete
+
+                    // выбераем режим работы
+                    if (stristr($arr_url['query'], 'open_db=') == TRUE) {
+                        $mod = 'open';
+                    } else if (stristr($arr_url['query'], 'delete_db=') == TRUE) {
+                        $mod = 'delete';
+                    } else if (stristr($arr_url['query'], 'close_db=') == TRUE) {
+                        $mod = 'close';
+                    }
+                    $questName = str_replace($mod . '_db=', '', $arr_url['query']);
 
                     $questionsBase = "tables";
                     //устанавливаем текущую активную базу данных
                     mysqli_select_db($link, $questionsBase);
 
                     // проверяем, не удалена ли или не заблокирована ли данная БД
-                    $checkDB = mysqli_query($link, "SELECT del, is_blocked FROM list WHERE table_ID ='$questName'");
-                    $arrayDBBlocked = mysqli_fetch_array($checkDB);
-                    if ($arrayDBBlocked['del'] == 'true' || $arrayDBBlocked['is_blocked'] == 'true') {
-                        /// ToDo: зделать Приватный доступ
-                        header('Location: ' . $folderRoot . 'index.php');
+                    $checkDB = mysqli_query($link, "SELECT name, creator, is_start FROM list WHERE table_ID ='$questName'");
+                    $arrayDB = mysqli_fetch_array($checkDB);
+                    if ($arrayDB['creator'] != $_SESSION['uid']) {
+                        /// ToDo: зделать доступ admin
+                        header('Location: ' . $folderRoot . 'tool/mybase.php');
                         exit;
                     }
 
-                    //устанавливаем текущую активную базу данных ($database_name, $link_identifier)
-                    //mysqli_select_db($link, "id8435427_checkers");
-                    $select = mysqli_query($link, "SELECT id, question, answers, apply FROM $questName");
-
                     echo "<h3 align='center'>Редактирование</h3>";
 
+                    if ($mod == 'delete')
+                        echo "<div class='row'>
+                        <form class='col s12' style='width: 70%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+                            <div class='row'>
+                                <div class='input-field col s12 m12'>
+                                    <p>Вы действительно хотите удалить тему:</p>
+                                    <p><b>" . $arrayDB['name'] . " ?</b></p>
+                                    <p><b>Восстановить будет невозможно!</b></p>
+                                </div>
+                                <div class='input-field col s6 m3'>
+                                    <button class='btn darken-2  z-depth-2' type='submit' name='delete'>
+                                        <i class='material-icons left'>delete_forever</i>
+                                        Удалить
+                                    </button>
+                                </div>
+                                 <div class='input-field col s6 m3'>
+                                    <button class='btn darken-2  z-depth-2 red' type='submit' name='cancel'>Отмена</button>
+                                </div>                                
+                            </div>
+                        </form>
+                    </div>";
 
-                    ?>
-                </div>
+                    // open / close
+                    else if ($mod == 'open' || $mod == 'close')
+                        $change = $mod == "open" ?  'открыть' : 'закрыть';
+                    echo "<div class='row'>
+                        <form class='col s12' style='width: 70%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+                            <div class='row'>
+                                <div class='input-field col s12 m12'>
+                                    <p>Вы действительно хотите " . $change . " тему:</p>
+                                    <p><b>" . $arrayDB['name'] . " ?</b></p>
+                                    <p><b>Вы можете вернуть состояние обратно в любой момент!</b></p>
+                                </div>
+                                <div class='input-field col s6 m3'>
+                                    <button class='btn darken-2  z-depth-2' type='submit' name='open'>
+                                        <i class='material-icons left'>lock_open</i>
+                                        " . $change . "
+                                    </button>
+                                </div>
+                                <div class='input-field col s6 m3'>
+                                    <button class='btn darken-2  z-depth-2 red' type='submit' name='cancel'>Отмена</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>";
+                ?>
             </div>
-
-            <div class="drag-target"></div>
         </div>
+
+        <?php
+            // cancel
+            if (isset($data['cancel'])) {
+                header('Location: ' . $folderRoot . 'tool/mybase.php');
+                exit;
+            }
+
+            // delete
+            if (isset($data['delete'])) {
+                $sql_delete_row = "DELETE FROM list WHERE table_ID ='$questName'";
+
+                if (mysqli_query($link, "DELETE FROM list WHERE table_ID ='$questName'")) {
+                    if (mysqli_query($link, "DROP TABLE '$questName'")) {
+                        header('Location: ' . $folderRoot . 'tool/mybase.php');
+                        exit;
+                    } else {
+                        echo "<span style='color: red;'>Ошибка в удалении теста: " . mysqli_error($link) . "</span>";
+                    }
+                } else {
+                    echo "<span style='color: red;'>Ошибка в удалении темы: " . mysqli_error($link) . "</span>";
+                }
+            }
+
+            // open / close
+            if (isset($data['open']) || isset($data['close'])) {
+                $change = $mod == "open" ? 'true' : 'false';
+                $sqlOpenDB = "UPDATE list SET is_start='$change' WHERE table_ID ='$questName'";
+                if (mysqli_query($link, $sqlOpenDB)) {
+                    header('Location: ' . $folderRoot . 'tool/mybase.php');
+                    exit;
+                } else {
+                    $info_mod = $mod == "open" ? 'открытии' : 'закрытии';
+                    echo "<span style='color: red;'>Ошибка при " . $info_mod . " темы: " . mysqli_error($link) . "</span>";
+                }
+            }
+        ?>
+        <div class="drag-target"></div>
+    </div>
 </main>
 
 <?php

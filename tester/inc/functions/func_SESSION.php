@@ -20,6 +20,9 @@
     if (empty($_SESSION['theme'])) {
         $_SESSION['theme'] = 0;
     }
+    if (empty($_SESSION['uid'])) {
+        $_SESSION['uid'] = 0;
+    }
 
     function CancelIsLoging($folderRoot){
         if (!empty($_SESSION['logged_user'])) {

@@ -3,11 +3,11 @@
     session_start();
     include("inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
-
+    
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -23,61 +23,86 @@
     <div class="container">
         <div class="section">
             <h3 align="center">Главная страница</h3>
-
-            <?php
-                //Составить Расписание
-
-                echo "<!-- Расписание:-->\n<div class='row center'>";
-                if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
-                }
-
-                //Расписание преподавателей
-                echo "<h5 class='header col s12 light center'><b>Средство тестирования</b></h5>";
-
-                echo "<div class='row center'>
-        <div class='col s12 m3 offset-m1 center-align lighten-1 z-depth-3' style='margin-right:10px; margin-bottom:20px;'>
-          <div class='icon-block'>
-            <h2 class='center light-blue-text'><i class='material-icons'>business_center</i></h2>
-            <h5 class='center'>Создать тест</h5>
-            <p class='light'>Информация</p>";
-                echo "<br/><a href='create/mybase.php' class='btn blue darken-2 z-depth-2'>
-            Создать</a>
             
-          <br/><br/>
-          </div>
-        </div>";
+            <div class="row">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Тесты</h4></li>
+                    <?php
+                        
+                        $data = $_POST;
+                        
+                        $questionsBase = "tables";
+                        //устанавливаем текущую активную базу данных
+                        mysqli_select_db($link, $questionsBase);
+                        $user_uid = $_SESSION['uid'];
 
-                //Расписание студентов
-                echo "<div class='col s12 m3 center-align lighten-1 z-depth-3' style='margin-right:10px; margin-bottom:20px;'>
-          <div class='icon-block'>
-            <h2 class='center light-blue-text'><i class='material-icons'>school</i></h2>
-            <h5 class='center'>Пройти тесты</h5>
-            <p class='light'>Информация</p>";
-                echo "<br/><a href='pass/passquestion.php' class='btn blue darken-2 z-depth-2'>
-            Пройти</a>
-          <br/><br/>
-        </div>
-        </div><!--flexbox-->";
+                        /// ToDo: зделать Приватный доступ
+                        $select_quests = mysqli_query($link, "SELECT name,table_ID, private, del, is_blocked, creator FROM list WHERE is_start ='true'");
+                        $TestIsEmpty = true;
+                        while ($r = mysqli_fetch_array($select_quests)) {
+                            if ($r['del'] == 'false') {
+                                if ($r['is_blocked'] == 'false') {
+                                    $TestIsEmpty = false;
+                                    echo "<li class='collection-item'>";
 
-                //Аудиторный фонд
-                echo "<div class='col s12 m3 center-align lighten-1 z-depth-3'>
-          <div class='icon-block'>
-            <h2 class='center light-blue-text'><i class='material-icons'>meeting_room</i></h2>
-            <h5 class='center'>Аудиторный фонд</h5>
-            <p class='light'>Информация</p>";
-                echo "<br/><a href='mk_raspis_print_aud.php' class='btn blue darken-2 z-depth-2'>
-            Посмотреть</a>
-          <br/><br/>
-        </div>
-        </div><!--flexbox-->
-        </div><!-- row-->";
-            ?>
+                                    // icon privat or YouDB
+                                    echo "<div><i class='material-icons ";
+                                    if ($r['creator'] == $user_uid) {
+                                        echo "'>folder_shared";
+                                    } else {
+                                        if ($r['private'] == 'true') {
+                                            echo "'>folder_special";
+                                        } else {
+                                            echo "'>folder";
+                                        }
+                                    }
+                                    echo "</i>";
+
+                                    // goToTest btn
+                                    echo $r['name'] . "<a href='";
+                                    if ($r['is_blocked'] != 'true') {
+                                        echo $folderRoot . "pass/passquestion.php?db=" . $r['table_ID'];
+                                    } else {
+                                        echo "#!";
+                                    }
+
+                                    //title
+                                    echo "' title='";
+                                    if ($r['is_blocked'] != 'true') {
+                                        echo "Пройти тест";
+                                    } else {
+                                        echo "Заблокирован";
+                                    }
+                                    echo "' class='secondary-content'>";
+
+                                    // icon is_blocked
+                                    echo "<i class='material-icons ";
+                                    if ($r['is_blocked'] != 'true') {
+                                        echo "'>send";
+                                    } else {
+                                        echo "red'>block";
+                                    }
+
+                                    echo "</i></a></div>";
+                                    echo "</li>";
+                                }
+                            }
+                        }
+                        if ($TestIsEmpty == true) {
+                            echo "<li class='collection-item'>";
+                            echo "<div>Пользователи еще не создавали тесты</div>";
+                            echo "</li>";
+                        }
+                    ?>
+                
+                </ul>
+            </div>
         </div><!-- class="section"-->
     </div><!-- class="container"-->
 </main>
 
 <?php
-    include($folderRoot ."inc/z_footer.php");
+    include($folderRoot . "inc/z_footer.php");
 ?>
 
 </body>

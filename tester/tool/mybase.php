@@ -17,7 +17,7 @@
 <html lang="ru">
 <head>
     <? include($folderRoot . "inc/z_head.php"); ?>
-    <title>Создание темы</title>
+    <title>Тесты</title>
 </head>
 <body>
 <!--left panel-->
@@ -28,7 +28,7 @@
     <div class="container">
         <br>
         <div class="row">
-            <h3 align='center'>Мои темы</h3>
+            <h3 align='center'>Тесты</h3>
             <div class="row">
                 <form class="col s12" style="width: 70%;" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                     <div class="row">
@@ -48,7 +48,9 @@
                         </div>
                         <div class="input-field col s6 m3">
                             <!--Проверить ответы-->
-                            <button class='btn darken-2  z-depth-2' type='submit' name='create'>Создать тест
+                            <button class='btn darken-2  z-depth-2' type='submit' name='create'>
+                                <i class='material-icons left'>library_add</i>
+                                Создать тест
                             </button>
                         </div>
                     </div>
@@ -59,12 +61,11 @@
                 $dateTime = date("Y-m-d H:i:s");
                 $questionsBase = "tables";
 
-                //quest6527e984cde8db735a6843e2979ec2e5a5eb69c1asdadn:JAnd';ADKLN'adnkas'dkms'adkasmdkskjnfshguoftrdngfiudgbuvbaouybvaorbvoybrbvarvbaobrvabovrabrovabrbvbaroyabvravr
                 //устанавливаем текущую активную базу данных
                 mysqli_select_db($link, $questionsBase);
                 $user_uid = $_SESSION['uid'];
 
-                if (isset($data['create'])) //если кликнули на button
+                if (isset($data['tool'])) //если кликнули на button
                 {
                     $tabel_zagalovok = $data['test_name'];
 
@@ -171,7 +172,12 @@
                                 /// lock
                                 // lock btn
                                 echo "<a href='";
-                                echo $folderRoot . "tool/edit.php?edit_db=" . $r['table_ID'];
+                                if ($r['is_start'] == 'true') {
+                                    echo $folderRoot . "tool/edit.php?close_db=" . $r['table_ID'];
+                                } else {
+                                    echo $folderRoot . "tool/edit.php?open_db=" . $r['table_ID'];
+                                }
+
                                 //lock title
                                 echo "' title='";
                                 if ($r['is_start'] == 'true') {

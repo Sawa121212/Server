@@ -55,3 +55,17 @@
     background-color: khaki;
     line-height: 1.5;
 }
+
+.svg_icon {
+    color: #e8eaed;
+    fill: currentColor;
+    vertical-align: middle;
+    font-size: 2rem;
+    margin-left: 5px;
+}
+.icon_text {
+    padding: 0 74px 0 16px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+}
