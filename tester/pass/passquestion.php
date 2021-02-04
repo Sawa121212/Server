@@ -60,7 +60,6 @@
                     $applyArray = array_values($applyArray);
 
                     echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form'>";
-                    //echo "<form class='col s12' style='width: 95%;' form action=". $_SERVER['PHP_SELF']. " method='POST'>";
                     while ($r_pytn = mysqli_fetch_array($select)) {
                         $radioValue = 1;
                         echo "<p><b>" . $questID . ". " . $r_pytn['question'] . "<span id='questApply" . $questID . "' style='color:red;'></span></b></p>";
@@ -83,6 +82,7 @@
                         $applyArray[] = $r_pytn['apply'];
                         $questID++;
                     }
+                    echo "</form>";
 
                 ?>
                 <div class="row">

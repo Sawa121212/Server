@@ -69,7 +69,7 @@
 
                     echo "<h3 align='center'>Редактирование</h3>";
 
-                    if ($mod == 'delete')
+                    if ($mod == 'delete') {
                         echo "<div class='row'>
                         <form class='col s12' style='width: 70%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
                             <div class='row'>
@@ -90,11 +90,11 @@
                             </div>
                         </form>
                     </div>";
-
-                    // open / close
-                    else if ($mod == 'open' || $mod == 'close')
-                        $change = $mod == "open" ?  'открыть' : 'закрыть';
-                    echo "<div class='row'>
+                    } // open / close
+                    else if ($mod == 'open' || $mod == 'close') {
+                        $change = $mod == "open" ? 'открыть' : 'закрыть';
+                        $changeIcon = $mod == "open" ? 'lock_open' : 'lock_outline';
+                        echo "<div class='row'>
                         <form class='col s12' style='width: 70%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
                             <div class='row'>
                                 <div class='input-field col s12 m12'>
@@ -104,16 +104,19 @@
                                 </div>
                                 <div class='input-field col s6 m3'>
                                     <button class='btn darken-2  z-depth-2' type='submit' name='open'>
-                                        <i class='material-icons left'>lock_open</i>
+                                        <i class='material-icons left'>" . $changeIcon . "</i>
                                         " . $change . "
                                     </button>
                                 </div>
                                 <div class='input-field col s6 m3'>
-                                    <button class='btn darken-2  z-depth-2 red' type='submit' name='cancel'>Отмена</button>
+                                    <button class='btn darken-2  z-depth-2 red' type='submit' name='cancel'>
+                                        <i class='material-icons left'>cancel</i>Отмена
+                                    </button>
                                 </div>
                             </div>
                         </form>
                     </div>";
+                    }
                 ?>
             </div>
         </div>
@@ -125,23 +128,7 @@
                 exit;
             }
 
-            // delete
-            if (isset($data['delete'])) {
-                $sql_delete_row = "DELETE FROM list WHERE table_ID ='$questName'";
-
-                if (mysqli_query($link, "DELETE FROM list WHERE table_ID ='$questName'")) {
-                    if (mysqli_query($link, "DROP TABLE '$questName'")) {
-                        header('Location: ' . $folderRoot . 'tool/mybase.php');
-                        exit;
-                    } else {
-                        echo "<span style='color: red;'>Ошибка в удалении теста: " . mysqli_error($link) . "</span>";
-                    }
-                } else {
-                    echo "<span style='color: red;'>Ошибка в удалении темы: " . mysqli_error($link) . "</span>";
-                }
-            }
-
-            // open / close
+            // save
             if (isset($data['open']) || isset($data['close'])) {
                 $change = $mod == "open" ? 'true' : 'false';
                 $sqlOpenDB = "UPDATE list SET is_start='$change' WHERE table_ID ='$questName'";

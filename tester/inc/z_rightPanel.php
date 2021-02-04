@@ -29,18 +29,26 @@
                         <i class='material-icons left small' style='line-height: inherit;'>person</i>
                          Войти</a><br>";
                 echo "<a href='" . $folderRoot . "account/account_signup.php' class='white-text'>
-                        <!--<svg class='svg_icon' enable-background='new 0 0 24 24' focusable='false' height='20' viewBox='0 0 24 24' width='20' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><path d='M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-.99C3.2 16.29 6.3 15 9 15s5.8 1.29 6 2v1zm3-4v-3h-3V9h3V6h2v3h3v2h-3v3h-2z'></path></svg>
-                        <span class='icon_text'>Регистрация</span></a>-->
                         <i class='material-icons left small' style='line-height: inherit;'>person_add</i>Регистрация</a>";
             }
             echo "</div></li>";
 
+
+            $adminBtnStyle = "border: 1px solid;border-color: darkcyan;";
 
             ///TODO bold active
             if (!empty($_SESSION['logged_user'])) {
                 echo "<li class='bold'>
                         <a href='" . $folderRoot . "tool/mybase.php' class='waves-effect waves-teal'>Управление тестами</a>
                    </li>";
+                if ($_SESSION['usertype'] == 1) {
+                    echo "<li class='bold'>
+                        <a href='" . $folderRoot . "adminer/news.php' class='waves-effect waves-teal' style='" . $adminBtnStyle . "'>Управление новостями</a>
+                   </li>";
+                    echo "<li class='bold'>
+                        <a href='" . $folderRoot . "adminer/adminpanel.php' class='waves-effect waves-teal' style='" . $adminBtnStyle . "'>Администрирование</a>
+                   </li>";
+                }
             }
         ?>
     </ul>

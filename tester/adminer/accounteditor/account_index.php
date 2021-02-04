@@ -27,7 +27,7 @@
         <h3>Аккаунты</h3>
 
         <div class="row">
-            <?php echo "<br/><a href='../account/account_signup.php' class='btn blue darken-2 z-depth-2'>
+            <?php echo "<br/><a href='../../account/account_signup.php' class='btn blue darken-2 z-depth-2'>
           Зарегистрировать аккаунт</a>";
             ?>
         </div>

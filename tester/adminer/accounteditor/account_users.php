@@ -51,7 +51,7 @@ include("../inc/alertStyle.php");
       echo "<li class='collection-item avatar lighten-2'>
       <span class='title'><h5 align='center'>Нет зарегистрированных пользователей</h5></span></li>";
       echo "<br><li class='collection-item avatar' align='center'>
-      <a href='../account/account_signup.php' class='btn-large blue darken-2 z-depth-2'>
+      <a href='../../account/account_signup.php' class='btn-large blue darken-2 z-depth-2'>
       Зарегистрировать аккаунт</a></li>";     
     }
 
@@ -72,8 +72,8 @@ include("../inc/alertStyle.php");
   <script src="../materialize/js/jquery-2.1.1.min.js"></script>
   <script src="../materialize/js/materialize.min-v2.js"></script>
   <script src="../materialize/js/materialize.min.js"></script>
-  <script src="../materialize/js/init.js"></script>
-  <script src="../materialize/js/plugins.min.js"></script>
+  <script src="../../materialize/js/init.js"></script>
+  <script src="../../materialize/js/plugins.min.js"></script>
    
 
 <div class="sidenav-overlay"></div><div class="drag-target"></div>

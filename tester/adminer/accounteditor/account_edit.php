@@ -296,8 +296,8 @@ include("../inc/alertStyle.php");
   <script src="../materialize/js/jquery-2.1.1.min.js"></script>
   <script src="../materialize/js/materialize.min-v2.js"></script>
   <script src="../materialize/js/materialize.min.js"></script>
-  <script src="../materialize/js/init.js"></script>
-  <script src="../materialize/js/plugins.min.js"></script>
+  <script src="../../materialize/js/init.js"></script>
+  <script src="../../materialize/js/plugins.min.js"></script>
    
 
 <div class="sidenav-overlay"></div><div class="drag-target"></div>

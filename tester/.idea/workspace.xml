@@ -2,23 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tool/edit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/mybase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/#source/js/bin/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/#source/js/bin/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/#source/js/datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/#source/js/datepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminer/adminpanel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminer/news.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/createquestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create/mybase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/functions/func_SESSION.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions/func_SESSION.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_administrators.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_administrators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_redaktors.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_redaktors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounteditor/account_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/office.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/office.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/worker.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/worker.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inc/z_rightPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_rightPanel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/.old/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/.old/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/.old/js/materialize.min-v2.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/.old/js/materialize.min-v2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/js/materialize.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/createquestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/mybase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/mybase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,9 +83,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="W:/domains/localhost" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/adminer/accounteditor" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -92,9 +93,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\adminer\accounteditor" />
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\adminer" />
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\inc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\adminer" />
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\inc\functions" />
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\account" />
     </key>
@@ -115,7 +119,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Dictionaries\ru" CustomDictionaries="1" CustomDictionary0="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Dictionaries\ru\index.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructuralSearchPlugin">
     <replaceConfiguration name="Unnamed" created="1611828337873" text="&lt;title&gt;Вопросник&lt;/title&gt;" recursive="false" caseInsensitive="false" type="PHP" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="&lt;title&gt;Вопросник&lt;/title&gt;" history="1">
       <constraint name="__context__" within="" contains="" />
@@ -150,6 +154,17 @@
       <workItem from="1611735234731" duration="10797000" />
       <workItem from="1611811135790" duration="348000" />
       <workItem from="1611811517797" duration="24338000" />
+      <workItem from="1611898211008" duration="2403000" />
+      <workItem from="1611925295729" duration="208000" />
+      <workItem from="1611925662802" duration="14000" />
+      <workItem from="1611925716949" duration="100000" />
+      <workItem from="1612157317715" duration="19902000" />
+      <workItem from="1612243399113" duration="2912000" />
+      <workItem from="1612247603452" duration="147000" />
+      <workItem from="1612272193013" duration="1333000" />
+      <workItem from="1612330767812" duration="705000" />
+      <workItem from="1612356204655" duration="3720000" />
+      <workItem from="1612416775536" duration="6609000" />
     </task>
     <servers />
   </component>
@@ -181,12 +196,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/pass/passquestion.php</url>
-          <line>69</line>
+          <line>68</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/tool/mybase.php</url>
-          <line>83</line>
+          <line>75</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
