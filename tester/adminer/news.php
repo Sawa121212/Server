@@ -94,7 +94,6 @@
                 <div class="col s12 m6">
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
-                            <span class="card-title">Информация</span>
                             <p>На главной странице отображаются последние 5 новостей.</p>
                             <p>Для управления новостями будут отображаться последние 10 новостей.</p>
                         </div>
@@ -125,7 +124,7 @@
 
                         $newsIsEmpty = false;
                         echo "<ul class='collection with-header z-depth-1'>
-                            <li class='collection-header lightcoral'><h5><p>Выберите тип:</p></h5>
+                            <li class='collection-header blue lighten-2'><h5><p>Выберите тип:</p></h5>
                             
                             <p><label><input name='group_type' type='radio' value='1' ";
                                 if($checkedValue == "1") echo 'checked';

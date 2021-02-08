@@ -81,6 +81,7 @@
                         }
                         $applyArray[] = $r_pytn['apply'];
                         $questID++;
+                        echo "<br>";
                     }
                     echo "</form>";
 

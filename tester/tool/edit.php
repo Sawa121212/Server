@@ -42,7 +42,7 @@
                         $_SESSION['getUrl'] = null;
                     }
 
-                    $mod = 'open'; // open or delete
+                    $mod = 'open'; // default open
 
                     // выбераем режим работы
                     if (stristr($arr_url['query'], 'open_db=') == TRUE) {
@@ -69,6 +69,7 @@
 
                     echo "<h3 align='center'>Редактирование</h3>";
 
+                    // delete
                     if ($mod == 'delete') {
                         echo "<div class='row'>
                         <form class='col s12' style='width: 70%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
@@ -117,29 +118,47 @@
                         </form>
                     </div>";
                     }
+
+                    // cancel
+                    if (isset($data['cancel'])) {
+                        header('Location: ' . $folderRoot . 'tool/mybase.php');
+                        exit;
+                    }
+
+                    // save
+                    if (isset($data['open']) || isset($data['close'])) {
+                        $change = $mod == "open" ? 'true' : 'false';
+                        $sqlOpenDB = "UPDATE list SET is_start='$change' WHERE table_ID ='$questName'";
+                        if (mysqli_query($link, $sqlOpenDB)) {
+                            header('Location: ' . $folderRoot . 'tool/mybase.php');
+                            exit;
+                        } else {
+                            $info_mod = $mod == "open" ? 'открытии' : 'закрытии';
+                            echo "<span style='color: red;'>Ошибка при " . $info_mod . " темы: " . mysqli_error($link) . "</span>";
+                        }
+                    }
+
+                    // delete
+                    if (isset($data['delete'])) {
+                        $sql_delete_row = "DELETE FROM list WHERE table_ID ='$questName'";
+
+                        if (mysqli_query($link, "DELETE FROM list WHERE table_ID ='$questName'")) {
+                            if (mysqli_query($link, "DROP TABLE '$questName'")) {
+                                header('Location: ' . $folderRoot . 'tool/mybase.php');
+                                exit;
+                            } else {
+                                echo "<span style='color: red;'>Ошибка в удалении теста: " . mysqli_error($link) . "</span>";
+                            }
+                        } else {
+                            echo "<span style='color: red;'>Ошибка в удалении темы: " . mysqli_error($link) . "</span>";
+                        }
+                    }
                 ?>
             </div>
         </div>
 
         <?php
-            // cancel
-            if (isset($data['cancel'])) {
-                header('Location: ' . $folderRoot . 'tool/mybase.php');
-                exit;
-            }
 
-            // save
-            if (isset($data['open']) || isset($data['close'])) {
-                $change = $mod == "open" ? 'true' : 'false';
-                $sqlOpenDB = "UPDATE list SET is_start='$change' WHERE table_ID ='$questName'";
-                if (mysqli_query($link, $sqlOpenDB)) {
-                    header('Location: ' . $folderRoot . 'tool/mybase.php');
-                    exit;
-                } else {
-                    $info_mod = $mod == "open" ? 'открытии' : 'закрытии';
-                    echo "<span style='color: red;'>Ошибка при " . $info_mod . " темы: " . mysqli_error($link) . "</span>";
-                }
-            }
         ?>
         <div class="drag-target"></div>
     </div>

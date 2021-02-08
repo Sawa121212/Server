@@ -55,55 +55,54 @@
                                     Создать тест
                                 </button>
                             </div>
+
+                            <?
+                                $dateTime = date("Y-m-d H:i:s");
+                                $questionsBase = "tables";
+
+                                //устанавливаем текущую активную базу данных
+                                mysqli_select_db($link, $questionsBase);
+                                $user_uid = $_SESSION['uid'];
+
+                                if (isset($data['create'])) {
+                                    $tabel_zagalovok = $data['test_name'];
+
+                                    $table_ID = "quest_" . sha1(time());
+
+                                    $tabel_privet = isset($data['test_privet']) ? "true" : "false";
+
+                                    $sql_insert = "INSERT INTO list  SET
+                                        name = '" . $tabel_zagalovok . "', 
+                                        creator = '" . $user_uid . "', 
+                                        table_ID = '" . $table_ID . "', 
+                                        date = '" . $dateTime . "', 
+                                        private = '" . $tabel_privet . "'";
+
+                                    if (mysqli_query($link, $sql_insert)) {
+                                        echo "<span style='color: green;'>Тест зарегистрирован. </span>";
+                                    } else {
+                                        echo "<span style='color: red;'>Ошибка в регистрации теста: " . mysqli_error($link) . "</span>";
+                                    }
+
+                                    //////////////////////////////////////////////////////
+                                    mysqli_select_db($link, $questionsBase);
+                                    $sql_create = "CREATE TABLE " . $table_ID . " (
+                                id INT(10) AUTO_INCREMENT PRIMARY KEY,
+                                question VARCHAR(300),
+                                answers VARCHAR(1000),
+                                apply VARCHAR(100));";
+
+                                    if (mysqli_query($link, $sql_create)) {
+                                        echo "<span style='color: green;'>Тест создан. </span>";
+                                    } else {
+                                        echo "<span style='color: red;'>Ошибка в создании теста: " . mysqli_error($link) . "</span>";
+                                    }
+                                }
+                            ?>
                         </div>
                     </div>
                 </form>
             </div>
-            <?
-                $data = $_POST;
-                $dateTime = date("Y-m-d H:i:s");
-                $questionsBase = "tables";
-
-                //устанавливаем текущую активную базу данных
-                mysqli_select_db($link, $questionsBase);
-                $user_uid = $_SESSION['uid'];
-
-                if (isset($data['tool'])) //если кликнули на button
-                {
-                    $tabel_zagalovok = $data['test_name'];
-
-                    $table_ID = "quest_" . sha1(time());
-
-                    $tabel_privet = isset($data['test_privet']) ? "true" : "false";
-
-                    $sql_insert = "INSERT INTO list  SET
-                    name = '" . $tabel_zagalovok . "', 
-                    creator = '" . $user_uid . "', 
-                    table_ID = '" . $table_ID . "', 
-                    date = '" . $dateTime . "', 
-                    private = '" . $tabel_privet . "'";
-
-                    if (mysqli_query($link, $sql_insert)) {
-                        echo "<span style='color: green;'>Тест зарегистрирован. </span>";
-                    } else {
-                        echo "<span style='color: red;'>Ошибка в регистрации теста: " . mysqli_error($link) . "</span>";
-                    }
-
-                    //////////////////////////////////////////////////////
-                    mysqli_select_db($link, $questionsBase);
-                    $sql_create = "CREATE TABLE " . $table_ID . " (
-                                id INT(10) AUTO_INCREMENT PRIMARY KEY,
-                                question VARCHAR(200),
-                                answers VARCHAR(500),
-                                apply VARCHAR(500));";
-
-                    if (mysqli_query($link, $sql_create)) {
-                        echo "<span style='color: green;'>Тест создан. </span>";
-                    } else {
-                        echo "<span style='color: red;'>Ошибка в создании теста: " . mysqli_error($link) . "</span>";
-                    }
-                }
-            ?>
             <hr>
             <div class="row">
                 <ul class="collection with-header z-depth-1">
@@ -125,7 +124,7 @@
                                     echo "'>lock</i>";
                                 } else echo "'>check</i>";
 
-                                echo $r['name'] . "<a href='";
+                                echo $r['name'] . "<a class='tooltipped right' href='";
                                 if ($r['is_blocked'] != 'true') {
                                     echo $folderRoot . "pass/passquestion.php?db=" . $r['table_ID'];
                                 } else {
@@ -134,7 +133,7 @@
 
                                 //title
                                 $titleBlocked = $r['is_blocked'] != 'true' ? "Пройти тест" : "Заблокирован";
-                                echo "' title='" . $titleBlocked . "' class='secondary-content'>";
+                                echo "' data-position='bottom' data-tooltip='" . $titleBlocked . "' class='secondary-content'>";
 
                                 // icon is_blocked
                                 $isBlockedIcon = $r['is_blocked'] != 'true' ? "'>send" : "red'>warning";
@@ -167,11 +166,11 @@
 
                                 //lock title
                                 $titleLocked = $r['is_start'] == 'true' ? "Закрыть для прохождения" : "Открыть для прохождения";
-                                echo "' title='".$titleLocked . "' class='secondary-content'>";
+                                echo "' title='" . $titleLocked . "' class='secondary-content'>";
 
                                 // icon lock
-                                $LockedIcon = $r['is_start'] != 'true'? "lock_open":"lock_outline";
-                                echo "<i class='material-icons' style='margin: 0px 10px 0px 10px;'>".$LockedIcon."</i></a>";
+                                $LockedIcon = $r['is_start'] != 'true' ? "lock_open" : "lock_outline";
+                                echo "<i class='material-icons' style='margin: 0px 10px 0px 10px;'>" . $LockedIcon . "</i></a>";
 
                                 echo "</i></a>";
 

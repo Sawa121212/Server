@@ -56,7 +56,7 @@
                                     echo "</i>";
 
                                     // goToTest btn
-                                    echo $r['name'] . "<a href='";
+                                    echo $r['name'] . "<a class='tooltipped right' href='";
                                     if ($r['is_blocked'] != 'true') {
                                         echo $folderRoot . "pass/passquestion.php?db=" . $r['table_ID'];
                                     } else {
@@ -65,7 +65,7 @@
 
                                     //title
                                     $titleBlocked = $r['is_blocked'] != 'true' ? "Пройти тест" : "Заблокирован";
-                                    echo "' title='" . $titleBlocked . "' class='secondary-content'>";
+                                    echo "' data-position='bottom' data-tooltip='" . $titleBlocked . "' class='secondary-content'>";
 
                                     // icon is_blocked
                                     echo "<i class='material-icons ";

@@ -55,7 +55,7 @@
                     <input type='text' name='question' autocomplete='off'>
                     
                     <b>Варианты ответа:</b>
-                    <textarea name='answers' cols='40' rows='10' minlength='3' maxlength='500' placeholder='Текст (макс. 500 символов)' class='materialize-textarea'></textarea>
+                    <textarea name='answers' cols='40' rows='10' minlength='3' maxlength='1000' placeholder='Текст (макс. 1000 символов)' class='materialize-textarea'></textarea>
                     <span class='helper-text' data-error='wrong' data-success='right'></span><br>
                     
                     <p><b>Правельные ответы:</b>
@@ -80,9 +80,7 @@
                         $arr_url = parse_url($url);
 
                         if (!empty($arr_url['query'])) {
-                            if (empty($_SESSION['getUrl'])) {
-                                $_SESSION['getUrl'] = $arr_url['query'];
-                            }
+                            $_SESSION['getUrl'] = $arr_url['query'];
                         } else {
                             $arr_url['query'] = $_SESSION['getUrl'];
                             $_SESSION['getUrl'] = null;
@@ -212,6 +210,20 @@
         }
     }
 
+    // delete
+    if (isset($data['deleteAnswer'])) {
+        $btn = $data['deleteAnswer'];
+
+        $sql_delete_row = "DELETE FROM " . $questName . " WHERE id = '$btn'";
+
+        if (mysqli_query($link, $sql_delete_row)) {
+            header("Location: createquestion.php?" . $arr_url['query'] . "");
+            exit;
+        } else {
+            echo "<span style='color: red;'>Ошибка при удалении вопроса</span>";
+        }
+    }
+
     // Add
     if (isset($data['add'])) {
         $question = $_POST['question'];
@@ -228,20 +240,6 @@
             exit;
         } else {
             echo "<span style='color: red;'>Ошибка</span>";
-        }
-    }
-
-    // delete
-    if (isset($data['deleteAnswer'])) {
-        $btn = $data['deleteAnswer'];
-
-        $sql_delete_row = "DELETE FROM " . $questName . " WHERE id = '$btn'";
-
-        if (mysqli_query($link, $sql_delete_row)) {
-            header("Location: createquestion.php?" . $arr_url['query'] . "");
-            exit;
-        } else {
-            echo "<span style='color: red;'>Ошибка при удалении вопроса</span>";
         }
     }
 ?>

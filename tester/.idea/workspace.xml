@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/adminer/adminpanel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminer/news.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminer/tests.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounteditor/account_administrators.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_administrators.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounteditor/account_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounteditor/account_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounteditor/account_redaktors.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_redaktors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounteditor/account_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/office.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/office.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/worker.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/worker.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/z_rightPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_rightPanel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/news.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/js/init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/createquestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/edit.php" afterDir="false" />
@@ -165,6 +157,9 @@
       <workItem from="1612330767812" duration="705000" />
       <workItem from="1612356204655" duration="3720000" />
       <workItem from="1612416775536" duration="6609000" />
+      <workItem from="1612442630951" duration="2359000" />
+      <workItem from="1612505935538" duration="3346000" />
+      <workItem from="1612532171272" duration="523000" />
     </task>
     <servers />
   </component>
@@ -198,11 +193,6 @@
           <url>file://$PROJECT_DIR$/pass/passquestion.php</url>
           <line>68</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tool/mybase.php</url>
-          <line>75</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://W:/domains/localhost/tester/create/mybase.php</url>

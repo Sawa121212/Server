@@ -6250,8 +6250,8 @@ textarea.materialize-textarea {
     padding-left: 35px;
     cursor: pointer;
     display: inline-block;
-    height: 25px;
-    line-height: 25px;
+    /*height: 25px;
+    line-height: 25px;*/
     font-size: 1rem;
     -webkit-transition: .28s ease;
     transition: .28s ease;
@@ -8446,8 +8446,8 @@ input[type=range]::-ms-thumb {
 
 body {
     color: rgba(0, 0, 0, 0.87);
-    line-height: 1.6;
-    font-size: 16px;
+    line-height: 1.5;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased
 }
 
@@ -8456,7 +8456,12 @@ p.box {
 }
 
 p {
-    padding: 0
+    padding: 0;
+    display: block;
+    margin-block-start: 0.6em;
+    margin-block-end: 0.6em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 h5 > span {
@@ -8569,7 +8574,8 @@ ul.sidenav.sidenav-fixed > li:last-child {
 }
 
 ul.sidenav.sidenav-fixed li {
-    line-height: 44px
+    line-height: 44px;
+    padding: 0 0 1px 0;
 }
 
 ul.sidenav.sidenav-fixed li.active {
