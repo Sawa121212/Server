@@ -37,13 +37,18 @@
                 <div class="infoTextZag">
                     <p><b>Пример</b></p>
                 </div>
+                <p><b>Вопрос:</b></p>
                 <p>Выбери все фрукты и ягоды, которые красного цвета.</p>
-                <p>Клубника</p>
-                <p>Абрикос</p>
-                <p>Банан</p>
-                <p>Вишня</p>
-                <p>Малина</p>
-                <p>Ананас</p>
+                <br>
+                <p><b>Варианты ответа:</b></p>
+                <p>1. Клубника</p>
+                <p>2. Абрикос</p>
+                <p>3. Банан</p>
+                <p>4. Малина</p>
+                <p>5. Ананас</p>
+                <br>
+                <p><b>Правильные ответы:</b></p>
+                <p>1,4</p>
             </div>
 
             <!--Добавить вопрос-->
@@ -52,14 +57,14 @@
                     <?php
                         $questionCount = 0;
                         echo "<p><b>Вопрос:</b>
-                    <input type='text' name='question' autocomplete='off'>
+                    <input type='text' name='question'  maxlength='3000' autocomplete='off' placeholder='(макс. 300 символов)' value='".$_POST['question']."'>
                     
                     <b>Варианты ответа:</b>
-                    <textarea name='answers' cols='40' rows='10' minlength='3' maxlength='1000' placeholder='Текст (макс. 1000 символов)' class='materialize-textarea'></textarea>
+                    <textarea name='answers' cols='40' rows='10' minlength='3' maxlength='1000' placeholder='(макс. 1000 символов)' class='materialize-textarea'>".$_POST['answers']."</textarea>
                     <span class='helper-text' data-error='wrong' data-success='right'></span><br>
                     
-                    <p><b>Правельные ответы:</b>
-                    <input type='text' name='applys' autocomplete='off'>
+                    <p><b>Правильные ответы:</b>
+                    <input type='text' name='applys' autocomplete='off' placeholder='(макс. 100 символов)' value='".$_POST['applys']."'>
                     <span class='helper-text' data-error='wrong' data-success='right'>Если несколько номеров ответа, пишите их через запятые</span>";
                     ?>
                     <div class="row">
@@ -69,6 +74,31 @@
                             </button>
                         </div>
                     </div>
+
+                    <?
+                        // Add
+                        if (isset($data['add'])) {
+                            $question = $_POST['question'];
+                            $answers = $_POST['answers'];
+                            $applys = str_replace(' ', '', $_POST['applys']);
+
+                            if ($question != "" && $answers != "" && $applys != "") {
+                                $sql_add_row = "INSERT INTO " . $questName . " SET
+                            question= '" . $question . "',
+                            answers='" . $answers . "',
+                            apply='" . $applys . "' ";
+
+                                if (mysqli_query($link, $sql_add_row)) {
+                                    header("Location: createquestion.php?" . $arr_url['query'] . "");
+                                    exit;
+                                } else {
+                                    echo "<span style='color: red;'>Ошибка</span>";
+                                }
+                            } else {
+                                echo "<span class='red-text'>Заполните данные</span>";
+                            }
+                        }
+                    ?>
                 </form>
             </div>
             <br>
@@ -192,24 +222,6 @@
         exit;
     }
 
-    // save
-    if (isset($data['save'])) {
-        $question = $_POST['question'];
-        $answers = $_POST['answers'];
-        $applys = $_POST['applys'];
-
-        $sql_add_row = "INSERT INTO '$questName' SET
-        question= '" . $question . "',
-        answers='" . $answers . "',
-        apply='" . $applys . "' ";
-
-        if (mysqli_query($link, $sql_add_row)) {
-            $_SESSION['getUrl'] = null;
-            header("Location: 'createquestion.php?" . $arr_url['query'] . "'");
-            exit;
-        }
-    }
-
     // delete
     if (isset($data['deleteAnswer'])) {
         $btn = $data['deleteAnswer'];
@@ -224,24 +236,28 @@
         }
     }
 
-    // Add
-    if (isset($data['add'])) {
+    // save
+    if (isset($data['save'])) {
         $question = $_POST['question'];
         $answers = $_POST['answers'];
-        $applys = str_replace(' ', '', $_POST['applys']);
+        $applys = $_POST['applys'];
 
-        $sql_add_row = "INSERT INTO " . $questName . " SET
-        question= '" . $question . "',
-        answers='" . $answers . "',
-        apply='" . $applys . "' ";
+        if ($question != "" && $answers != "" && $applys != "") {
+            $sql_add_row = "INSERT INTO '$questName' SET
+                                    question= '" . $question . "',
+                                    answers='" . $answers . "',
+                                    apply='" . $applys . "' ";
 
-        if (mysqli_query($link, $sql_add_row)) {
-            header("Location: createquestion.php?" . $arr_url['query'] . "");
-            exit;
+            if (mysqli_query($link, $sql_add_row)) {
+                $_SESSION['getUrl'] = null;
+                header("Location: 'createquestion.php?" . $arr_url['query'] . "'");
+                exit;
+            }
         } else {
-            echo "<span style='color: red;'>Ошибка</span>";
+            echo "<p class='red'>Заполните поля</p>";
         }
     }
+
 ?>
 <!--footer-->
 <?php

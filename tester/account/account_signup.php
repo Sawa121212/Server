@@ -13,9 +13,11 @@
     $data = $_POST; ?>
 
 <?php
-    if (isset($_SESSION['logged_user'])) {
-        header('Location: '.$folderRoot. 'index.php');
-        exit;
+    if ($_SESSION['usertype'] != 1) {
+        if (isset($_SESSION['logged_user'])) {
+            header('Location: ' . $folderRoot . 'index.php');
+            exit;
+        }
     }
 ?>
 
@@ -32,7 +34,6 @@
 
 <!--index-->
 <div class="container" align="center">
-    <br>
     <div class="row" align="center">
         <h3>Регистрация</h3>
 

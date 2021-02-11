@@ -1,5 +1,4 @@
 <?php
-    session_start();
     $folderRootCount = 2;
 
     include("../inc/functions/func_folderRoot.php");
@@ -8,8 +7,6 @@
 
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
-
-    include($folderRoot . "inc/alertStyle.php");
     $data = $_POST;
 ?>
 
@@ -29,7 +26,7 @@
         <br>
         <div class="row">
             <h3 align='center'>Тесты</h3>
-            <div class="row">
+            <div class='row'>
                 <form class="col s12" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                     <div class="row">
                         <div class="col s12 m12 lighten-1 z-depth-3">
@@ -48,7 +45,7 @@
                                     </label>
                                 </p>
                             </div>
-                            <div class="input-field col s6 m3">
+                            <div class="input-field col s6 m3 right">
                                 <!--Проверить ответы-->
                                 <button class='btn darken-2  z-depth-2' type='submit' name='create'>
                                     <i class='material-icons left'>library_add</i>
@@ -59,43 +56,42 @@
                             <?
                                 $dateTime = date("Y-m-d H:i:s");
                                 $questionsBase = "tables";
-
-                                //устанавливаем текущую активную базу данных
-                                mysqli_select_db($link, $questionsBase);
                                 $user_uid = $_SESSION['uid'];
 
+                                //устанавливаем текущую активную базу данных
+                                include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
+
                                 if (isset($data['create'])) {
-                                    $tabel_zagalovok = $data['test_name'];
+                                    if ($data['test_name'] != "") {
+                                        $tabel_zagalovok = $data['test_name'];
+                                        $table_ID = "quest_" . sha1(time());
+                                        $tabel_privet = isset($data['test_privet']) ? "true" : "false";
 
-                                    $table_ID = "quest_" . sha1(time());
-
-                                    $tabel_privet = isset($data['test_privet']) ? "true" : "false";
-
-                                    $sql_insert = "INSERT INTO list  SET
-                                        name = '" . $tabel_zagalovok . "', 
-                                        creator = '" . $user_uid . "', 
-                                        table_ID = '" . $table_ID . "', 
-                                        date = '" . $dateTime . "', 
-                                        private = '" . $tabel_privet . "'";
-
-                                    if (mysqli_query($link, $sql_insert)) {
-                                        echo "<span style='color: green;'>Тест зарегистрирован. </span>";
-                                    } else {
-                                        echo "<span style='color: red;'>Ошибка в регистрации теста: " . mysqli_error($link) . "</span>";
-                                    }
-
-                                    //////////////////////////////////////////////////////
-                                    mysqli_select_db($link, $questionsBase);
-                                    $sql_create = "CREATE TABLE " . $table_ID . " (
-                                id INT(10) AUTO_INCREMENT PRIMARY KEY,
-                                question VARCHAR(300),
-                                answers VARCHAR(1000),
-                                apply VARCHAR(100));";
-
-                                    if (mysqli_query($link, $sql_create)) {
-                                        echo "<span style='color: green;'>Тест создан. </span>";
-                                    } else {
-                                        echo "<span style='color: red;'>Ошибка в создании теста: " . mysqli_error($link) . "</span>";
+                                        ////////////////////////////
+                                        try {
+                                            $sql_insert = "INSERT INTO list  SET
+                                                name = '" . $tabel_zagalovok . "', 
+                                                creator = '" . $user_uid . "', 
+                                                table_ID = '" . $table_ID . "', 
+                                                date = '" . $dateTime . "', 
+                                                private = '" . $tabel_privet . "'";
+                                            $link->exec($sql_insert);
+                                            echo "<span style='color: green;'>Тест зарегистрирован. </span>";
+                                        } catch (PDOException $e) {
+                                            echo "<span style='color: red;'>Ошибка в регистрации теста: " . $e->getMessage() . "</span>";
+                                        }
+                                        ////////////////////////////
+                                        try {
+                                            $sql_create = "CREATE TABLE " . $table_ID . " (
+                                                id INT(10) AUTO_INCREMENT PRIMARY KEY,
+                                                question VARCHAR(300),
+                                                answers VARCHAR(1000),
+                                                apply VARCHAR(100));";
+                                            $link->exec($sql_create);
+                                            echo "<span style='color: green;'>Тест создан. </span>";
+                                        } catch (PDOException $e) {
+                                            echo "<span style='color: red;'>Ошибка в создании теста: " . $e->getMessage() . "</span>";
+                                        }
                                     }
                                 }
                             ?>
@@ -109,9 +105,10 @@
                     <li class="collection-header"><h4>Мои тесты</h4></li>
                     <?php
                         // Мои тесты
-                        $select_quests = mysqli_query($link, "SELECT name, private, del, is_blocked,table_ID, is_start FROM list WHERE creator ='$user_uid'");
                         $myTestIsEmpty = true;
-                        while ($r = mysqli_fetch_array($select_quests)) {
+
+                        $select_quests = $link->query("SELECT name, private, del, is_blocked,table_ID, is_start FROM list WHERE creator ='$user_uid'");
+                        while ($r = $select_quests->fetch()) {
                             $myTestIsEmpty = false;
 
                             if ($r['del'] != 'true') {
@@ -179,7 +176,6 @@
                                 } else {
                                     echo "<label style='margin: 10px;'>Приватный</label>";
                                 }
-
                                 echo "</div></li>";
                             }
                         }

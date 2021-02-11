@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/adminer/tests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/no-view.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/view.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/inc/functions/func_connectToDB_Tables.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminer/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/accounteditor/account_administrators.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_administrators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/accounteditor/account_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/accounteditor/account_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/accounteditor/account_redaktors.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_redaktors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/accounteditor/account_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/accounteditor/account_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/adminpanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/adminpanel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminer/tests.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/tests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conn/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/conn/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/z_rightPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_rightPanel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materialize/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/js/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/createquestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/mybase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/mybase.php" afterDir="false" />
@@ -40,6 +51,7 @@
     <setting file="file://$PROJECT_DIR$/inc/z_rightPanel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/index.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="c504ce0b-dca3-413a-8f81-e940a82ee6fa" name="localhost" port="8383">
@@ -95,7 +107,7 @@
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\account" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Web Page.lock1">
+  <component name="RunManager" selected="PHP Script.mybase.php">
     <configuration name="mybase.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tool/mybase.php">
       <method v="2" />
     </configuration>
@@ -160,6 +172,9 @@
       <workItem from="1612442630951" duration="2359000" />
       <workItem from="1612505935538" duration="3346000" />
       <workItem from="1612532171272" duration="523000" />
+      <workItem from="1612867649116" duration="10513000" />
+      <workItem from="1612935548953" duration="3053000" />
+      <workItem from="1613020482649" duration="6356000" />
     </task>
     <servers />
   </component>
@@ -186,7 +201,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/account/account_signup.php</url>
-          <line>151</line>
+          <line>152</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -201,13 +216,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/tool/edit.php</url>
-          <line>37</line>
-          <option name="timeStamp" value="21" />
+          <line>43</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://W:/domains/localhost/tester/tool/edit.php</url>
-          <line>35</line>
-          <option name="timeStamp" value="25" />
+          <line>58</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

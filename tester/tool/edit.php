@@ -1,14 +1,10 @@
 <?php
-    session_start();
     $folderRootCount = 2;
-
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
 
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
-
-    include($folderRoot . "inc/alertStyle.php");
     $data = $_POST;
     $testIsChecked = false;
 ?>
@@ -54,17 +50,19 @@
                     }
                     $questName = str_replace($mod . '_db=', '', $arr_url['query']);
 
-                    $questionsBase = "tables";
                     //устанавливаем текущую активную базу данных
-                    mysqli_select_db($link, $questionsBase);
+                    include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
 
                     // проверяем, не удалена ли или не заблокирована ли данная БД
-                    $checkDB = mysqli_query($link, "SELECT name, creator, is_start FROM list WHERE table_ID ='$questName'");
-                    $arrayDB = mysqli_fetch_array($checkDB);
-                    if ($arrayDB['creator'] != $_SESSION['uid']) {
-                        /// ToDo: зделать доступ admin
-                        header('Location: ' . $folderRoot . 'tool/mybase.php');
-                        exit;
+                    $checkDB = $link->query("SELECT name, creator, is_start FROM list WHERE table_ID ='$questName'");
+                    $arrayDB = $checkDB->fetchAll(\PDO::FETCH_ASSOC);
+                    while ($array = $checkDB->fetch(\PDO::FETCH_ASSOC)) {
+                        if ($_SESSION['usertype'] != 1) {
+                            if ($array['creator'] != $_SESSION['uid']) {
+                                header('Location: ' . $folderRoot . 'tool/mybase.php');
+                                exit;
+                            }
+                        }
                     }
 
                     echo "<h3 align='center'>Редактирование</h3>";
@@ -128,21 +126,21 @@
                     // save
                     if (isset($data['open']) || isset($data['close'])) {
                         $change = $mod == "open" ? 'true' : 'false';
-                        $sqlOpenDB = "UPDATE list SET is_start='$change' WHERE table_ID ='$questName'";
-                        if (mysqli_query($link, $sqlOpenDB)) {
+
+                        try {
+                            $sqlOpenDB = "UPDATE list SET is_start='$change' WHERE table_ID ='$questName'";
+                            $link->exec($sqlOpenDB);
                             header('Location: ' . $folderRoot . 'tool/mybase.php');
                             exit;
-                        } else {
+                        } catch (PDOException $e) {
                             $info_mod = $mod == "open" ? 'открытии' : 'закрытии';
-                            echo "<span style='color: red;'>Ошибка при " . $info_mod . " темы: " . mysqli_error($link) . "</span>";
+                            echo "<span style='color: red;'>Ошибка при " . $info_mod . " темы: " . $e->getMessage() . "</span>";
                         }
                     }
 
                     // delete
                     if (isset($data['delete'])) {
-                        $sql_delete_row = "DELETE FROM list WHERE table_ID ='$questName'";
-
-                        if (mysqli_query($link, "DELETE FROM list WHERE table_ID ='$questName'")) {
+                        /*if (mysqli_query($link, "DELETE FROM list WHERE table_ID ='$questName'")) {
                             if (mysqli_query($link, "DROP TABLE '$questName'")) {
                                 header('Location: ' . $folderRoot . 'tool/mybase.php');
                                 exit;
@@ -151,6 +149,21 @@
                             }
                         } else {
                             echo "<span style='color: red;'>Ошибка в удалении темы: " . mysqli_error($link) . "</span>";
+                        }*/
+
+                        try {
+                            $sql_delete_row = "DELETE FROM list WHERE table_ID ='$questName'";
+                            $link->exec($sql_delete_row);
+                            try {
+                                $sqlDropDB = "DROP TABLE '$questName'";
+                                $link->exec($sqlDropDB);
+                                header('Location: ' . $folderRoot . 'tool/mybase.php');
+                                exit;
+                            } catch (PDOException $e) {
+                                echo "<span style='color: red;'>Ошибка в удалении теста: " . $e->getMessage() . "</span>";
+                            }
+                        } catch (PDOException $e) {
+                            echo "<span style='color: red;'>Ошибка в удалении темы: " . $e->getMessage() . "</span>";
                         }
                     }
                 ?>

@@ -30,6 +30,7 @@
 <!--index-->
 <main>
     <div class="container">
+        <h3 align='center'>Управление тестами</h3>
         <div class="row">
             <ul class="collection with-header z-depth-1">
                 <li class="collection-header"><h4>Все тесты</h4></li>

@@ -20,8 +20,8 @@
 <!--left panel-->
 <? include($folderRoot . "inc/z_rightPanel.php"); ?>
 
-<div class="container" align="center">
-    <div class="row" align="center">
+<div class="container">
+    <div class="row">
         <h3 align='center'>Авторизация</h3>
         <?php
             // Страница авторизации
@@ -54,33 +54,36 @@
                     echo "<h5 style='color: #ff0000;'>Вы ввели неправильный логин или пароль</h5><br>";
                 }
             }
-
-            echo "<form id='login-form' class='col s12' style='width: 95%;' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
-					<div class='row'>
-						<div class='input-field col s12'>     <!--Логин-->
+            echo "<div class='col s12 m6 offset-m2'>";
+            echo "<form id='login-form' form action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+					<div class='row'>					 
+						<div class='input-field col s12 m11'>     <!--Логин-->
 							<i class ='material-icons prefix'>assignment_ind</i>
-							<input type='text' id='nickname' class='nickname' name='login' value='" . @$data['login'] . "'>
+							<input type='text' id='nickname' class='nickname' name='login' placeholder='' value='" . @$data['login'] . "'>
 							<label for='nickname'>Логин</label>
 						</div>
-					</div>	
-					<div class='row'>
-						<div class='input-field col s12'><!--Пароль-->
+						<div class='input-field col s12 m11'><!--Пароль-->
 							<i class ='material-icons prefix'>lock</i>
-							<input type='password' id='password' class='password' name='password' value='" . @$data['password'] . "'>
-							<label for='password'>Пароль</label>
+							<input type='password' id='password-input' name='password' placeholder='' value='" . @$data['password'] . "'>							
+						    <a href='#' class='password-control'></a>
+						    <label for='password'>Пароль</label>						    
+						</div>   
+						<div class='input-field col s12 m11 left-align'><!--Пароль-->
+						    <p style='margin-left: 15px;'>
+                                <a href='#'>Восстановление пароля</a>
+                            </p>
 						</div>
-					</div>
-
-					<div class='row' align='center'>	
-						<div class='input-field col s12 m4'>
+						
+						<div class='input-field col s12 m2'>
 							<button class='btn darken-2 z-depth-2' 
 							type='submit' name='do_login'>Войти</button>
 						</div>
-						<div class='input-field col s12 m4'>
-						<a href='account_signup.php' class='btn darken-2 z-depth-2'>Зарегистрироваться</a>
-						</div>
+						<div class='input-field col s12 m2'>
+						    <a href='account_signup.php' class='btn darken-2 z-depth-2'>Зарегистрироваться</a>
+						</div>						
 					</div>
 				</form>";
+            echo "</div>";
         ?>
     </div> <!-- /row center -->
 </div>

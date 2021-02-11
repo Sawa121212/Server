@@ -1,6 +1,5 @@
 <?php
     $folderRootCount = 1;
-    session_start();
     include("inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
     
@@ -30,15 +29,12 @@
                     <?php
                         
                         $data = $_POST;
-                        
-                        $questionsBase = "tables";
-                        //устанавливаем текущую активную базу данных
-                        mysqli_select_db($link, $questionsBase);
                         $user_uid = $_SESSION['uid'];
-
-                        $select_quests = mysqli_query($link, "SELECT name,table_ID, private, del, is_blocked, creator FROM list WHERE is_start ='true'");
+                        include ($folderRoot . "inc/functions/func_connectToDB_Tables.php");
+                        
                         $TestIsEmpty = true;
-                        while ($r = mysqli_fetch_array($select_quests)) {
+                        $select_quests = $link->query("SELECT name,table_ID, private, del, is_blocked, creator FROM list WHERE is_start ='true'");
+                        while ($r = $select_quests->fetch()) {
                             if ($r['del'] == 'false') {
                                 if ($r['is_blocked'] == 'false') {
                                     $TestIsEmpty = false;
@@ -91,9 +87,9 @@
 
             <div class="row">
                 <?php
-                    $select_news = mysqli_query($link, "SELECT * FROM news ORDER BY id DESC LIMIT 5;");
                     $newsIsEmpty = true;
-                    while ($news = mysqli_fetch_array($select_news)) {
+                    $select_news = $link->query("SELECT * FROM news ORDER BY id DESC LIMIT 5");
+                    while ($news = $select_news->fetch()) {
                         switch ($news['mode']) {
                             case 'info':
                                 $newsIcon = "info";

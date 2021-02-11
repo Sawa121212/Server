@@ -39,7 +39,7 @@
             ///TODO bold active
             if (!empty($_SESSION['logged_user'])) {
                 echo "<li class='bold'>
-                        <a href='" . $folderRoot . "tool/mybase.php' class='waves-effect waves-teal'>Управление тестами</a>
+                        <a href='" . $folderRoot . "tool/mybase.php' class='waves-effect waves-teal'>Мои тесты</a>
                    </li>";
                 if ($_SESSION['usertype'] == 1) {
                     echo "<li class='bold'>

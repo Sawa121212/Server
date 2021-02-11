@@ -1,7 +1,7 @@
 <?php
-    $folderRootCount = 2;
+    $folderRootCount = 3;
     session_start();
-    include("../inc/functions/func_folderRoot.php");
+    include("../../inc/functions/func_folderRoot.php");
 
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
@@ -27,7 +27,7 @@
         <h3>Аккаунты</h3>
 
         <div class="row">
-            <?php echo "<br/><a href='../../account/account_signup.php' class='btn blue darken-2 z-depth-2'>
+            <?php echo "<br/><a href='" . $folderRoot . "account/account_signup.php' class='btn blue darken-2 z-depth-2'>
           Зарегистрировать аккаунт</a>";
             ?>
         </div>
@@ -52,7 +52,7 @@
                     <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
                     <h5 class="center">Пользователи</h5>
                     <p class="light">Информация</p>
-                    <?php echo "<br/><a href='account_teachers.php' class='btn blue darken-2 z-depth-2'>
+                    <?php echo "<br/><a href='account_users.php' class='btn blue darken-2 z-depth-2'>
               Посмотреть</a>";
                     ?>
                     <br /><br />
