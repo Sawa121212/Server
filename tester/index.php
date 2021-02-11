@@ -1,10 +1,14 @@
 <?php
     $folderRootCount = 1;
+    $folderRoot = "";
+    $link="";
     include("inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
     
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
+    $data = $_POST;
+    $user_uid = $_SESSION['uid'];
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +25,13 @@
 <main>
     <div class="container">
         <div class="section">
-            <h3 align="center">Главная страница</h3>
+            <h3 class="center-align">Главная страница</h3>
             
             <div class="row">
                 <ul class="collection with-header z-depth-1">
                     <li class="collection-header"><h4>Тесты</h4></li>
                     <?php
-                        
-                        $data = $_POST;
-                        $user_uid = $_SESSION['uid'];
-                        include ($folderRoot . "inc/functions/func_connectToDB_Tables.php");
+                        include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
                         
                         $TestIsEmpty = true;
                         $select_quests = $link->query("SELECT name,table_ID, private, del, is_blocked, creator FROM list WHERE is_start ='true'");

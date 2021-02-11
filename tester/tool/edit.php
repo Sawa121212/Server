@@ -55,7 +55,7 @@
 
                     // проверяем, не удалена ли или не заблокирована ли данная БД
                     $checkDB = $link->query("SELECT name, creator, is_start FROM list WHERE table_ID ='$questName'");
-                    $arrayDB = $checkDB->fetchAll(\PDO::FETCH_ASSOC);
+                    $arrayDB = $checkDB->fetch(\PDO::FETCH_ASSOC);
                     while ($array = $checkDB->fetch(\PDO::FETCH_ASSOC)) {
                         if ($_SESSION['usertype'] != 1) {
                             if ($array['creator'] != $_SESSION['uid']) {
@@ -123,7 +123,7 @@
                         exit;
                     }
 
-                    // save
+                    // open/close
                     if (isset($data['open']) || isset($data['close'])) {
                         $change = $mod == "open" ? 'true' : 'false';
 
@@ -140,22 +140,11 @@
 
                     // delete
                     if (isset($data['delete'])) {
-                        /*if (mysqli_query($link, "DELETE FROM list WHERE table_ID ='$questName'")) {
-                            if (mysqli_query($link, "DROP TABLE '$questName'")) {
-                                header('Location: ' . $folderRoot . 'tool/mybase.php');
-                                exit;
-                            } else {
-                                echo "<span style='color: red;'>Ошибка в удалении теста: " . mysqli_error($link) . "</span>";
-                            }
-                        } else {
-                            echo "<span style='color: red;'>Ошибка в удалении темы: " . mysqli_error($link) . "</span>";
-                        }*/
-
                         try {
                             $sql_delete_row = "DELETE FROM list WHERE table_ID ='$questName'";
                             $link->exec($sql_delete_row);
                             try {
-                                $sqlDropDB = "DROP TABLE '$questName'";
+                                $sqlDropDB = "DROP TABLE $questName";
                                 $link->exec($sqlDropDB);
                                 header('Location: ' . $folderRoot . 'tool/mybase.php');
                                 exit;

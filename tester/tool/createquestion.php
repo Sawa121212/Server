@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    $folderRoot = "";
+    $link = "";
     $folderRootCount = 2;
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
@@ -7,8 +8,6 @@
 
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
-
-    include($folderRoot . "inc/alertStyle.php");
     $data = $_POST;
 ?>
 
@@ -57,14 +56,14 @@
                     <?php
                         $questionCount = 0;
                         echo "<p><b>Вопрос:</b>
-                    <input type='text' name='question'  maxlength='3000' autocomplete='off' placeholder='(макс. 300 символов)' value='".$_POST['question']."'>
+                    <input type='text' name='question'  maxlength='3000' autocomplete='off' placeholder='(макс. 300 символов)' value='" . $_POST['question'] . "'>
                     
                     <b>Варианты ответа:</b>
-                    <textarea name='answers' cols='40' rows='10' minlength='3' maxlength='1000' placeholder='(макс. 1000 символов)' class='materialize-textarea'>".$_POST['answers']."</textarea>
+                    <textarea name='answers' cols='40' rows='10' minlength='3' maxlength='1000' placeholder='(макс. 1000 символов)' class='materialize-textarea'>" . $_POST['answers'] . "</textarea>
                     <span class='helper-text' data-error='wrong' data-success='right'></span><br>
                     
                     <p><b>Правильные ответы:</b>
-                    <input type='text' name='applys' autocomplete='off' placeholder='(макс. 100 символов)' value='".$_POST['applys']."'>
+                    <input type='text' name='applys' autocomplete='off' placeholder='(макс. 100 символов)' value='" . $_POST['applys'] . "'>
                     <span class='helper-text' data-error='wrong' data-success='right'>Если несколько номеров ответа, пишите их через запятые</span>";
                     ?>
                     <div class="row">
@@ -76,36 +75,6 @@
                     </div>
 
                     <?
-                        // Add
-                        if (isset($data['add'])) {
-                            $question = $_POST['question'];
-                            $answers = $_POST['answers'];
-                            $applys = str_replace(' ', '', $_POST['applys']);
-
-                            if ($question != "" && $answers != "" && $applys != "") {
-                                $sql_add_row = "INSERT INTO " . $questName . " SET
-                            question= '" . $question . "',
-                            answers='" . $answers . "',
-                            apply='" . $applys . "' ";
-
-                                if (mysqli_query($link, $sql_add_row)) {
-                                    header("Location: createquestion.php?" . $arr_url['query'] . "");
-                                    exit;
-                                } else {
-                                    echo "<span style='color: red;'>Ошибка</span>";
-                                }
-                            } else {
-                                echo "<span class='red-text'>Заполните данные</span>";
-                            }
-                        }
-                    ?>
-                </form>
-            </div>
-            <br>
-
-            <div class="row">
-                <ul class="collection with-header z-depth-1">
-                    <?php
                         $url = $_SERVER['REQUEST_URI'];
                         $arr_url = parse_url($url);
 
@@ -119,22 +88,61 @@
                         $questName = str_replace('edit_db=', '', $arr_url['query']);
 
                         //устанавливаем текущую активную базу данных
-                        mysqli_select_db($link, "tables");
+                        include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
 
+                        // Add
+                        if (isset($data['add'])) {
+                            $question = $_POST['question'];
+                            $answers = $_POST['answers'];
+                            $applys = str_replace(' ', '', $_POST['applys']);
+
+                            if ($question != "" && $answers != "" && $applys != "") {
+                                try {
+                                    $sql_add_row = "INSERT INTO " . $questName . " SET
+                                        question= '" . $question . "',
+                                        answers='" . $answers . "',
+                                        apply='" . $applys . "' ";
+                                    $link->exec($sql_add_row);
+                                    header("Location: createquestion.php?" . $arr_url['query'] . "");
+                                    exit;
+                                } catch (PDOException $e) {
+                                    echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
+                                }
+                            } else {
+                                echo "<span class='red-text'>Заполните данные</span>";
+                            }
+                        }
+                    ?>
+                </form>
+            </div>
+            <br>
+
+            <div class="row">
+                <ul class="collection with-header z-depth-1">
+                    <?php
                         // проверяем, не удалена ли или не заблокирована ли данная БД
-                        $checkDB = mysqli_query($link, "SELECT id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
-                        $arrayDBBlocked = mysqli_fetch_array($checkDB);
-                        /// ToDo: cделать доступ
+                        $checkDB = $link->query("SELECT id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
+                        $arrayDBBlocked = $checkDB->fetch(\PDO::FETCH_ASSOC);
+                        while ($array = $checkDB->fetch(\PDO::FETCH_ASSOC)) {
+                            if ($_SESSION['usertype'] != 1) {
+                                if ($array['creator'] != $_SESSION['uid']) {
+                                    header('Location: ' . $folderRoot . 'tool/mybase.php');
+                                    exit;
+                                }
+                            }
+                        }
+
                         if ($arrayDBBlocked['creator'] != $_SESSION['uid'] || $arrayDBBlocked['del'] == 'true') {
-                            /// ToDo: зделать Приватный доступ
+                            /// ToDo: cделать Приватный доступ
                             header('Location: ' . $folderRoot . 'index.php');
                             exit;
                         }
-                        $select = mysqli_query($link, "SELECT id, question, answers, apply FROM $questName");
+
 
                         // zagalovok
                         echo "<li class='collection-header'><h5>Ваши вопросы</h5>";
-                        echo "<p>Количество вопросов: <b>" . mysqli_num_rows($select) . "</b></p></li>";
+                        $select = $link->query("SELECT id, question, answers, apply FROM $questName");
+                        echo "<p>Количество вопросов: <b>" . $select->rowCount() . "</b></p></li>";
 
                         // массив правильных ответов
                         $applyArray = array();
@@ -143,7 +151,11 @@
                         $questID = 1;
                         echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form" . $questID . "'>";
                         echo "<li class='collection-item' >";
-                        while ($r_pytn = mysqli_fetch_array($select)) {
+
+
+                        //$select = mysqli_query($link, "SELECT id, question, answers, apply FROM $questName");
+                        while ($r_pytn = $select->fetch(\PDO::FETCH_ASSOC)) {
+                            // ($r_pytn = mysqli_fetch_array($select)) {
                             echo "<div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>";
                             $radioValue = 1;
                             echo "<div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;margin-top: .75em;'>
