@@ -121,7 +121,7 @@
                 <ul class="collection with-header z-depth-1">
                     <?php
                         // проверяем, не удалена ли или не заблокирована ли данная БД
-                        $checkDB = $link->query("SELECT id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
+                        $checkDB = $link->query("SELECT name, id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
                         $arrayDBBlocked = $checkDB->fetch(\PDO::FETCH_ASSOC);
                         while ($array = $checkDB->fetch(\PDO::FETCH_ASSOC)) {
                             if ($_SESSION['usertype'] != 1) {
@@ -132,7 +132,7 @@
                             }
                         }
 
-                        if ($arrayDBBlocked['creator'] != $_SESSION['uid'] || $arrayDBBlocked['del'] == 'true') {
+                        if ($arrayDBBlocked['creator'] != $_SESSION['uid']) {
                             /// ToDo: cделать Приватный доступ
                             header('Location: ' . $folderRoot . 'index.php');
                             exit;
@@ -221,7 +221,50 @@
                         echo "</form>";
                     ?>
             </div>
-        </div> <!-- /row center -->
+
+            <div class="row">
+                <form class="col s12" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <div class="row">
+                        <div class="col s12 m12 lighten-1 z-depth-3">
+                            <div class="icon-block">
+                                <h5 class="center">Редактирование названия темы</h5>
+                                <input id="test_name" name="test_name" type="text" class="validate"
+                                       value="<? echo $arrayDBBlocked['name'] ?>">
+                                <label for="test_name">Название темы теста</label>
+                            </div>
+                            <div class="input-field col s6 m3 left">
+                                <!--Проверить ответы-->
+                                <button class='btn darken-2  z-depth-2' type='submit' name='editTestName'>
+                                    <i class='material-icons left'>edit</i>
+                                    Изменить
+                                </button>
+                            </div>
+
+                            <?php
+                                $user_uid = $_SESSION['uid'];
+
+                                if (isset($data['editTestName'])) {
+                                    if ($data['test_name'] != "") {
+                                        $tabel_zagalovok = $data['test_name'];
+
+                                        ////////////////////////////
+                                        try {
+                                            $sql_insert = "UPDATE list
+                                                SET name = '" . $tabel_zagalovok . "'
+                                                WHERE table_ID = '" . $questName . "'";
+                                            $link->exec($sql_insert);
+                                            echo "<span style='color: green;'>Название темы изменено. </span>";
+                                        } catch (PDOException $e) {
+                                            echo "<span style='color: red;'>Ошибка при переименовании теста: " . $e->getMessage() . "</span>";
+                                        }
+                                    }
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </form>
+            </div> <!-- edit test name -->
+        </div> <!-- content -->
     </div>
 </main>
 
@@ -238,13 +281,13 @@
     if (isset($data['deleteAnswer'])) {
         $btn = $data['deleteAnswer'];
 
-        $sql_delete_row = "DELETE FROM " . $questName . " WHERE id = '$btn'";
-
-        if (mysqli_query($link, $sql_delete_row)) {
+        try {
+            $sql_delete_row = "DELETE FROM " . $questName . " WHERE id = '$btn'";
+            $link->exec($sql_delete_row);
             header("Location: createquestion.php?" . $arr_url['query'] . "");
             exit;
-        } else {
-            echo "<span style='color: red;'>Ошибка при удалении вопроса</span>";
+        } catch (PDOException $e) {
+            echo "<span style='color: red;'>Ошибка при удалении вопроса: " . $e->getMessage() . "</span>";
         }
     }
 
@@ -255,15 +298,16 @@
         $applys = $_POST['applys'];
 
         if ($question != "" && $answers != "" && $applys != "") {
-            $sql_add_row = "INSERT INTO '$questName' SET
+            try {
+                $sql_add_row = "INSERT INTO '$questName' SET
                                     question= '" . $question . "',
                                     answers='" . $answers . "',
                                     apply='" . $applys . "' ";
-
-            if (mysqli_query($link, $sql_add_row)) {
-                $_SESSION['getUrl'] = null;
+                $link->exec($sql_add_row);
                 header("Location: 'createquestion.php?" . $arr_url['query'] . "'");
                 exit;
+            } catch (PDOException $e) {
+                echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
             }
         } else {
             echo "<p class='red'>Заполните поля</p>";

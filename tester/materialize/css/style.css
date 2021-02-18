@@ -31,11 +31,21 @@
 }
 
 .answer-apply {
-    background-color: green;
+    background-color: #4db6ac;
+    border: 1px solid #4db6ac;
+    border-radius: 15px; /* скругление */
+    padding-right: 20px;
+    padding-bottom: 2px;
+    color: white;
 }
 
 .answer-notapply {
-    background-color: red;
+    background-color: #ff5252;
+    border: 1px solid #ff5252;
+    border-radius: 15px; /* скругление */
+    padding-right: 20px;
+    padding-bottom: 2px;
+    color: white;
 }
 
 .infoText {
@@ -62,6 +72,7 @@
     font-size: 2rem;
     margin-left: 5px;
 }
+
 .icon_text {
     padding: 0 74px 0 16px;
     text-align: left;
@@ -83,6 +94,7 @@
     height: 20px;
     background: url(../../img/view.svg) 0 0 no-repeat;
 }
+
 .password-control.view {
     background: url(../../img/no-view.svg) 0 0 no-repeat;
 }

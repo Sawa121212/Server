@@ -1,8 +1,8 @@
+<link rel="shortcut icon" href="<? echo $folderRoot ?>img/icon.png" type="image/png">
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<meta name="theme-color" content="#EE6E73">
-<!--Import materialize.css-->
-<!--Import materialize.css-->
+
+<!--Black Theme-->
 <?php
     /*if ($_SESSION['theme'] == 1) {
         echo "<link type='text/css' rel='stylesheet' href='" . $folderRoot . "materialize/css/materialize.dark.css' media='screen,projection'/>";
@@ -13,7 +13,7 @@
 <link type="text/css" rel="stylesheet"
       href=" <? echo $folderRoot ?>materialize/css/ghpages-materialize.css" media="screen,projection">
 
-<link type="text/css" rel="stylesheet" href=" <? echo $folderRoot ?>materialize/css/style.css"
+<link type="text/css" rel="stylesheet" href="<? echo $folderRoot ?>materialize/css/style.css"
       media="screen,projection">
 
 <!--Let browser know website is optimized for mobile-->

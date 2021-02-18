@@ -1,10 +1,9 @@
 <?php
-    session_start();
+    $folderRoot = "";
+    $link = "";
     $folderRootCount = 2;
-
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
-
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
 
@@ -34,33 +33,31 @@
                     $arr_url = parse_url($url);
                     $questName = str_replace('db=', '', $arr_url['query']);
 
-                    $questionsBase = "tables";
                     //устанавливаем текущую активную базу данных
-                    mysqli_select_db($link, $questionsBase);
+                    include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
 
                     // проверяем, не удалена ли или не заблокирована ли данная БД
-                    $checkDB = mysqli_query($link, "SELECT del, is_blocked FROM list WHERE table_ID ='$questName'");
-                    $arrayDBBlocked = mysqli_fetch_array($checkDB);
+                    $checkDB = $link->query("SELECT id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
+                    $arrayDBBlocked = $checkDB->fetch(\PDO::FETCH_ASSOC);
                     if ($arrayDBBlocked['del'] == 'true' || $arrayDBBlocked['is_blocked'] == 'true') {
                         /// ToDo: зделать Приватный доступ
                         header('Location: ' . $folderRoot . 'index.php');
                         exit;
                     }
 
-                    //устанавливаем текущую активную базу данных ($database_name, $link_identifier)
-                    //mysqli_select_db($link, "id8435427_checkers");
-                    $select = mysqli_query($link, "SELECT id, question, answers, apply FROM $questName");
+                    $select_table = $link->query("SELECT id, question, answers, apply FROM $questName");
 
                     echo "<h3 align='center'>Создание вопросов</h3>";
                     $questID = 1;
 
-                    echo "<p>Количество вопросов: <b>" . mysqli_num_rows($select) . "</b></p>";
+                    echo "<p>Количество вопросов: <b>" . $select_table->rowCount() . "</b></p>";
                     // массив правильных ответов
                     $applyArray = array();
                     $applyArray = array_values($applyArray);
 
                     echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form'>";
-                    while ($r_pytn = mysqli_fetch_array($select)) {
+                    //while ($r_pytn = mysqli_fetch_array($select)) {
+                    while ($r_pytn = $select_table->fetch(\PDO::FETCH_ASSOC)) {
                         $radioValue = 1;
                         echo "<p><b>" . $questID . ". " . $r_pytn['question'] . "<span id='questApply" . $questID . "' style='color:red;'></span></b></p>";
                         $answersArray = explode("\r\n", $r_pytn['answers']);
@@ -92,9 +89,8 @@
                         <?php
                             echo "<br><p><b>Правельных ответов: <span id='applysQuestion'>0</span></b></p>";
 
-                            //echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Закончить тест' name='do_checkApplay'>Закончить тест</button>";
                             echo "<input type='button' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)' name='do_checkApplay' value='Завершить тест'><br><br>";
-                            echo "<button class='btn blue darken-2  z-depth-2' type='submit' value='Пройти заново' name='do_refreshPage'>Пройти заново</button>";
+                            echo "<a class='btn blue darken-2  z-depth-2' href='" . $file_name ."?". $arr_url['query'] . "' value='Пройти заново'>Пройти заново</a>";
                         ?>
                     </div>
                     </form><br>
@@ -104,9 +100,9 @@
             <script>
                 <?php echo "var applys = new Array();
                     applys = [";
-                for ($i = 0; $i < mysqli_num_rows($select); $i++) {
+                for ($i = 0; $i < $select_table->rowCount(); $i++) {
                     echo "[" . $applyArray[$i];
-                    if ($i + 1 != mysqli_num_rows($select)) echo "], ";
+                    if ($i + 1 != $select_table->rowCount()) echo "], ";
                 }
                 echo "]];\r";
                 ?>
@@ -128,7 +124,7 @@
                             var checkedCount = 0;
                             for (var index = 0; index < rad.length; index++) {
                                 if (rad[index].checked) {
-                                    var checkedCount = 0;
+                                    checkedCount++;
                                     if (index + 1 == applys[currentIndex - 1]) {
                                         applyQuestion++;
                                     }

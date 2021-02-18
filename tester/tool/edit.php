@@ -22,7 +22,7 @@
 
 <!--index-->
 <main>
-    <div class="container">
+    <div class="container center-align">
         <div class="section">
             <div class="row">
                 <?php
@@ -77,7 +77,7 @@
                                     <p><b>" . $arrayDB['name'] . " ?</b></p>
                                     <p><b>Восстановить будет невозможно!</b></p>
                                 </div>
-                                <div class='input-field col s6 m3'>
+                                <div class='input-field col s6 m3 offset-m3'>
                                     <button class='btn darken-2  z-depth-2' type='submit' name='delete'>
                                         <i class='material-icons left'>delete_forever</i>
                                         Удалить
@@ -101,7 +101,7 @@
                                     <p><b>" . $arrayDB['name'] . " ?</b></p>
                                     <p><b>Вы можете вернуть состояние обратно в любой момент!</b></p>
                                 </div>
-                                <div class='input-field col s6 m3'>
+                                <div class='input-field col s6 m3 offset-m3'>
                                     <button class='btn darken-2  z-depth-2' type='submit' name='open'>
                                         <i class='material-icons left'>" . $changeIcon . "</i>
                                         " . $change . "

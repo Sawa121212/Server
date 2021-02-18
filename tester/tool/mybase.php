@@ -159,10 +159,10 @@
                                 /// lock
                                 // lock btn
                                 $isStarted = $r['is_start'] == 'true' ? "close" : "open";
-                                echo "<a href='" . $folderRoot . "tool/edit.php?" . $isStarted . "close_db=" . $r['table_ID'];
+                                echo "<a href='" . $folderRoot . "tool/edit.php?" . $isStarted . "_db=" . $r['table_ID'];
 
                                 //lock title
-                                $titleLocked = $r['is_start'] == 'true' ? "Закрыть для прохождения" : "Открыть для прохождения";
+                                $titleLocked = $isStarted == 'true' ? "Закрыть для прохождения" : "Открыть для прохождения";
                                 echo "' title='" . $titleLocked . "' class='secondary-content'>";
 
                                 // icon lock

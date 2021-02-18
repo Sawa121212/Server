@@ -8,8 +8,6 @@
     $file_name = basename(__FILE__);
 
     include($folderRoot . "inc/z_head.php");
-    include($folderRoot . "inc/alertStyle.php");
-
     $data = $_POST; ?>
 
 <?php
@@ -208,16 +206,18 @@
 
                                 //проверка на существование одинакового логина
                                 # проверяем, не сущестует ли пользователя с таким именем
-                                $get_tabel_id = mysqli_query($link, "SELECT * FROM users WHERE tabelID='" . $_POST['tabel_id'] . "'");
-                                if (mysqli_num_rows($get_tabel_id) != 0) {
+                                $get_tabel_id = $link->query("SELECT * FROM users WHERE tabelID='" . $_POST['tabel_id'] . "'");
+                                //$get_tabel_id = mysqli_query($link, "SELECT * FROM users WHERE tabelID='" . $_POST['tabel_id'] . "'");
+                                if ($get_tabel_id->rowCount() != 0) {
                                     $errors[] = "Пользователь с таким табельным номером уже существует";
                                 }
                                 if (strlen($_POST['tabel_id']) > 6) {
                                     $errors[] = "Табельный номер должен быть не больше 6 символов";
                                 }
 
-                                $get_login = mysqli_query($link, "SELECT * FROM users WHERE login='" . $_POST['login'] . "'");
-                                if (mysqli_num_rows($get_login) != 0) {
+                                $get_login = $link->query("SELECT * FROM users WHERE login='" . $_POST['login'] . "'");
+                                //$get_login = mysqli_query($link, "SELECT * FROM users WHERE login='" . $_POST['login'] . "'");
+                                if ($get_login->rowCount() != 0) {
                                     $errors[] = "Пользователь с таким логином уже существует";
                                 }
                                 # проверям логин
@@ -230,8 +230,9 @@
 
 
                                 //проверка на существование одинакового email
-                                $get_email = mysqli_query($link, "SELECT * FROM users WHERE email='" . mysqli_real_escape_string($link, $_POST['email']) . "'");
-                                if (mysqli_num_rows($get_email) != 0) {
+                                //$get_email = mysqli_query($link, "SELECT * FROM users WHERE email='" . mysqli_real_escape_string($link, $_POST['email']) . "'");
+                                $get_email = $link->query("SELECT * FROM users WHERE email='" . $_POST['email'] . "'");
+                                if ($get_email->rowCount() != 0) {
                                     $errors[] = "Пользователь с таким email уже существует";
                                 }
 
