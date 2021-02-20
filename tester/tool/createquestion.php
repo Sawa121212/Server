@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <?
+                    <?php
                         $url = $_SERVER['REQUEST_URI'];
                         $arr_url = parse_url($url);
 
@@ -118,97 +118,104 @@
             <br>
 
             <div class="row">
-                <ul class="collection with-header z-depth-1">
-                    <?php
-                        // проверяем, не удалена ли или не заблокирована ли данная БД
-                        $checkDB = $link->query("SELECT name, id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
-                        $arrayDBBlocked = $checkDB->fetch(\PDO::FETCH_ASSOC);
-                        while ($array = $checkDB->fetch(\PDO::FETCH_ASSOC)) {
-                            if ($_SESSION['usertype'] != 1) {
-                                if ($array['creator'] != $_SESSION['uid']) {
-                                    header('Location: ' . $folderRoot . 'tool/mybase.php');
-                                    exit;
-                                }
-                            }
-                        }
-
-                        if ($arrayDBBlocked['creator'] != $_SESSION['uid']) {
-                            /// ToDo: cделать Приватный доступ
-                            header('Location: ' . $folderRoot . 'index.php');
-                            exit;
-                        }
-
-
-                        // zagalovok
-                        echo "<li class='collection-header'><h5>Ваши вопросы</h5>";
-                        $select = $link->query("SELECT id, question, answers, apply FROM $questName");
-                        echo "<p>Количество вопросов: <b>" . $select->rowCount() . "</b></p></li>";
-
-                        // массив правильных ответов
-                        $applyArray = array();
-                        $applyArray = array_values($applyArray);
-
-                        $questID = 1;
-                        echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form" . $questID . "'>";
-                        echo "<li class='collection-item' >";
-
-
-                        //$select = mysqli_query($link, "SELECT id, question, answers, apply FROM $questName");
-                        while ($r_pytn = $select->fetch(\PDO::FETCH_ASSOC)) {
-                            // ($r_pytn = mysqli_fetch_array($select)) {
-                            echo "<div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>";
-                            $radioValue = 1;
-                            echo "<div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;margin-top: .75em;'>
-                                    <p><b>" . $questID . ". " . $r_pytn['question'] . "
-                                    <span id='questApply" . $questID . "' style='color:red;'>
-                                  </span></b></p>";
-                            $answersArray = explode("\r\n", $r_pytn['answers']);
-
-                            foreach ($answersArray as $value) {
-                                if ($value != "" || !empty($value)) {
-                                    echo "<p><label><input class='with-gap' name='group" . $questID . "' type='";
-                                    if (count(explode(",", $r_pytn['apply'])) > 1) {
-                                        echo "checkbox";
-                                    } else {
-                                        echo "radio";
+                <ul class="collection with-header lighten-1 z-depth-2">
+                    <li class='collection-header'><h5>Ваши вопросы</h5>
+                        <?php
+                            // проверяем, не удалена ли или не заблокирована ли данная БД
+                            $checkDB = $link->query("SELECT name, id, del, is_blocked,creator FROM list WHERE table_ID ='$questName'");
+                            $arrayDBBlocked = $checkDB->fetch(\PDO::FETCH_ASSOC);
+                            while ($array = $checkDB->fetch(\PDO::FETCH_ASSOC)) {
+                                if ($_SESSION['usertype'] != 1) {
+                                    if ($array['creator'] != $_SESSION['uid']) {
+                                        header('Location: ' . $folderRoot . 'tool/mybase.php');
+                                        exit;
                                     }
-                                    echo "' value='" . $radioValue . "'/>
-                                    <span id='" . $questID . $radioValue . "'>" . $value . "</span></label>
-                                    </p>";
-                                    $radioValue++;
                                 }
                             }
-                            echo "</div>";
 
-                            echo "<br><p><b>Вопрос:</b>
-                                  <input type='text' name='question" . $r_pytn['apply'] . "' autocomplete='off' value='" . $r_pytn['question'] . "'>";
+                            if ($arrayDBBlocked['creator'] != $_SESSION['uid']) {
+                                /// ToDo: cделать Приватный доступ
+                                header('Location: ' . $folderRoot . 'index.php');
+                                exit;
+                            }
 
-                            echo "<p><b>Варианты ответа:</b><br>";
-                            echo "<textarea name='answers" . $r_pytn['apply'] . "' cols='40' rows='10' minlength='3' maxlength='500' 
+                            $select = $link->query("SELECT id, question, answers, apply FROM $questName");
+                            $lastID = $link->query("SELECT id FROM $questName order by id desc limit 1");
+                            echo "<p>Количество вопросов: <b>" . $select->rowCount() . "</b></p></li>";
+
+                            // массив правильных ответов
+                            $applyArray = array();
+                            $applyArray = array_values($applyArray);
+
+                            $questID = 1;
+                            echo "<li class='collection-item'>";
+                            echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form" . $questID . "'>";
+
+                            // вывод вопросов с ответами
+                            while ($r_pytn = $select->fetch(\PDO::FETCH_ASSOC)) {
+                                echo "<div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>";
+                                $radioValue = 1;
+                                echo "<div class='col s12 m12 lighten-1 z-depth-1' style='margin-bottom: .75em; margin-top: .60em;'>
+                                    <p><b>" . $questID . ". " . $r_pytn['question'] . "
+                                        <span id='questApply" . $questID . "' style='color:red;'></span></b>
+                                    </p>";
+
+                                $answersArray = explode("\r\n", $r_pytn['answers']);
+                                foreach ($answersArray as $value) {
+                                    if ($value != "" || !empty($value)) {
+                                        echo "<p>
+                                                <label>
+                                                <input class='with-gap' name='group" . $questID . "' type='";
+                                        if (count(explode(",", $r_pytn['apply'])) > 1) {
+                                            echo "checkbox";
+                                        } else {
+                                            echo "radio";
+                                        }
+                                        echo "' value='" . $radioValue . "'>
+                                                <span id='" . $questID . $radioValue . "'>" . $value . "</span>
+                                                </label>
+                                            </p>";
+                                        $radioValue++;
+                                    }
+                                }
+                                echo "</div>";
+
+                                echo "<ul class='collapsible expandable'>
+                                        <li>
+                                            <div class='collapsible-header lighten-1 z-depth-1'>
+                                                <i class='material-icons'>chevron_right</i>Подробнее
+                                            </div>";
+
+                                echo "<div class='collapsible-body'><p><b>Вопрос:</b>
+                                  <input type='text' name='question" . $r_pytn['id'] . "' autocomplete='off' value='" . $r_pytn['question'] . "'>";
+
+                                echo "<p><b>Варианты ответа:</b><br>";
+                                echo "<textarea name='answers" . $r_pytn['id'] . "' cols='40' rows='10' minlength='3' maxlength='500' 
                             placeholder='Текст (макс. 500 символов)' class='materialize-textarea'>";
-                            print_r($r_pytn['answers']);
-                            echo "</textarea>";
+                                print_r($r_pytn['answers']);
+                                echo "</textarea>";
 
-                            echo "<p><b>Правельные ответы:</b><br>
-                              <input type='text' name='applys" . $r_pytn['apply'] . "' autocomplete='off' value='" . $r_pytn['apply'] . "'>";
+                                echo "<p><b>Правильные ответы:</b><br>
+                              <input type='text' name='applys" . $r_pytn['id'] . "' autocomplete='off' value='" . $r_pytn['apply'] . "'>";
 
-                            $applyArray[] = $r_pytn['apply'];
-                            $questID++;
+                                $applyArray[] = $r_pytn['apply'];
+                                $questID++;
 
-                            // Удалить вопрос
-                            echo "<p><button class='btn darken-2 z-depth-2 red' type='submit' name='deleteAnswer' value='" . $r_pytn['id'] . "'>
+                                echo "</div></li></ul>";
+
+                                echo "<p><button class='btn darken-2 z-depth-2 red' type='submit' name='deleteAnswer' value='" . $r_pytn['id'] . "'>
                                     <i class='material-icons left'>delete</i>Удалить вопрос
                                 </button></p>";
 
-                            echo "</div>";
-                        }
+                                echo "</div>";
+                            }
 
-                        echo "</li>";
+                            echo "</li>";
 
-                        // Сохранить / Отмена
-                        echo "<div class='row'>
+                            // Сохранить / Отмена
+                            echo "<div class='row'>
                                 <div class='input-field col s6 m3'>
-                                    <button class='btn darken-2 z-depth-2' type='submit' name='save'>
+                                    <button class='btn darken-2 z-depth-2' type='submit' name='saveAll'>
                                         <i class='material-icons left'>save</i>Сохранить
                                     </button>
                                 </div>
@@ -218,8 +225,73 @@
                                     </button>
                                 </div>
                             </div>";
-                        echo "</form>";
-                    ?>
+
+
+                            // cancel
+                            if (isset($data['cancel'])) {
+                                $_SESSION['getUrl'] = null;
+                                header('Location: ' . $folderRoot . 'tool/mybase.php');
+                                exit;
+                            }
+
+                            // delete
+                            if (isset($data['deleteAnswer'])) {
+                                $btn = $data['deleteAnswer'];
+
+                                try {
+                                    $sql_delete_row = "DELETE FROM " . $questName . " WHERE id = '$btn'";
+                                    $link->exec($sql_delete_row);
+                                    header("Location: createquestion.php?" . $arr_url['query'] . "");
+                                    exit;
+                                } catch (PDOException $e) {
+                                    echo "<span style='color: red;'>Ошибка при удалении вопроса: " . $e->getMessage() . "</span>";
+                                }
+                            }
+
+                            // save
+                            if (isset($data['saveAll'])) {
+                                $nextSelect = $link->query("SELECT id, question, answers, apply FROM $questName");
+                                while ($row = $nextSelect->fetch()) {
+                                    $questionId = "question" . $row['id'];
+                                    $answers = "answers" . $row['id'];
+                                    $applys = "applys" . $row['id'];
+
+                                    $question = $_POST["question" . $row['id']];
+                                    $answers = $_POST["answers" . $row['id']];
+                                    $applys = $_POST["applys" . $row['id']];
+
+                                    if ($question == null || $answers == null || $applys == null) {
+                                        continue;
+                                    }
+
+                                    if ($question == $row['question'] && $answers == $row['answers'] && $applys == $row['apply']) {
+                                        continue;
+                                    }
+
+                                    if ($question != "" && $answers != "" && $applys != "") {
+                                        try {
+                                            $sql_update_row = "UPDATE $questName SET
+                                    question= '" . $question . "',
+                                    answers='" . $answers . "',
+                                    apply='" . $applys . "' 
+                                    WHERE id = '" . $row['id'] . "'";
+                                            $link->exec($sql_update_row);
+                                        } catch (PDOException $e) {
+                                            echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
+                                        }
+                                    } else {
+                                        echo "<p class='red'>Заполните поля вопроса</p>";
+                                    }
+
+                                    header("Location: " . $file_name . "?" . $arr_url['query'] . "");
+                                    exit;
+                                }
+                            }
+
+                            echo "</form>";
+                        ?>
+                    </li>
+                </ul>
             </div>
 
             <div class="row">
@@ -249,11 +321,12 @@
 
                                         ////////////////////////////
                                         try {
-                                            $sql_insert = "UPDATE list
-                                                SET name = '" . $tabel_zagalovok . "'
+                                            $sql_insert = "UPDATE list SET 
+                                                name = '" . $tabel_zagalovok . "'
                                                 WHERE table_ID = '" . $questName . "'";
                                             $link->exec($sql_insert);
-                                            echo "<span style='color: green;'>Название темы изменено. </span>";
+                                            $arrayDBBlocked['name'] = $tabel_zagalovok;
+                                            echo "<span style='color: green;'>Название темы изменено. Старое название отображается только сейчас.</span>";
                                         } catch (PDOException $e) {
                                             echo "<span style='color: red;'>Ошибка при переименовании теста: " . $e->getMessage() . "</span>";
                                         }
@@ -268,53 +341,6 @@
     </div>
 </main>
 
-
-<?php
-    // cancel
-    if (isset($data['cancel'])) {
-        $_SESSION['getUrl'] = null;
-        header('Location: ' . $folderRoot . 'tool/mybase.php');
-        exit;
-    }
-
-    // delete
-    if (isset($data['deleteAnswer'])) {
-        $btn = $data['deleteAnswer'];
-
-        try {
-            $sql_delete_row = "DELETE FROM " . $questName . " WHERE id = '$btn'";
-            $link->exec($sql_delete_row);
-            header("Location: createquestion.php?" . $arr_url['query'] . "");
-            exit;
-        } catch (PDOException $e) {
-            echo "<span style='color: red;'>Ошибка при удалении вопроса: " . $e->getMessage() . "</span>";
-        }
-    }
-
-    // save
-    if (isset($data['save'])) {
-        $question = $_POST['question'];
-        $answers = $_POST['answers'];
-        $applys = $_POST['applys'];
-
-        if ($question != "" && $answers != "" && $applys != "") {
-            try {
-                $sql_add_row = "INSERT INTO '$questName' SET
-                                    question= '" . $question . "',
-                                    answers='" . $answers . "',
-                                    apply='" . $applys . "' ";
-                $link->exec($sql_add_row);
-                header("Location: 'createquestion.php?" . $arr_url['query'] . "'");
-                exit;
-            } catch (PDOException $e) {
-                echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
-            }
-        } else {
-            echo "<p class='red'>Заполните поля</p>";
-        }
-    }
-
-?>
 <!--footer-->
 <?php
     include($folderRoot . "inc/z_footer.php");

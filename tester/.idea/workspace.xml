@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="start PDO">
+      <change afterPath="$PROJECT_DIR$/tools/test-editQuestPage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/z_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/z_head.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/js/plugins.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/js/plugins.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/localhost-15.03.2019.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/createquestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/mybase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/mybase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +162,8 @@
       <workItem from="1613477493341" duration="161000" />
       <workItem from="1613549308624" duration="5788000" />
       <workItem from="1613650069785" duration="4226000" />
+      <workItem from="1613655420246" duration="519000" />
+      <workItem from="1613716021868" duration="13427000" />
     </task>
     <task id="LOCAL-00001" summary="start PDO">
       <created>1613028785194</created>
@@ -225,12 +218,14 @@
           <line>32</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/tool/createquestion.php</url>
+          <line>244</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <configuration name="createquestion.php">
-        <watch expression="$arrayDBBlocked" />
-      </configuration>
       <configuration name="edit.php">
         <watch expression="$arrayDB['name']" language="PHP" />
         <watch expression="$_SESSION['getUrl']" language="PHP" />
