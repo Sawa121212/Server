@@ -29,7 +29,7 @@
             <div class='row'>
                 <form class="col s12" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                     <div class="row">
-                        <div class="col s12 m12 lighten-1 z-depth-3">
+                        <div class="collection lighten-1 z-depth-3">
                             <div class="icon-block">
                                 <h5 class="center">Создать тест</h5>
                                 <p class="light">После создания теста доступ к нему будет закрыт. Откройте доступ после

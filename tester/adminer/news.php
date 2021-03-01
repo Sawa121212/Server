@@ -19,7 +19,6 @@
 <html lang="ru">
 <head>
     <? include($folderRoot . "inc/z_head.php"); ?>
-    <title>Администрирование</title>
 </head>
 <body>
 <!--left panel-->
@@ -33,7 +32,7 @@
             <h3 align='center'>Новости</h3>
             <div class="row">
                 <!--Добавить вопрос-->
-                <div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>
+                <div class='collection col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>
                     <form form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                         <h5 class="center">Добавление новостей</h5>
                         <?php
@@ -62,7 +61,7 @@
                             $questionsBase = "tables";
 
                             //устанавливаем текущую активную базу данных
-                            mysqli_select_db($link, $questionsBase);
+                            include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
 
                             if (isset($data['add'])) //если кликнули на button
                             {
@@ -73,16 +72,16 @@
                                 elseif ($data['group_type'] == 2) $group_type = 'warning';
                                 elseif ($data['group_type'] == 3) $group_type = 'error';
 
-                                $sql_insert = "INSERT INTO news  SET
+                                try {
+                                    $sql_insert = "INSERT INTO news  SET
                                     header = '" . $header . "', 
                                     text = '" . $text . "', 
                                     date = '" . $dateTime . "', 
                                     mode = '" . $group_type . "'";
-
-                                if (mysqli_query($link, $sql_insert)) {
+                                    $link->exec($sql_insert);
                                     echo "<span style='color: green;'>Новость добавлена. </span>";
-                                } else {
-                                    echo "<span style='color: red;'>Ошибка в регистрации: " . mysqli_error($link) . "</span>";
+                                } catch (PDOException $e) {
+                                    echo "<span style='color: red;'>Ошибка при добавлении: " . $e->getMessage() . "</span>";
                                 }
                             }
                         ?>
@@ -104,39 +103,38 @@
             <hr>
             <div class="row">
                 <?php
-                    $select_news = mysqli_query($link, "SELECT * FROM news ORDER BY id DESC LIMIT 10;");
+                    $select_news = $link->query("SELECT * FROM news ORDER BY id DESC LIMIT 10");
                     $newsIsEmpty = true;
-                    while ($news = mysqli_fetch_array($select_news)) {
+                    while ($news = $select_news->fetch(\PDO::FETCH_ASSOC)) {
                         switch ($news['mode']) {
                             case 'info':
-                                $checkedValue= "1";
+                                $checkedValue = "1";
                                 break;
                             case 'warning':
-                                $checkedValue= "2";
+                                $checkedValue = "2";
                                 break;
                             case 'error':
-                                $checkedValue= "3";
+                                $checkedValue = "3";
                                 break;
                             default:
-                                $checkedValue= "1";
+                                $checkedValue = "1";
                                 break;
                         }
 
                         $newsIsEmpty = false;
                         echo "<ul class='collection with-header z-depth-1'>
-                            <li class='collection-header blue lighten-2'><h5><p>Выберите тип:</p></h5>
-                            
+                            <li class='collection-header' style='background: #8fbc8f;'><h5><p>Выберите тип:</p></h5>                            
                             <p><label><input name='group_type' type='radio' value='1' ";
-                                if($checkedValue == "1") echo 'checked';
-                                echo "/><span><i class='material-icons right'>info</i>Информация</span></label></p>
+                        if ($checkedValue == "1") echo 'checked';
+                        echo "/><span><i class='material-icons right'>info</i>Информация</span></label></p>
                             <p><label><input name='group_type' type='radio' value='2' ";
-                                if($checkedValue == "2") echo 'checked';
-                                echo "/><span><i class='material-icons right'>build</i>Предупреждение</span></label></p>
+                        if ($checkedValue == "2") echo 'checked';
+                        echo "/><span><i class='material-icons right'>build</i>Предупреждение</span></label></p>
                             <p><label><input name='group_type' type='radio' value='3' ";
-                                if($checkedValue == "3") echo 'checked';
-                                echo "/><span><i class='material-icons right'>bug_report</i>Ошибка</span></label></p>";
+                        if ($checkedValue == "3") echo 'checked';
+                        echo "/><span><i class='material-icons right'>bug_report</i>Ошибка</span></label></p>";
 
-                            echo "<input type='text' name='header' autocomplete='off' maxlength='500' placeholder='Текст (макс. 50 символов)' value='" . $news['header'] . "'>
+                        echo "<input type='text' name='header' autocomplete='off' maxlength='500' placeholder='Текст (макс. 50 символов)' value='" . $news['header'] . "'>
                             <span class='right white-text'>" . date("d.m.y H:i", strtotime($news['date'])) . "</span></li>";
 
                         echo "<li class='collection-item'>

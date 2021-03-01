@@ -17,7 +17,6 @@
 <html lang="ru">
 <head>
     <? include($folderRoot . "inc/z_head.php"); ?>
-    <title>Админ панель</title>
 </head>
 <body>
 <!--left panel-->
@@ -32,20 +31,17 @@
             <div class="row">
                 <ul class="collection with-header z-depth-1">
                     <li class="collection-header"><h4>Администрирование</h4></li>
-                    <li class="collection-item">
-                        <div>Зарегистрировать аккаунт<a href="<? echo $folderRoot . "account/account_signup.php";?>" class="secondary-content"><i class="material-icons">send</i></a></div>
+                    <li class="collection-item left-align">
+                        <a href="<? echo $folderRoot . "account/account_signup.php"; ?> ">Зарегистрировать аккаунт</a>
                     </li>
                     <li class="collection-item">
-                        <div>Аккаунты<a href="accounteditor/account_index.php" class="secondary-content"><i class="material-icons">send</i></a></div>
+                        <a href="accounteditor/account_index.php">Аккаунты</a>
                     </li>
                     <li class="collection-item">
-                        <div>Управление новостями<a href="<? echo $folderRoot . "adminer/news.php";?>" class="secondary-content"><i class="material-icons">send</i></a></div>
+                        <a href="<? echo $folderRoot . "adminer/news.php"; ?>">Управление новостями</a>
                     </li>
                     <li class="collection-item">
-                        <div>Управление тестами<a href="<? echo $folderRoot . "adminer/tests.php";?>" class="secondary-content"><i class="material-icons">send</i></a></div>
-                    </li>
-                    <li class="collection-item">
-                        <div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div>
+                        <a href="<? echo $folderRoot . "adminer/tests.php"; ?>">Управление тестами</a>
                     </li>
                 </ul>
             </div>

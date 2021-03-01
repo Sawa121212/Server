@@ -12,9 +12,8 @@
     require $folderRoot . 'conn/db.php';
     $data = $_POST;
 
-    $questionsBase = "tables";
     //устанавливаем текущую активную базу данных
-    mysqli_select_db($link, $questionsBase);
+    include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +35,12 @@
                 <li class="collection-header"><h4>Все тесты</h4></li>
                 <?php
                     // Мои тесты
-                    $select_quests = mysqli_query($link, "SELECT * FROM list");
+                    $select_quests = $link->query("SELECT * FROM list");
+
+                    //$select_quests = mysqli_query($link, "SELECT * FROM list");
                     $myTestIsEmpty = true;
-                    while ($r = mysqli_fetch_array($select_quests)) {
+                    while ($r = $select_quests->fetch(\PDO::FETCH_ASSOC)) {
+                    //while ($r = mysqli_fetch_array($select_quests)) {
                         $myTestIsEmpty = false;
 
                         echo "<li class='collection-item' >";

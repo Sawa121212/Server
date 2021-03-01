@@ -4,14 +4,13 @@
 
 <!--Black Theme-->
 <?php
-    /*if ($_SESSION['theme'] == 1) {
-        echo "<link type='text/css' rel='stylesheet' href='" . $folderRoot . "materialize/css/materialize.dark.css' media='screen,projection'/>";
+    if ($_SESSION['theme'] == 1) {
+        echo "<link type='text/css' rel='stylesheet' href='".$folderRoot . "materialize/css/ghpages-materialize-dark.css' media='screen,projection'>";
     } else {
-        echo "<link type='text/css' rel='stylesheet' href='" . $folderRoot . "materialize/css/materialize.css' media='screen,projection'/>";
-    }*/
+        echo "<link type='text/css' rel='stylesheet' href='".$folderRoot . "materialize/css/ghpages-materialize.css' media='screen,projection'>";
+    }
 ?>
-<link type="text/css" rel="stylesheet"
-      href=" <? echo $folderRoot ?>materialize/css/ghpages-materialize.css" media="screen,projection">
+
 
 <link type="text/css" rel="stylesheet" href="<? echo $folderRoot ?>materialize/css/style.css"
       media="screen,projection">
@@ -23,4 +22,5 @@
 <meta http-equiv="Content-Language" content="ru">
 <meta content="text/css">
 <META HTTP-EQUIV="Expires" CONTENT="0">
+<title>Тестирование</title>
 

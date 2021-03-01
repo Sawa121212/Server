@@ -1,9 +1,9 @@
 <?php
     $folderRootCount = 2;
-    session_start();
     include("../inc/functions/func_folderRoot.php");
+    include($folderRoot . "inc/functions/func_SESSION.php");
     include($folderRoot . "inc/functions/func_captcha.php");
-
+    CancelIsLogout($folderRoot);
     require $folderRoot . 'conn/db.php';
     $file_name = basename(__FILE__);
 
@@ -26,8 +26,8 @@
     <div class="container ">
         <br>
         <?php
-            $query = mysqli_query($link, "SELECT * FROM users WHERE login='" . $_SESSION['login'] . "'");
-            $user = mysqli_fetch_array($query);
+            $query = $link->query("SELECT * FROM users WHERE login='" . $_SESSION['login'] . "'");
+            $user = $query->fetch(\PDO::FETCH_ASSOC);
 
             $_SESSION['logged_user'] = $user;
             $_SESSION['second_name'] = $user['second_name'];
@@ -128,11 +128,14 @@
                             //если кликнули на button
                             if (isset($data['do_editThema'])) {
                                 $thema1 = $_POST['group1'];
-                                $result_rep = mysqli_query($link, "UPDATE users SET theme='" . $thema1 . "' where login='" . $_SESSION['login'] . "' ");
-                                $_SESSION['thema'] = $thema1;
-
-                                if ($result_rep) {
-                                    restart();
+                                try {
+                                    $result_rep = "UPDATE users SET theme='" . $thema1 . "' where login='" . $_SESSION['login'] . "' ";
+                                    $link->exec($result_rep);
+                                    $_SESSION['thema'] = $thema1;
+                                    header('Location:'. $file_name);
+                                    exit;
+                                } catch (PDOException $e) {
+                                    echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
                                 }
                             }
                         ?>

@@ -1,12 +1,13 @@
-<nav class="nav-extended" role="navigation">
-    <div class="nav-wrapper z-depth-2">
-        <a href="<?= $folderRoot ?>index.php" class="brand-logo left"><i class="material-icons"
-                                                                         style="margin-left: 5px;">home</i></a>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger right Tiny"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
-
 <header xmlns="http://www.w3.org/1999/html">
+    <nav class="nav-extended" role="navigation">
+        <div class="nav-wrapper z-depth-2">
+            <a href="<?= $folderRoot ?>index.php" class="brand-logo left">
+                <i class="material-icons" style="margin-left: 5px;">home</i></a>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger right Tiny"><i
+                        class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
     <ul id="nav-mobile" class="sidenav sidenav-fixed">
         <!--Аккаунт-->
         <?php

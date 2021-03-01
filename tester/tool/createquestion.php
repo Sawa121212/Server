@@ -30,28 +30,30 @@
         </div>
 
         <div class="row">
-            <h5 align="center">Редактируйте и добавляйте вопросы</h5>
-
-            <div class="infoText">
-                <div class="infoTextZag">
-                    <p><b>Пример</b></p>
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <h5 align="center">Редактируйте и добавляйте вопросы</h5>
+                        <p><b>Пример</b></p>
+                        <p><b>Вопрос:</b></p>
+                        <p>Выбери все фрукты и ягоды, которые красного цвета.</p>
+                        <br>
+                        <p><b>Варианты ответа:</b></p>
+                        <p>1. Клубника</p>
+                        <p>2. Абрикос</p>
+                        <p>3. Банан</p>
+                        <p>4. Малина</p>
+                        <p>5. Ананас</p>
+                        <br>
+                        <p><b>Правильные ответы:</b></p>
+                        <p>1,4</p>
+                    </div>
                 </div>
-                <p><b>Вопрос:</b></p>
-                <p>Выбери все фрукты и ягоды, которые красного цвета.</p>
-                <br>
-                <p><b>Варианты ответа:</b></p>
-                <p>1. Клубника</p>
-                <p>2. Абрикос</p>
-                <p>3. Банан</p>
-                <p>4. Малина</p>
-                <p>5. Ананас</p>
-                <br>
-                <p><b>Правильные ответы:</b></p>
-                <p>1,4</p>
             </div>
-
+        </div>
+        <div class="row">
             <!--Добавить вопрос-->
-            <div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>
+            <div class='collection col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>
                 <form form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                     <?php
                         $questionCount = 0;
@@ -297,7 +299,7 @@
             <div class="row">
                 <form class="col s12" form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                     <div class="row">
-                        <div class="col s12 m12 lighten-1 z-depth-3">
+                        <div class="collection col s12 m12 lighten-1 z-depth-3">
                             <div class="icon-block">
                                 <h5 class="center">Редактирование названия темы</h5>
                                 <input id="test_name" name="test_name" type="text" class="validate"

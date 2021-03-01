@@ -15,7 +15,7 @@
 <html lang="ru">
 <head>
     <? include($folderRoot . "inc/z_head.php"); ?>
-    <title>Главная страница</title>
+    <title>Тестирование</title>
 </head>
 <body>
 <!--left panel-->
@@ -131,6 +131,8 @@
 <?php
     include($folderRoot . "inc/z_footer.php");
 ?>
+<div class="sidenav-overlay" style="display: none; opacity: 0;"></div>
+<div class="drag-target"></div>
 
 </body>
 </html>
