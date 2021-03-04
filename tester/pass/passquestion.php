@@ -1,7 +1,6 @@
 <?php
     $folderRoot = "";
     $link = "";
-    $folderRootCount = 2;
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
     require $folderRoot . 'conn/db.php';
@@ -55,10 +54,11 @@
                     $applyArray = array();
                     $applyArray = array_values($applyArray);
 
+                    echo "<ul class='collection with-header z-depth-1'>";
                     echo "<form action='" . $_SERVER['PHP_SELF'] . "'  method='POST' name='test_form'>";
-                    //while ($r_pytn = mysqli_fetch_array($select)) {
                     while ($r_pytn = $select_table->fetch(\PDO::FETCH_ASSOC)) {
                         $radioValue = 1;
+                        echo "<li class='collection-item'>";
                         echo "<p><b>" . $questID . ". " . $r_pytn['question'] . "<span id='questApply" . $questID . "' style='color:red;'></span></b></p>";
                         $answersArray = explode("\r\n", $r_pytn['answers']);
 
@@ -78,9 +78,9 @@
                         }
                         $applyArray[] = $r_pytn['apply'];
                         $questID++;
-                        echo "<br>";
+                        echo "</li>";
                     }
-                    echo "</form>";
+                    echo "</form></ul>";
 
                 ?>
                 <div class="row">
@@ -88,9 +88,8 @@
                         <!--Проверить ответы-->
                         <?php
                             echo "<br><p><b>Правельных ответов: <span id='applysQuestion'>0</span></b></p>";
-
-                            echo "<input type='button' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)' name='do_checkApplay' value='Завершить тест'><br><br>";
-                            echo "<a class='btn blue darken-2  z-depth-2' href='" . $file_name ."?". $arr_url['query'] . "' value='Пройти заново'>Пройти заново</a>";
+                            echo "<a class='btn blue darken-2  z-depth-2' href='" . $file_name . "?" . $arr_url['query'] . "' value='Пройти заново'>Пройти заново</a><br><br>";
+                            echo "<input type='button' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)' id='do_checkApplay' name='do_checkApplay' value='Завершить тест'>";
                         ?>
                     </div>
                     </form><br>
@@ -169,6 +168,7 @@
                     }
 
                     document.getElementById('applysQuestion').textContent = applyQuestion.toString();
+                    document.getElementById('do_checkApplay').className = 'hidden';
                 }
             </script>
 

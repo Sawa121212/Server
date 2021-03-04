@@ -1,5 +1,7 @@
 <?php
-    $folderRootCount = 2;
+    $folderRoot ="";
+    $link = "";
+    
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
     include($folderRoot . "inc/functions/func_captcha.php");

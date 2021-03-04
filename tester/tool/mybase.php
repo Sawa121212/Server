@@ -1,5 +1,6 @@
 <?php
-    $folderRootCount = 2;
+    $folderRoot ="";
+    $link = "";
 
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
@@ -63,7 +64,7 @@
 
                                 if (isset($data['create'])) {
                                     if ($data['test_name'] != "") {
-                                        $tabel_zagalovok = $data['test_name'];
+                                        $tabel_zagalovok = strip_tags(trim($data['test_name']));
                                         $table_ID = "quest_" . sha1(time());
                                         $tabel_privet = isset($data['test_privet']) ? "true" : "false";
 

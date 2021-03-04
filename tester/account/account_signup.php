@@ -1,6 +1,7 @@
 <?php
-    $folderRootCount = 2;
-    session_start();
+    $folderRoot = "";
+    $link = "";
+    $answers = array();
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
     require $folderRoot . 'conn/db.php';
@@ -11,6 +12,7 @@
     $data = $_POST; ?>
 
 <?php
+    // Регистрироваться могут только не вошедшие в аккаунт и Регистрировать может только Админ
     if ($_SESSION['usertype'] != 1) {
         if (isset($_SESSION['logged_user'])) {
             header('Location: ' . $folderRoot . 'index.php');
@@ -172,7 +174,6 @@
                             //если кликнули на button
                             if (isset($data['do_signup'])) {
                                 //проверка капчи
-
                                 if ($_SESSION['captcha'] != array_search(mb_strtolower($_POST['captcha']), $answers)) {
                                     $errors[] = 'Ответ на captcha указан не верно!';
                                 }
@@ -242,11 +243,11 @@
                                     // Убераем лишние пробелы и делаем двойное шифрование
                                     $password = sha1(sha1(trim($_POST['password'])));
 
-                                    $tabel_id = $_POST['tabel_id'];
-                                    $first_name = $_POST['first_name'];
-                                    $second_name = $_POST['second_name'];
-                                    $patronymic = $_POST['patronymic']; // отчество
-                                    $email = $_POST['email'];
+                                    $tabel_id = strip_tags(trim($_POST['tabel_id']));
+                                    $first_name = strip_tags(trim($_POST['first_name']));
+                                    $second_name = strip_tags(trim(_POST['second_name']));
+                                    $patronymic = strip_tags(trim($_POST['patronymic'])); // отчество
+                                    $email = strip_tags(trim($_POST['email']));
                                     $usertype = $_POST['usertype'];
                                     $u_uid = sha1(time());
 

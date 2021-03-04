@@ -94,8 +94,8 @@
 
                         // Add
                         if (isset($data['add'])) {
-                            $question = $_POST['question'];
-                            $answers = $_POST['answers'];
+                            $question = strip_tags(trim($_POST['question']));
+                            $answers = strip_tags(trim($_POST['answers']));
                             $applys = str_replace(' ', '', $_POST['applys']);
 
                             if ($question != "" && $answers != "" && $applys != "") {
@@ -117,7 +117,6 @@
                     ?>
                 </form>
             </div>
-            <br>
 
             <div class="row">
                 <ul class="collection with-header lighten-1 z-depth-2">
@@ -155,9 +154,9 @@
 
                             // вывод вопросов с ответами
                             while ($r_pytn = $select->fetch(\PDO::FETCH_ASSOC)) {
-                                echo "<div class='col s12 m12 lighten-1 z-depth-2' style='margin-bottom: .75em;'>";
+                                echo "<div class='collection col s12 m12 lighten-2 z-depth-2' style='margin-bottom: .75em;'>";
                                 $radioValue = 1;
-                                echo "<div class='col s12 m12 lighten-1 z-depth-1' style='margin-bottom: .75em; margin-top: .60em;'>
+                                echo "<div class='col s12 m12 lighten-1 ' style='margin-top: .60em;'>
                                     <p><b>" . $questID . ". " . $r_pytn['question'] . "
                                         <span id='questApply" . $questID . "' style='color:red;'></span></b>
                                     </p>";
@@ -258,9 +257,9 @@
                                     $answers = "answers" . $row['id'];
                                     $applys = "applys" . $row['id'];
 
-                                    $question = $_POST["question" . $row['id']];
-                                    $answers = $_POST["answers" . $row['id']];
-                                    $applys = $_POST["applys" . $row['id']];
+                                    $question = strip_tags(trim($_POST["question" . $row['id']]));
+                                    $answers = strip_tags(trim($_POST["answers" . $row['id']]));
+                                    $applys = strip_tags(trim($_POST["applys" . $row['id']]));
 
                                     if ($question == null || $answers == null || $applys == null) {
                                         continue;
@@ -273,10 +272,10 @@
                                     if ($question != "" && $answers != "" && $applys != "") {
                                         try {
                                             $sql_update_row = "UPDATE $questName SET
-                                    question= '" . $question . "',
-                                    answers='" . $answers . "',
-                                    apply='" . $applys . "' 
-                                    WHERE id = '" . $row['id'] . "'";
+                                                question= '" . $question . "',
+                                                answers='" . $answers . "',
+                                                apply='" . $applys . "' 
+                                                WHERE id = '" . $row['id'] . "'";
                                             $link->exec($sql_update_row);
                                         } catch (PDOException $e) {
                                             echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
@@ -319,7 +318,7 @@
 
                                 if (isset($data['editTestName'])) {
                                     if ($data['test_name'] != "") {
-                                        $tabel_zagalovok = $data['test_name'];
+                                        $tabel_zagalovok = strip_tags(trim($data['test_name']));
 
                                         ////////////////////////////
                                         try {

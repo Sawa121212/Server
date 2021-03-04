@@ -98,3 +98,7 @@
 .password-control.view {
     background: url(../../img/no-view.svg) 0 0 no-repeat;
 }
+
+.hidden {
+    visibility: collapse;
+}

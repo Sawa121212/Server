@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    $folderRootCount = 2;
-
+    $folderRoot ="";
+    $link = "";
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
 
@@ -65,13 +64,14 @@
 
                             if (isset($data['add'])) //если кликнули на button
                             {
-                                $header = $data['header'];
-                                $text = $data['text'];
+                                $header = strip_tags(trim($data['header']));
+                                $text = strip_tags(trim($data['text']));
 
                                 if ($data['group_type'] == 1) $group_type = 'info';
                                 elseif ($data['group_type'] == 2) $group_type = 'warning';
                                 elseif ($data['group_type'] == 3) $group_type = 'error';
 
+                                // добавить новость
                                 try {
                                     $sql_insert = "INSERT INTO news  SET
                                     header = '" . $header . "', 
