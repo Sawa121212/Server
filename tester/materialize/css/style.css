@@ -105,11 +105,13 @@
 
 /**/
 input:invalid+span:after {
-    content: '✖';
+    content: "✖ неправильнлое значение";
     padding-left: 5px;
+    color: crimson;
 }
 
 input:valid+span:after {
-    content: '✓';
+    content: "✓ ok";
     padding-left: 5px;
+    color: limegreen;
 }

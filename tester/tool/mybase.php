@@ -170,7 +170,7 @@
                         // Мои тесты
                         $myTestIsEmpty = true;
 
-                        $select_quests = $link->query("SELECT name, private, del, is_blocked,table_ID, is_start FROM list WHERE creator ='$user_uid'");
+                        $select_quests = $link->query("SELECT name, private, del, is_blocked,table_ID, is_start, giper FROM list WHERE creator ='$user_uid'");
                         while ($r = $select_quests->fetch()) {
                             $myTestIsEmpty = false;
 
@@ -203,7 +203,7 @@
                                 /// edit
                                 // edit btn
                                 echo "<a href='";
-                                if ($r['giper'] == "true") {
+                                if ($r['giper'] == 'false') {
                                     echo $folderRoot . "tool/createquestion.php?edit_db=" . $r['table_ID'];
                                 } else {
                                     echo $folderRoot . "tool/creategiperquestion.php?edit_db=" . $r['table_ID'];
@@ -243,6 +243,10 @@
                                     echo "<label style='margin: 10px;'>Публичный</label>";
                                 } else {
                                     echo "<label style='margin: 10px;'>Приватный</label>";
+                                }
+
+                                if ($r['giper'] == 'true') {
+                                    echo "<label style='margin: 5px;'>Гипертест</label>";
                                 }
                                 echo "</div></li>";
                             }

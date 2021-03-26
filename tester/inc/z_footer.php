@@ -24,3 +24,4 @@
 <script src="<? echo $folderRoot ?>materialize/js/materialize.js"></script>
 <script src="<? echo $folderRoot ?>materialize/js/init.js"></script>
 <script src="<? echo $folderRoot ?>materialize/prism.js"></script>
+<script src="<? echo $folderRoot ?>materialize/js/characterCounter.js"></script>

@@ -66,16 +66,20 @@
 
                         // Мои тесты
                         $myTestIsEmpty = true;
+                        $myTestCount = 0;
 
-                        $select_quests = $link->query("SELECT name, private, del, is_blocked,table_ID, is_start FROM list WHERE creator ='$user_uid'");
+                        $select_quests = $link->query("SELECT name, private, del, is_blocked,table_ID, is_start, giper FROM list WHERE creator ='$user_uid'");
                         while ($r = $select_quests->fetch()) {
-                            if ($r['giper'] == "true" || $r['table_ID'] == $questName) {
+                            if ($r['giper'] == 'true' || $r['table_ID'] == $questName || $r['private'] == 'true') {
                                 continue;
                             }
 
                             $myTestIsEmpty = false;
 
                             if ($r['del'] != 'true') {
+                                $table_IDOnList = $r['table_ID'];
+                                $questionsCount = $link->query("SELECT id, question FROM $table_IDOnList");
+                                $myTestCount++;
                                 $TestIsEmpty = false;
                                 echo "<li class='collection-item' >";
                                 echo "<div>";
@@ -89,36 +93,23 @@
                                 echo "<div class='switch right'><label>";
 
                                 if ($r['is_blocked'] != 'true') {
-                                    echo "<input type='checkbox'>";
+                                    echo "<input type='checkbox' id='checkbox" . $myTestCount . "' onclick='ClickChecBoxEvent(" . $myTestCount . ")'>";
                                 } else {
                                     echo "<input disabled type='checkbox'>";
                                 }
                                 echo "<span class='lever'></span></label></div>";
 
-                                if ($r['private'] == 'false') {
-                                    echo "<label style='margin: 10px;'>Публичный</label>";
-                                } else {
-                                    echo "<label style='margin: 10px;'>Приватный</label>";
-                                }
-                                echo "</div></li>";
+                                echo "</div>";
+
+                                echo "<div class='hidden' id='questionCountRow" . $myTestCount . "'>
+                                        <label for='balloons'>Количество вопросов (максимум " . $questionsCount->rowCount() . "):</label>
+                                        <input type='number' id='answerCount" . $myTestCount . "' name='answerCount' min='1' max='" . $questionsCount->rowCount() . "' value='1'>
+                                        <span class='validity'></span>
+                                      </div>";
+                                echo "</li>";
                             }
                         }
 
-                        echo "<li class='collection-item'>";
-                        echo "<form>
-<div class='row'>
-                          <div class='col s11'>
-                            <label for='balloons'>Number of balloons to order (multiples of 10):</label>
-                            <input id='balloons' type='number' name='balloons' step='10' min='0' max='100' required>
-                            <span class='validity'></span>
-                          </div>
-                          <div>
-                            <input type='submit'>
-                          </div></div>
-                          
-                        </form>";
-                        echo "</li>";
-                        
                         echo "<li class='collection-item'>";
                         echo "<div>Сохранить</div>";
                         echo "</li>";
@@ -139,5 +130,23 @@
 <?php
     include($folderRoot . "inc/z_footer.php");
 ?>
+
+<script>
+    function ClickChecBoxEvent(num) {
+        // Get the checkbox
+        var checkboxName = "checkbox" + num.toString();
+        var checkBox = document.getElementById(checkboxName);
+
+        // Get the output
+        var divName = "questionCountRow" + num.toString();
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked === true) {
+            document.getElementById(divName).className = 'row';
+        } else {
+            document.getElementById(divName).className = 'hidden';
+        }
+    }
+</script>
 </body>
 </html>
