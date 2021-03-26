@@ -1,7 +1,6 @@
 <?php
     $folderRoot = "";
     $link = "";
-    $folderRootCount = 2;
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
     CancelIsLogout($folderRoot);
@@ -15,12 +14,10 @@
 <html lang="ru">
 <head>
     <? include($folderRoot . "inc/z_head.php"); ?>
-    <title>Редактирование</title>
 </head>
 <body>
 <!--left panel-->
 <? include($folderRoot . "inc/z_rightPanel.php"); ?>
-
 
 <!--index-->
 <main>

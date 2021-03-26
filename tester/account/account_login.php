@@ -69,7 +69,7 @@
                     $_SESSION['logged_user'] = $data;
                     echo '<div">Здраствуйте, ';
                     $_SESSION['second_name'] = $data['second_name'];
-                    $_SESSION['tabel_id'] = $data['tabel_id'];
+                    $_SESSION['tabelID'] = $data['tabelID'];
                     $_SESSION['first_name'] = $data['first_name'];
                     $_SESSION['patronymic'] = $data['patronymic'];
                     $_SESSION['login'] = $data['login'];

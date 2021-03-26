@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="start PDO">
+      <change afterPath="$PROJECT_DIR$/tool/creategiperquestion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/account_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/account_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminer/adminpanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/adminpanel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminer/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminer/tests.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/tests.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/functions/func_folderRoot.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions/func_folderRoot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/materialize/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materialize/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/js/init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/createquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/createquestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/mybase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/mybase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +74,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/materialize/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tool" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -90,6 +85,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\tool" />
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\materialize\css" />
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\adminer\accounteditor" />
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\adminer" />
@@ -181,6 +177,12 @@
       <workItem from="1614597710713" duration="2878000" />
       <workItem from="1614771646595" duration="4458000" />
       <workItem from="1614834716650" duration="8714000" />
+      <workItem from="1615287136326" duration="2929000" />
+      <workItem from="1615537511561" duration="63000" />
+      <workItem from="1616130761627" duration="5000" />
+      <workItem from="1616584705490" duration="215000" />
+      <workItem from="1616584949493" duration="7499000" />
+      <workItem from="1616671344136" duration="4942000" />
     </task>
     <task id="LOCAL-00001" summary="start PDO">
       <created>1613028785194</created>
@@ -232,8 +234,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://W:/domains/localhost/tester/tool/edit.php</url>
-          <line>32</line>
+          <line>33</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://W:/domains/localhost/tester/tool/mybase.php</url>
+          <line>131</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

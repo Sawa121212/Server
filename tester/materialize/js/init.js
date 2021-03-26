@@ -27,3 +27,4 @@ $('body').on('click', '.password-control', function(){
       }
       return false;
 });
+

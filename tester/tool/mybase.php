@@ -1,5 +1,5 @@
 <?php
-    $folderRoot ="";
+    $folderRoot = "";
     $link = "";
 
     include("../inc/functions/func_folderRoot.php");
@@ -38,7 +38,7 @@
                                 <input id="test_name" name="test_name" type="text" class="validate">
                                 <label for="test_name">Название темы теста</label>
                             </div>
-                            <div class="input-field col s6 m3">
+                            <div class="input-field col s12 m3">
                                 <p>
                                     <label>
                                         <input id="test_privet" name="test_privet" type="checkbox" />
@@ -46,11 +46,18 @@
                                     </label>
                                 </p>
                             </div>
-                            <div class="input-field col s6 m3 right">
+                            <div class="input-field col s12 m3 right">
                                 <!--Проверить ответы-->
                                 <button class='btn darken-2  z-depth-2' type='submit' name='create'>
                                     <i class='material-icons left'>library_add</i>
                                     Создать тест
+                                </button>
+                            </div>
+                            <div class="input-field col s12 m3 right">
+                                <!--Проверить ответы-->
+                                <button class='btn teal darken-3 z-depth-2' type='submit' name='createGiperTest'>
+                                    <i class='material-icons left'>attach_file</i>
+                                    Создать гипертест
                                 </button>
                             </div>
 
@@ -70,7 +77,7 @@
 
                                         ////////////////////////////
                                         try {
-                                            $sql_insert = "INSERT INTO list  SET
+                                            $sql_insert = "INSERT INTO list SET
                                                 name = '" . $tabel_zagalovok . "', 
                                                 creator = '" . $user_uid . "', 
                                                 table_ID = '" . $table_ID . "', 
@@ -78,21 +85,76 @@
                                                 private = '" . $tabel_privet . "'";
                                             $link->exec($sql_insert);
                                             echo "<span style='color: green;'>Тест зарегистрирован. </span>";
-                                        } catch (PDOException $e) {
-                                            echo "<span style='color: red;'>Ошибка в регистрации теста: " . $e->getMessage() . "</span>";
-                                        }
-                                        ////////////////////////////
-                                        try {
-                                            $sql_create = "CREATE TABLE " . $table_ID . " (
+
+                                            ////////////////////////////
+                                            try {
+                                                $sql_create = "CREATE TABLE " . $table_ID . " (
                                                 id INT(10) AUTO_INCREMENT PRIMARY KEY,
                                                 question VARCHAR(300),
                                                 answers VARCHAR(1000),
                                                 apply VARCHAR(100));";
-                                            $link->exec($sql_create);
-                                            echo "<span style='color: green;'>Тест создан. </span>";
+                                                $link->exec($sql_create);
+                                                echo "<span style='color: green;'>Тест создан. </span>";
+                                                header('Location: ' . $folderRoot . 'tool/createquestion.php?edit_db=' . $table_ID);
+                                                exit;
+
+                                            } catch (PDOException $e) {
+                                                echo "<span style='color: red;'>Ошибка в создании теста: " . $e->getMessage() . "</span>";
+                                            }
                                         } catch (PDOException $e) {
-                                            echo "<span style='color: red;'>Ошибка в создании теста: " . $e->getMessage() . "</span>";
+                                            echo "<span style='color: red;'>Ошибка в регистрации теста: " . $e->getMessage() . "</span>";
                                         }
+
+                                    }
+                                }
+
+                                // create giperTest
+                                if (isset($data['createGiperTest'])) {
+                                    if ($data['test_name'] != "") {
+                                        $tabel_zagalovok = strip_tags(trim($data['test_name']));
+                                        $table_ID = "giperQuest_" . sha1(time());
+                                        $tabel_privet = isset($data['test_privet']) ? "true" : "false";
+
+                                        ////////////////////////////
+                                        try {
+                                            $giper = "true";
+                                            $sql_insert_row = "INSERT INTO list SET
+                                                name = '" . $tabel_zagalovok . "', 
+                                                creator = '" . $user_uid . "', 
+                                                table_ID = '" . $table_ID . "', 
+                                                date = '" . $dateTime . "',
+                                                private = '" . $tabel_privet . "',
+                                                giper = '" . $giper . "'";
+                                            $link->exec($sql_insert_row);
+                                            echo "<span style='color: green;'>Тест зарегистрирован. </span>";
+
+                                            ////////////////////////////
+                                            try {
+                                                $sql_create_Gtest = "CREATE TABLE " . $table_ID . " (
+                                                id INT(10) AUTO_INCREMENT PRIMARY KEY,
+                                                testsList VARCHAR(1000),
+                                                questionCount VARCHAR(10));";
+
+                                                $link->exec($sql_create_Gtest);
+                                                echo "<span style='color: green;'>Тест создан. </span>";
+                                                header('Location: ' . $folderRoot . 'tool/creategiperquestion.php?edit_db=' . $table_ID);
+                                                exit;
+                                            } catch (PDOException $e) {
+                                                echo "<br><span style='color: red;'>Ошибка в создании теста: " . $e->getMessage() . "</span>";
+
+                                                // delete creating row
+                                                try {
+                                                    $sql_delete_row = "DELETE FROM list WHERE table_ID ='$table_ID'";
+                                                    $link->exec($sql_delete_row);
+                                                    echo "<br><span style='color: green;'>Из-за ошибки тест снят с регистрации. </span>";
+                                                } catch (PDOException $e) {
+                                                    echo "<br><span style='color: red;'>Ошибка в снятии теста с регистрации: " . $e->getMessage() . "</span>";
+                                                }
+                                            }
+                                        } catch (PDOException $e) {
+                                            echo "<span style='color: red;'>Ошибка в регистрации теста: " . $e->getMessage() . "</span>";
+                                        }
+
                                     }
                                 }
                             ?>
@@ -141,7 +203,12 @@
                                 /// edit
                                 // edit btn
                                 echo "<a href='";
-                                echo $folderRoot . "tool/createquestion.php?edit_db=" . $r['table_ID'];
+                                if ($r['giper'] == "true") {
+                                    echo $folderRoot . "tool/createquestion.php?edit_db=" . $r['table_ID'];
+                                } else {
+                                    echo $folderRoot . "tool/creategiperquestion.php?edit_db=" . $r['table_ID'];
+                                }
+
                                 //edit title
                                 echo "' title='Редактировать' class='secondary-content'>";
                                 // icon edit

@@ -1,5 +1,5 @@
 <?php
-    $folderRoot ="";
+    $folderRoot = "";
     $link = "";
     
     include("../inc/functions/func_folderRoot.php");
@@ -33,7 +33,7 @@
 
             $_SESSION['logged_user'] = $user;
             $_SESSION['second_name'] = $user['second_name'];
-            $_SESSION['tabel_id'] = $user['tabel_id'];
+            $_SESSION['tabelID'] = $user['tabelID'];
             $_SESSION['first_name'] = $user['first_name'];
             $_SESSION['patronymic'] = $user['patronymic'];
             $_SESSION['login'] = $user['login'];
@@ -53,28 +53,24 @@
                 <li class="collection-item avatar">
                     <i class="material-icons circle blue darken-3">account_circle</i>
                     <span class="title"><h6><b>ФИО</b></h6></span>
-                    <p><input id="fio" type="text" class="validate"
+                    <p>
+                        <input id="fio" type="text" class="validate"
                         <?php
                             echo "value='";
                             echo $user['second_name'] . " " . $user['first_name'] . " " . $user['patronymic'];
                             echo "'>";
                         ?>
                     </p>
-                    <a class="secondary-content btn modal-trigger" href="#modalFIO"><i
-                                class="material-icons">save</i></a>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle green">account_circle</i>
+                    <span class="title"><h6><b>Табельный номер</b></h6></span>
+                    <p><? echo $user['tabelID']; ?></p>
                 </li>
                 <li class="collection-item avatar">
                     <i class="material-icons circle green">account_circle</i>
                     <span class="title"><h6><b>Логин</b></h6></span>
-                    <p><input id="login" type="text" class="validate"
-                        <?php
-                            echo "value='";
-                            echo $user['login'];
-                            echo "'>";
-                        ?>
-                    </p>
-                    <a class="secondary-content btn modal-trigger" href="#modalLogin"><i
-                                class="material-icons">save</i></a>
+                    <p><? echo $user['login']; ?></p>
                 </li>
                 <li class="collection-item avatar">
                     <i class="material-icons circle">how_to_reg</i>
@@ -88,21 +84,19 @@
                 <li class="collection-item avatar">
                     <i class="material-icons circle orange">mail</i>
                     <span class="title"><h6><b>Email</b></h6></span>
-                    <p><input id="email" type="text" class="validate"
+                    <p>
+                        <input id="email" type="text" class="validate"
                         <?php
                             echo "value='";
                             echo $user['email'];
                             echo "'>";
                         ?>
                     </p>
-                    <a class="secondary-content btn modal-trigger" href="#modalEmail"><i
-                                class="material-icons">save</i></a>
                 </li>
                 <li class="collection-item avatar">
                     <i class="material-icons circle red">vpn_key</i>
                     <span class="title"><h6><b>Пароль</b></h6></span>
                     <p>зашифрован</p>
-                    <a class="secondary-content btn modal-trigger" href="#modal1"><i class="material-icons">save</i></a>
                 </li>
 
                 <!--Тема оформления-->
@@ -124,17 +118,40 @@
                                 <span>Темная тема</span>
                             </label>
                         </p>
-                        <button class="btn blue darken-2 waves-effect waves-light z-depth-2" type="submit"
-                                name="do_editThema">Применить<i class="material-icons left">create</i></button>
+                        <br>
+                        <div class="row">
+                            <button class="btn blue darken-2 waves-effect waves-light z-depth-2" type="submit"
+                                    name="do_editThema">Применить тему<i class="material-icons left">brightness_4</i>
+                            </button>
+                        </div>
+                        <div class="row">
+                            <button class="btn blue darken-2 waves-effect waves-light z-depth-2" type="submit"
+                                    name="do_save">Сохранить данные<i class="material-icons left">save</i></button>
+                        </div>
                         <?php
-                            //если кликнули на button
+                            // edit Theme
                             if (isset($data['do_editThema'])) {
-                                $thema1 = $_POST['group1'];
+                                $theme1 = $_POST['group1'];
                                 try {
-                                    $result_rep = "UPDATE users SET theme='" . $thema1 . "' where login='" . $_SESSION['login'] . "' ";
+                                    $result_rep = "UPDATE users SET theme='" . $theme1 . "' where login='" . $_SESSION['login'] . "' ";
                                     $link->exec($result_rep);
-                                    $_SESSION['thema'] = $thema1;
-                                    header('Location:'. $file_name);
+                                    $_SESSION['thema'] = $theme1;
+                                    header('Location:' . $file_name);
+                                    exit;
+                                } catch (PDOException $e) {
+                                    echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
+                                }
+                            }
+
+                            // save
+                            if (isset($data['do_saveThema'])) {
+                                $theme1 = $_POST['group1'];
+
+                                try {
+                                    $result_rep = "UPDATE users SET theme='" . $theme1 . "' where login='" . $_SESSION['login'] . "' ";
+                                    $link->exec($result_rep);
+                                    $_SESSION['thema'] = $theme1;
+                                    header('Location:' . $file_name);
                                     exit;
                                 } catch (PDOException $e) {
                                     echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
