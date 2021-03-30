@@ -100,7 +100,8 @@
 }
 
 .hidden {
-    visibility: collapse;
+    visibility: hidden;
+    display: none;
 }
 
 /**/
