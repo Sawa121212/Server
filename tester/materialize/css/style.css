@@ -105,13 +105,13 @@
 }
 
 /**/
-input:invalid+span:after {
+input[type=number]:invalid+span:after {
     content: "✖ неправильнлое значение";
     padding-left: 5px;
     color: crimson;
 }
 
-input:valid+span:after {
+input[type=number]:valid+span:after {
     content: "✓ ok";
     padding-left: 5px;
     color: limegreen;

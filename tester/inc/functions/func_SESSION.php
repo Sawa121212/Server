@@ -36,6 +36,5 @@
             exit;
         }
     }
-
-
+    include("func_hello.php");
 ?>

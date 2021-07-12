@@ -14,12 +14,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <? include($folderRoot . "inc/z_head.php"); ?>
+    <?php include($folderRoot . "inc/z_head.php"); ?>
     <title>Тесты</title>
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_rightPanel.php"); ?>
+<?php include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <!--index-->
 <main>
@@ -61,7 +61,7 @@
                                 </button>
                             </div>
 
-                            <?
+                            <?php
                                 $dateTime = date("Y-m-d H:i:s");
                                 $questionsBase = "tables";
                                 $user_uid = $_SESSION['uid'];

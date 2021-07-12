@@ -15,12 +15,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <? include($folderRoot . "inc/z_head.php"); ?>
+    <?php include($folderRoot . "inc/z_head.php"); ?>
     <title>Тестирование</title>
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_rightPanel.php"); ?>
+<?php include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <!--index-->
 <main>
@@ -87,9 +87,9 @@
                     <div class="input-field col s12">
                         <!--Проверить ответы-->
                         <?php
-                            echo "<br><p><b>Правельных ответов: <span id='applysQuestion'>0</span></b></p>";
+                            echo "<br><p><b>Правельных ответов: <span id='applysQuestion'>сначала завершите тест</span></b></p>";
                             echo "<a class='btn blue darken-2  z-depth-2' href='" . $file_name . "?" . $arr_url['query'] . "' value='Пройти заново'>Пройти заново</a><br><br>";
-                            echo "<input type='button' class='btn blue darken-2  z-depth-2' onclick='Testing(test_form)' id='do_checkApplay' name='do_checkApplay' value='Завершить тест'>";
+                            echo "<input type='button' class='btn blue darken-2 center-align z-depth-2' onclick='Testing(test_form)' id='do_checkApplay' name='do_checkApplay' value='Завершить тест'>";
                         ?>
                     </div>
                     </form><br>

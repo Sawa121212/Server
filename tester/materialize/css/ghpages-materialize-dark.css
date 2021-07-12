@@ -2691,7 +2691,7 @@ ul.staggered-list li {
 .page-footer {
     padding-top: 20px;
     color: #fff;
-    background-color: #ee6e73
+    background-color: #232323
 }
 
 .page-footer .footer-copyright {
@@ -5938,7 +5938,7 @@ button:focus {
 
 label {
     font-size: .8rem;
-    color: #838383
+    color: #bdbdbd
 }
 
 ::-webkit-input-placeholder {
@@ -6069,7 +6069,8 @@ input:not([type]) + label:after, input[type=text]:not(.browser-default) + label:
 }
 
 .input-field.col label {
-    left: .75rem
+    line-height: 1;
+    left: 1.2rem
 }
 
 .input-field.col .prefix ~ label, .input-field.col .prefix ~ .validate ~ label {
@@ -8573,7 +8574,8 @@ ul.sidenav.sidenav-fixed {
     overflow: hidden;
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-left: 1px solid darkcyan;
+    border-right: 1px solid darkcyan;
+    background: #343434;
 }
 
 ul.sidenav.sidenav-fixed > li:last-child {

@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //Sidebar
-$('.sidenav').sidenav({menuWidth: 320,  activationWidth: 70, edge: 'right'});
+$('.sidenav').sidenav({menuWidth: 300,  activationWidth: 70, edge: 'left'});
   // Dropdown
       $('.dropdown-button').dropdown();
 });

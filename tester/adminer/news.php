@@ -1,5 +1,5 @@
 <?php
-    $folderRoot ="";
+    $folderRoot = "";
     $link = "";
     include("../inc/functions/func_folderRoot.php");
     include($folderRoot . "inc/functions/func_SESSION.php");
@@ -17,11 +17,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <? include($folderRoot . "inc/z_head.php"); ?>
+    <?php include($folderRoot . "inc/z_head.php"); ?>
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_rightPanel.php"); ?>
+<?php include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <!--index-->
 <main>
@@ -54,7 +54,7 @@
                                 </button>
                             </div>
                         </div>
-                        <?
+                        <?php
                             $data = $_POST;
                             $dateTime = date("Y-m-d H:i:s");
                             $questionsBase = "tables";
@@ -123,14 +123,17 @@
 
                         $newsIsEmpty = false;
                         echo "<ul class='collection with-header z-depth-1'>
-                            <li class='collection-header' style='background: #8fbc8f;'><h5><p>Выберите тип:</p></h5>                            
-                            <p><label><input name='group_type' type='radio' value='1' ";
+                            <li class='collection-header' style='background: #679767;'><h5><p>Выберите тип:</p></h5>";
+
+                        echo "<p><label><input name='group_type" . $news['id'] . "' type='radio' value='1' ";
                         if ($checkedValue == "1") echo 'checked';
-                        echo "/><span><i class='material-icons right'>info</i>Информация</span></label></p>
-                            <p><label><input name='group_type' type='radio' value='2' ";
+                        echo "/><span><i class='material-icons right'>info</i>Информация</span></label></p>";
+
+                        echo "<p><label><input name='group_type" . $news['id'] . "' type='radio' value='2' ";
                         if ($checkedValue == "2") echo 'checked';
-                        echo "/><span><i class='material-icons right'>build</i>Предупреждение</span></label></p>
-                            <p><label><input name='group_type' type='radio' value='3' ";
+                        echo "/><span><i class='material-icons right'>build</i>Предупреждение</span></label></p>";
+
+                        echo " <p><label><input name='group_type" . $news['id'] . "' type='radio' value='3' ";
                         if ($checkedValue == "3") echo 'checked';
                         echo "/><span><i class='material-icons right'>bug_report</i>Ошибка</span></label></p>";
 

@@ -1,132 +1,151 @@
 <?php
     $folderRoot = "";
     $link = "";
-    include("inc/functions/func_folderRoot.php");
-    include($folderRoot . "inc/functions/func_SESSION.php");
-    
     require $folderRoot . 'conn/db.php';
-    $file_name = basename(__FILE__);
-    $user_uid = $_SESSION['uid'];
+    $deviceUser = get_current_user();
+    include("inc/functions/func_folderRoot.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <?php include($folderRoot . "inc/z_head.php"); ?>
-    <title>Тестирование</title>
 </head>
 <body>
 
-<!--left panel-->
-<?php include($folderRoot . "inc/z_rightPanel.php"); ?>
-
+<script>
+    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+        console.log(data);
+        alert(data.ip);
+    });
+</script>
 <!--index-->
 <main>
-    <div class="container section">
-        <h3 class="center-align">Главная страница</h3>
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+        <div class="container section center">
+            <?php
 
-        <div class="row">
-            <ul class="collection with-header z-depth-1">
-                <li class="collection-header"><h4>Тесты</h4></li>
-                <?php
-                    include($folderRoot . "inc/functions/func_connectToDB_Tables.php");
 
-                    $TestIsEmpty = true;
-                    $select_quests = $link->query("SELECT name,table_ID, private, del, is_blocked, creator FROM list WHERE is_start ='true'");
-                    while ($r = $select_quests->fetch()) {
-                        if ($r['del'] == 'false') {
-                            if ($r['is_blocked'] == 'false') {
-                                $TestIsEmpty = false;
-                                echo "<li class='collection-item'>";
-
-                                // icon privat or YouDB
-                                $privatIcon = $r['private'] == 'true' ? "folder_special" : "folder";
-
-                                echo "<div><i class='material-icons'> ";
-                                if ($r['creator'] == $user_uid) {
-                                    echo "folder_shared";
-                                } else {
-                                    echo $privatIcon;
-                                }
-                                echo "</i>";
-
-                                // goToTest btn
-                                echo $r['name'] . "<a class='tooltipped right' href='";
-                                if ($r['is_blocked'] != 'true') {
-                                    echo $folderRoot . "pass/passquestion.php?db=" . $r['table_ID'];
-                                } else {
-                                    echo "#!";
-                                }
-
-                                //title
-                                $titleBlocked = $r['is_blocked'] != 'true' ? "Пройти тест" : "Заблокирован";
-                                echo "' data-position='bottom' data-tooltip='" . $titleBlocked . "' class='secondary-content'>";
-
-                                // icon is_blocked
-                                echo "<i class='material-icons ";
-                                if ($r['is_blocked'] != 'true') {
-                                    echo "'>send";
-                                } else {
-                                    echo "red'>block";
-                                }
-
-                                echo "</i></a></div>";
-                                echo "</li>";
+                function getIp() {
+                    $keys = [
+                            'HTTP_CLIENT_IP',
+                            'HTTP_X_FORWARDED_FOR',
+                            'REMOTE_ADDR'
+                    ];
+                    foreach ($keys as $key) {
+                        if (!empty($_SERVER[$key])) {
+                            $ip = trim(end(explode(',', $_SERVER[$key])));
+                            if (filter_var($ip, FILTER_VALIDATE_IP)) {
+                                return $ip;
                             }
                         }
                     }
-                    if ($TestIsEmpty == true) {
-                        echo "<li class='collection-item'>";
-                        echo "<div>Пользователи еще не создавали тесты</div>";
-                        echo "</li>";
-                    }
-                ?>
-            </ul>
-        </div>
-
-        <div class="row">
-            <?php
-                $newsIsEmpty = true;
-                $select_news = $link->query("SELECT * FROM news ORDER BY id DESC LIMIT 5");
-                while ($news = $select_news->fetch()) {
-                    switch ($news['mode']) {
-                        case 'info':
-                            $newsIcon = "info";
-                            $newsColor = "blue";
-                            break;
-                        case 'warning':
-                            $newsIcon = "build";
-                            $newsColor = "orange";
-                            break;
-                        case 'error':
-                            $newsIcon = "bug_report";
-                            $newsColor = "red";
-                            break;
-                        default:
-                            $newsIcon = "";
-                            $newsColor = "";
-                            break;
-                    }
-
-                    $newsIsEmpty = false;
-                    echo "<ul class='collection with-header z-depth-1'>
-                            <li class='collection-header " . $newsColor . "'><h5><i class='material-icons left'>" . $newsIcon . "</i>
-                            " . $news['header'] . "<span class='right white-text'>" . date("d.m.y H:i", strtotime($news['date'])) . "</span></h5></li>";
-
-                    echo "<li class='collection-item'>" . $news['text'] . "</li></ul>";
                 }
-                if ($newsIsEmpty == true) {
-                    echo "<li class='collection-item'>";
-                    echo "<div>Новостей нет</div>";
-                    echo "</li></ul>";
+
+                $ip = getIp();
+                // выведем IP клиента на экран
+                echo 'ip = ' . $ip;
+
+
+                $userName = $_ENV["COMPUTERNAME"];
+                $infoText = "Я тебя не узнал <br> :( Ну ничего страшного))";
+
+                if (!empty($_SESSION['guest_firstName'])) {
+                    $userName = $_SESSION['guest_firstName'];
+                    $userFIO = $_SESSION['guest_FIO'];
+
+                    $infoText = "Да да да! Я тебя узнал <b>" . $userFIO . "</b>!";
                 }
             ?>
-        </div><!-- row-->
-    </div><!-- class="container"-->
+            <div class="row">
+                <img src="img/hello/happy.png" alt="">
+            </div>
+            <h3 class="center-align">Привет, <?php echo $userName; ?></h3><br><br>
+            <p><?php echo $infoText; ?></p><br>
+            <p>Рад тебя видеть! Здесь ты видимо в первый раз!</p>
+            <p>Ты можешь зарегистрироваться или сразу на главную страницу!</p>
+
+            <div class="row">
+            </div>
+
+            <div class="row">
+                <button class="btn blue darken-2 waves-effect waves-light z-depth-2" type="submit"
+                        name="do_reg">Зарегистртроваться<i class="material-icons left">save</i></button>
+            </div>
+            <div class="row">
+                <button class="btn blue darken-2 waves-effect waves-light z-depth-2" type="submit"
+                        name="do_index">Главная страница<i class="material-icons left">home</i></button>
+            </div>
+
+            <div class="row">
+            </div>
+
+            <div class="bottom-sheet">
+                <img src="img/hello/boombox.png" alt="">
+                <img src="img/hello/bored.png" alt="">
+                <img src="img/hello/csgoChat_128_chickendance.png" alt="">
+                <img src="img/hello/csgoChat_128_hugs.png" alt="">
+                <img src="img/hello/dance.png" alt="">
+            </div>
+
+        </div><!-- class="container"-->
+    </form>
 </main>
 
 <?php
-    include($folderRoot . "inc/z_footer.php");
+    // Зарегистртроваться
+    if (isset($_POST['do_reg'])) {
+        try {
+            itsFirstConnect($link, $deviceUser);
+
+            $_SESSION['guest_tabel'] = "";
+            $_SESSION['guest_firstName'] = "";
+            $_SESSION['guest_secondName'] = "";
+            $_SESSION['guest_patronymic'] = "";
+            $_SESSION['guest_firstConnect'] = "";
+            $_SESSION['guest_FIO'] = "";
+
+            header('Location: ' . $folderRoot . 'account/account_signup.php');
+            exit;
+        } catch (PDOException $e) {
+            echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
+        }
+    }
+
+    // Зарегистртроваться
+    if (isset($_POST['do_index'])) {
+        try {
+            itsFirstConnect($link, $deviceUser);
+
+            $_SESSION['guest_tabel'] = "";
+            $_SESSION['guest_firstName'] = "";
+            $_SESSION['guest_secondName'] = "";
+            $_SESSION['guest_patronymic'] = "";
+            $_SESSION['guest_firstConnect'] = "";
+            $_SESSION['guest_FIO'] = "";
+            header('Location: ' . $folderRoot . 'index.php');
+            exit;
+        } catch (PDOException $e) {
+            echo "<span style='color: red;'>Ошибка: " . $e->getMessage() . "</span>";
+        }
+    }
+
+    function itsFirstConnect($bd_link, $deviceUserID)
+    {
+        if (!empty($_SESSION['guest_firstName'])) {
+            $resultUpdate = "UPDATE tabels SET first_connect = 'true' where tabel  ='" . $deviceUserID . "' ";
+            $bd_link->exec($resultUpdate);
+        } else {
+            $result_reg = "INSERT INTO tabels SET 
+                       first_connect  = 'true', 
+                       tabel  ='" . get_current_user() . "', 
+                       first_name = '" . get_current_user() . "',
+                       second_name = '',
+                       patronymic = ''";
+            $bd_link->exec($result_reg);
+        }
+    }
+
 ?>
 <div class="sidenav-overlay" style="display: none; opacity: 0;"></div>
 <div class="drag-target"></div>

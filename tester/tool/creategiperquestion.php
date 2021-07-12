@@ -114,6 +114,20 @@
                                 }
                             }
 
+                            echo "<li class='collection-item'>
+                                <i class='material-icons' style='margin: 0px 10px 0px 5px;'>person</i> Приватность
+                                    <div class='switch right'>
+                                        <label><input type='checkbox' id='checkbox999' name='checkbox999' onclick='ClickChecBoxEvent(999)'>
+                                            <span class='lever'></span>
+                                        </label>
+                                    </div>";
+                            echo "<div class='hidden' id='questionCountRow999'>
+                                        <label for='balloons'>Выберите пользователей, которым будут применены эти опции:</label>
+                                        <input type='number' id='answer' name='answerCount' min='1' max='10' value='1'>
+                                        <span class='validity'></span>
+                                      </div>";
+                            echo "</li>";
+
                             echo "<li class='collection-item'>";
                             echo "
                                 <div class='input-field col s12 m10'>
@@ -131,10 +145,8 @@
                                             $errors = true;
                                             break;
                                         }
-                                    }
-                                    else
-                                    {
-                                       echo "checkbox" . $i . " - dis ";
+                                    } else {
+                                        echo "checkbox" . $i . " - dis ";
                                     }
                                 }
                                 if (!$errors) {

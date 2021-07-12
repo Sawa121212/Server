@@ -1,41 +1,37 @@
 <?php
-    if (empty($_SESSION['second_name'])) {
-        $_SESSION['second_name'] = "ошибка";
-    }
-    if (empty($_SESSION['first_name'])) {
-        $_SESSION['first_name'] = "ошибка";
-    }
-    if (empty($_SESSION['patronymic'])) {
-        $_SESSION['patronymic'] = "ошибка";
-    }
-    if (empty($_SESSION['login'])) {
-        $_SESSION['login'] = "ошибка";
-    }
-    if (empty($_SESSION['email'])) {
-        $_SESSION['email'] = "ошибка";
-    }
-    if (empty($_SESSION['usertype'])) {
-        $_SESSION['usertype'] = 4;
-    }
-    if (empty($_SESSION['theme'])) {
-        $_SESSION['theme'] = 0;
-    }
-    if (empty($_SESSION['uid'])) {
-        $_SESSION['uid'] = 0;
+    # Соединямся с БД
+    $servername = "localhost";
+    $username = "id8435427_sanek22cs";
+    $password = "Sanek22cs";
+    $database = "accounts";
+    try {
+        $link = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+
+        // set the PDO error mode to exception
+        $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //echo "Connected successfully";
+    } catch (PDOException $e) {
+        echo "Подключение не удалось: " . $e->getMessage();
     }
 
-    function CancelIsLoging($folderRoot){
-        if (!empty($_SESSION['logged_user'])) {
-            header('Location: ' . $folderRoot . 'index.php');
-            exit;
-        }
-    }
-    function CancelIsLogout($folderRoot){
-        if (empty($_SESSION['logged_user'])) {
-            header('Location: ' . $folderRoot . 'account/account_login.php');
-            exit;
-        }
+    $deviceUser = get_current_user();
+    $query = $link->query("SELECT * FROM tabels WHERE tabel  ='$deviceUser'");
+    $data = $query->fetch(\PDO::FETCH_ASSOC);
+
+    if ($data['first_connect'] == "false") {
+        $_SESSION['guest_tabel'] = $data['tabel'];
+        $_SESSION['guest_firstName'] = $data['first_name'];
+        $_SESSION['guest_secondName'] = $data['second_name'];
+        $_SESSION['guest_patronymic'] = $data['patronymic'];
+        $_SESSION['guest_firstConnect'] = $data['first_connect'];
+        $_SESSION['guest_FIO'] = $data['second_name'] . " " . $data['first_name'] . " " . $data['patronymic'];
+
+        header('Location: ' . $folderRoot . 'hello.php');
+        exit;
     }
 
-
+    if (empty($data['first_connect'])) {
+        header('Location: ' . $folderRoot . 'hello.php');
+        exit;
+    }
 ?>

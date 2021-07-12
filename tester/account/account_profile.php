@@ -16,12 +16,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <? include($folderRoot . "inc/z_head.php"); ?>
+    <?php include($folderRoot . "inc/z_head.php"); ?>
     <title>Профиль</title>
 </head>
 <body>
 <!--left panel-->
-<? include($folderRoot . "inc/z_rightPanel.php"); ?>
+<?php include($folderRoot . "inc/z_rightPanel.php"); ?>
 
 <!--index-->
 <main>
@@ -64,13 +64,18 @@
                 </li>
                 <li class="collection-item avatar">
                     <i class="material-icons circle green">account_circle</i>
+                    <span class="title"><h6><b>Владелец устройства</b></h6></span>
+                    <p><?php echo get_current_user(); ?></p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle green">account_circle</i>
                     <span class="title"><h6><b>Табельный номер</b></h6></span>
-                    <p><? echo $user['tabelID']; ?></p>
+                    <p><?php echo $user['tabelID']; ?></p>
                 </li>
                 <li class="collection-item avatar">
                     <i class="material-icons circle green">account_circle</i>
                     <span class="title"><h6><b>Логин</b></h6></span>
-                    <p><? echo $user['login']; ?></p>
+                    <p><?php echo $user['login']; ?></p>
                 </li>
                 <li class="collection-item avatar">
                     <i class="material-icons circle">how_to_reg</i>
