@@ -92,9 +92,10 @@
                             echo "<input type='button' class='btn blue darken-2 center-align z-depth-2' onclick='Testing(test_form)' id='do_checkApplay' name='do_checkApplay' value='Завершить тест'>";
                         ?>
                     </div>
-                    </form><br>
+
                 </div> <!-- /row center -->
             </div>
+            </form><br>
 
             <script>
                 <?php echo "var applys = new Array();
@@ -105,72 +106,8 @@
                 }
                 echo "]];\r";
                 ?>
-
-                function Testing(obj) {
-                    var applyQuestion = 0;
-
-                    for (var i = 0; i < applys.length; i++) {
-                        var currentIndex = i + 1;
-
-                        // проверяем количество ответов разделяя строку
-                        var split_array = applys[i].toString().split(',');
-
-                        if (split_array.length < 2) {
-                            var id = currentIndex.toString() + applys[i].toString();
-
-                            var rad = document.getElementsByName('group' + currentIndex.toString().trim());
-
-                            var checkedCount = 0;
-                            for (var index = 0; index < rad.length; index++) {
-                                if (rad[index].checked) {
-                                    checkedCount++;
-                                    if (index + 1 == applys[currentIndex - 1]) {
-                                        applyQuestion++;
-                                    }
-                                    var indexRdBtn = index + 1;
-                                    var name = currentIndex.toString() + indexRdBtn.toString();
-                                    document.getElementById(name).className = 'answer-notapply';
-                                }
-                            }
-                            var questApplyId = 'questApply' + currentIndex.toString();
-                            if (checkedCount == 0) {
-                                document.getElementById(questApplyId).textContent = ' * На данный вопрос вы не дали ответ';
-                            }
-                            document.getElementById(id).className = 'answer-apply';
-                        } else {
-                            var applyQuest_OnCount = 0;
-                            var checkedCount = 0;
-                            for (var j = 0; j < split_array.length; j++) {
-                                var id = currentIndex.toString() + split_array[j].toString().trim();
-
-                                var rad = document.getElementsByName('group' + currentIndex.toString());
-
-                                for (var index = 0; index < rad.length; index++) {
-                                    if (rad[index].checked) {
-                                        if (index + 1 == split_array[j]) {
-                                            applyQuest_OnCount++;
-                                        } else {
-                                            document.getElementById(currentIndex.toString() + indexRdBtn.toString()).className = 'answer-notapply';
-                                        }
-                                        var indexRdBtn = index + 1;
-                                        checkedCount++;
-                                    }
-                                    document.getElementById(id).className = 'answer-apply';
-                                }
-                            }
-                            if (applyQuest_OnCount == split_array.length && checkedCount == split_array.length) {
-                                applyQuestion++;
-                            }
-                            if (applyQuest_OnCount == 0) {
-                                document.getElementById('questApply' + currentIndex.toString()).textContent = ' * На данный вопрос вы не дали ответ';
-                            }
-                        }
-                    }
-
-                    document.getElementById('applysQuestion').textContent = applyQuestion.toString();
-                    document.getElementById('do_checkApplay').className = 'hidden';
-                }
             </script>
+            <script src="<?php echo $folderRoot ?>materialize/js/testChecker.js"></script>
 
             <div class="drag-target"></div>
         </div>

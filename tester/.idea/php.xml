@@ -2,8 +2,17 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="" />
+      <path value="W:/" />
     </include_path>
+  </component>
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="localhost" id="c504ce0b-dca3-413a-8f81-e940a82ee6fa" name="localhost" port="8383">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$" remote-root="D:/Program Files/OpenServer/OpenServer/domains/localhost/tester" />
+        </path_mappings>
+      </server>
+    </servers>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
 </project>

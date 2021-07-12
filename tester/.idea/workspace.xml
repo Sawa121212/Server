@@ -5,62 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf8604d2-ff3c-40d8-bb7c-2d9c5d2f8406" name="Default Changelist" comment="start PDO">
-      <change afterPath="$PROJECT_DIR$/hello.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/hello/boombox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/hello/bored.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/hello/csgoChat_128_chickendance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/hello/csgoChat_128_hugs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/hello/dance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/hello/happy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inc/functions/func_hello.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/bin/materialize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/bin/materialize.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/css/materialize.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/css/prism.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Light.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Medium.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Medium.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Thin.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/fonts/roboto/Roboto-Thin.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/jade/lunr.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/jade/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/js/jquery.timeago.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/materialize/js/prism.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/materialize/js/testChecker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phing-latest.phar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/account/account_signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminer/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminer/news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/functions/func_SESSION.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/functions/func_SESSION.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/z_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/z_head.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/z_rightPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/z_rightPanel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/ghpages-materialize.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/materialize/js/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/materialize/prism.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pass/passquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pass/passquestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/creategiperquestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/creategiperquestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/mybase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tool/mybase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
+  <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE">
+    <execution>
+      <interpreter composer="composer" />
+    </execution>
   </component>
   <component name="DatabaseLocalColorSettings">
     <colors>
@@ -87,6 +46,10 @@
     <setting file="file://$PROJECT_DIR$/inc/z_rightPanel.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/inc/z_head.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="PhpDebugGeneral" break_at_first_line="true" zd_debug_port="1001">
+    <xdebug_debug_ports port="9000" />
+    <xdebug_debug_ports port="9004" />
+  </component>
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="c504ce0b-dca3-413a-8f81-e940a82ee6fa" name="localhost" port="8383">
@@ -99,7 +62,7 @@
   <component name="PhpWebServerValidation" path_to_validation_script="W:\domains\localhost" selected_validation_type="LOCAL" web_path_to_validation_script="http://localhost:8383" />
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="" />
+      <path value="W:/" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -124,10 +87,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/inc/functions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -147,21 +110,25 @@
       <recent name="D:\Program Files\OpenServer\OpenServer\domains\localhost\tester\account" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.mybase.php">
-    <configuration name="mybase.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tool/mybase.php">
+  <component name="RunManager" selected="PHP Web Page.lock1">
+    <configuration name="mybase.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/tool/mybase.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
       <method v="2" />
     </configuration>
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="Unnamed">
       <method v="2" />
     </configuration>
-    <configuration name="lock1" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost">
+    <configuration name="lock1" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost" start_url="/tester/index.php">
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHP Script.mybase.php" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="PHP Script.mybase.php" />
+      <item itemvalue="PHP Web Page.lock1" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Dictionaries\ru" CustomDictionaries="1" CustomDictionary0="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Dictionaries\ru\index.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructuralSearchPlugin">
@@ -243,6 +210,8 @@
       <workItem from="1625633235661" duration="3202000" />
       <workItem from="1625647290359" duration="12934000" />
       <workItem from="1625722002801" duration="2983000" />
+      <workItem from="1626077506665" duration="18000" />
+      <workItem from="1626077534698" duration="3836000" />
     </task>
     <task id="LOCAL-00001" summary="start PDO">
       <created>1613028785194</created>
